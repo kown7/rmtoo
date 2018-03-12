@@ -67,6 +67,11 @@
                         "output_filename": "artifacts/specification.xlsx",
                         "template_filename": "import/specification-template.xlsx",
                         "req_sheet": "Specification"
+		    }
+		],
+                "TraceMatrix": [
+                    {
+                        "output_filename": "artifacts/tracematrix.tex"
                     }
                 ],
                 "prios": [
