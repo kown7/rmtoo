@@ -25,6 +25,11 @@
             "import_filename": "doc/import/requirements.xlsx"
         }
     },
+    "traceability": {
+	"files": {
+	    "UT": "/tmp/xunit.log"
+	}
+    },
     "requirements": {
         "input": {
             "default_language": "en_GB", 
