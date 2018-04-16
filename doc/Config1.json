@@ -27,7 +27,7 @@
     },
     "traceability": {
 	"files": {
-	    "UT": "/tmp/xunit.log"
+	    "UT": ["rmtoo/result.xml", "xunit"]
 	}
     },
     "requirements": {
