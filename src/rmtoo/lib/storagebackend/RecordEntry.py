@@ -36,7 +36,7 @@ class RecordEntry(object):
         return self.__tag
 
     def get_content(self):
-        """Return the content (stipped)"""
+        """Return the content (stripped)"""
         return self.__content.lstrip()
 
     def set_content(self, content):

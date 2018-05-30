@@ -5,7 +5,20 @@ Invented by: kno
 Description: The verification status is parsed from an xunit log
  file. The \emph{property} tag has a name and value property with the
  requirement's name and hash.
-Rationale: Create traceability matrix directly from your unit-tests
+Rationale: Create traceability matrix directly from your unit-tests.
+ The following example shows the required XML-tags.
+
+ \begin{lstlisting}
+ <testcase
+ classname="rmtoo.tests.RMTTest-Unit.RMTTest-Tag.RMTTest-ReqStatus.RMTTestReqStatus"
+ file="rmtoo/tests/RMTTest-Unit/RMTTest-Tag/RMTTest-ReqStatus.py" line="64"
+ name="rmttest_positive_04__StatusExternal" time="0.0017845630645751953">
+ <properties>
+   <property name="req" value="StatusExternal-deadbeef"/>
+ </properties>
+ </testcase>
+ \end{lstlisting}
+ 
 Owner: development
 Status: finished:kno:2018-05-24:4h
 Topic: StatusParsers

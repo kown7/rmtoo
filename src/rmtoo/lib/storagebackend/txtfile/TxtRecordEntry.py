@@ -37,7 +37,9 @@ class TxtRecordEntry(RecordEntry):
         self.comment_raw = se[2]
         # Parse the rest
         tag = self.tag_raw[0:-1]
-        value = "".join(se[1])
+        # If we want to keep the multi-line properties, we need to
+        # split here and strip in parent class.
+        value = "\n".join(self.get_content_trimmed_with_nl())
         comment = TxtParser.extract_comment(se[2])
         RecordEntry.__init__(self, tag, value, comment)
 
