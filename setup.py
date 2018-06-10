@@ -200,7 +200,7 @@ setup(name=PACKAGE, version=VERSION,
               "external = rmtoo.lib.RequirementStatus:RequirementStatusExternal"
           ],
           "rmtoo.input.requirement_status_parser" : [
-              "xunit = rmtoo.lib.RequirementStatusParser:RequirementStatusParserXUnit"
+              "xunit = rmtoo.lib.VerificationStatusParser:VerificationStatusParserXUnit"
           ],
           "rmtoo.imports.plugin" : [
               "xls = rmtoo.imports.xls:XlsImport"
