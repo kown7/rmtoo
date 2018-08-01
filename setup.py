@@ -182,6 +182,7 @@ setup(name=PACKAGE, version=VERSION,
               "tlp1 = rmtoo.outputs.tlp1:Tlp1",
               "version1 = rmtoo.outputs.version1:version1",
               "xml1 = rmtoo.outputs.xml1:Xml1",
+              "xls = rmtoo.outputs.xls:Xls",
               "xml_ganttproject_2 = rmtoo.outputs.xml_ganttproject_2:xml_ganttproject_2"
           ],
           "rmtoo.output.markup" : [

@@ -2,7 +2,7 @@
  rmtoo
    Free and Open Source Requirements Management Tool
 
- LaTeX output with jinja templating engine.
+ Output the content to a XLS sheet. Suits love Excel.
 
  (c) 2018 Kristoffer Nordstrom
 
@@ -11,7 +11,7 @@
 from __future__ import unicode_literals
 
 import io
-import jinja2
+import openpyxl
 from six import iteritems
 
 from rmtoo.lib.Constraints import Constraints
@@ -21,49 +21,48 @@ from rmtoo.lib.ExecutorTopicContinuum import ExecutorTopicContinuum
 from rmtoo.lib.logging import tracer
 from rmtoo.lib.CreateMakeDependencies import CreateMakeDependencies
 
+class XlsHandler():
+    '''Act as an abstraction layer between rmtoo-objects and OpenPyxl
+    related things
 
-class LatexJinja2(StdOutputParams, ExecutorTopicContinuum,
-                  CreateMakeDependencies):
-    default_config = {"req_attributes":
-                      ["Id", "Priority", "Owner", "Invented on",
-                       "Invented by", "Status", "Class"]}
+    The default configuration is intended for users to copy and
+    adapt. The filename is handled in the Xls' parent class.
 
-    level_names = [
-        "chapter",
-        "section",
-        "subsection",
-        "subsubsection",
-        "subsubsubsection",
-    ]
+    '''
+    default_config = {
+        "output_filename": "artifacts/requirements.xlsx",
+        "req_attributes": [
+            "Id", "Priority", "Owner", "Invented on",
+            "Invented by", "Status", "Class"],
+        "req_sheet": "Requirements",
+        "topic_sheet": "Topics"
+    }
+
+    def __init__(self, filename, config=None):
+        self.__filename = filename
+        self._cfg = self.default_config
+        for key, value in config:
+            self._cfg[key] = value
+
+        self.req_attr = cfg['req_attributes']
+        self._wb = openpyxl.Workbook()
+        self._ws_req = self._wb.active
+        self._ws_req.title = self._cfg['req_sheet']
+        self._ws_topics = self._wb.create_sheet(
+            self._cfg['topic_sheet'])
+        self._ws_cfg = self._wb.create_sheet("Configuration")
+
+class Xls(StdOutputParams, ExecutorTopicContinuum,
+          CreateMakeDependencies):
 
     def __init__(self, oconfig):
-        '''Create a graph output object.'''
+        '''Create an openpyxl output object.'''
         tracer.info("Called.")
         StdOutputParams.__init__(self, oconfig)
         CreateMakeDependencies.__init__(self)
         self.__ce3set = None
         self.__fd = None
-        self.__constraints_reqs_ref = {}
-        self.__testcases = None
-
-        # Jinja2 initialisation
-        template_loader = jinja2.FileSystemLoader(
-                searchpath=oconfig['template_path'])
-        template_env_unmodded = jinja2.Environment(loader=template_loader)
-        self._template_env = template_env_unmodded.overlay(
-            block_start_string='((*',
-            block_end_string='*))',
-            variable_start_string='(((',
-            variable_end_string=')))',
-            comment_start_string='((=',
-            comment_end_string='=))')
-
-        if not self._config.is_available('req_attributes'):
-            self._config.set_value(
-                'req_attributes',
-                ["Id", "Priority", "Owner", "Invented on",
-                 "Invented by", "Status", "Class"])
-        self.__level = -1
+        self._opiface = XlsHandler(self._output_filename, self._config)
 
     @staticmethod
     def __strescape(string):
