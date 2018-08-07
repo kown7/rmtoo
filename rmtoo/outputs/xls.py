@@ -39,18 +39,32 @@ class XlsHandler():
     }
 
     def __init__(self, filename, config=None):
+        tracer.info("Creating XLS workbook: "
+                    + filename)
         self.__filename = filename
         self._cfg = self.default_config
-        for key, value in config:
+        for key, value in config.items():
             self._cfg[key] = value
 
-        self.req_attr = cfg['req_attributes']
         self._wb = openpyxl.Workbook()
         self._ws_req = self._wb.active
         self._ws_req.title = self._cfg['req_sheet']
         self._ws_topics = self._wb.create_sheet(
             self._cfg['topic_sheet'])
         self._ws_cfg = self._wb.create_sheet("Configuration")
+
+    def write(self):
+        self._wb.save(filename=self.__filename)
+
+    def add_req(self, req):
+        self.__strescape(req.get_id())
+        req.get_value("Name").get_content()
+        req.get_value("Description").get_content()
+        req.get_status().get_output_string()
+
+
+    def add_topic(self, req):
+            pass
 
 class Xls(StdOutputParams, ExecutorTopicContinuum,
           CreateMakeDependencies):
