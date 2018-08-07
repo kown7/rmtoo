@@ -53,6 +53,16 @@ class XlsHandler():
             self._cfg['topic_sheet'])
         self._ws_cfg = self._wb.create_sheet("Configuration")
 
+        self._add_req_header()
+
+    def _add_req_header(self):
+        col = 1
+        row = 1
+        self._req_headers = self._cfg['req_attributes']
+        for val in self._req_headers:
+            self._ws_req.cell(column=col, row=row, value=val)
+            col += 1
+
     def write(self):
         self._wb.save(filename=self.__filename)
 
