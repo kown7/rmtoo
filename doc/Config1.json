@@ -90,6 +90,11 @@
                         "output_filename": "artifacts/reqtopics.tex"
                     }
                 ], 
+                "xls": [
+                    {
+                        "output_filename": "artifacts/requirements.xls"
+                    }
+                ],
                 "oopricing1": [
                     {
                         "output_filename": "artifacts/reqspricing"

@@ -1,6 +1,7 @@
 # (c) 2018 Kristoffer Nordstroem, see COPYING
 
 import os
+from datetime import date, datetime
 import openpyxl
 
 from rmtoo.outputs.xls import XlsHandler as xh
@@ -44,26 +45,26 @@ class RMTTestOutputXls:
         for tval in xh.default_config['req_attributes']:
             i += 1
             assert rws.cell(row=1, column=i).value == tval
-        assert i == 7 # size of def config
+        assert i == 6 # size of def config
         assert rws['A1'].value == "Id"
         # TODO rm file
 
     def rmttest_adding_req(self):
         def create_req(req_id):
             req_txt_items = {}
+            inv_date = datetime.strptime('1970-01-01', "%Y-%m-%d").date()
             req_values = {
                 'Priority': 'development',
                 'Owner': '007',
-                'Invented on': '1970-01-01',
+                'Invented on': inv_date.isoformat(),
                 'Invented by': 'James',
                 'Status': 'not done',
                 'Class': 'requirement'
             }
-            req_json = "\n".join([key + ": " +value for key,value in
-                                  req_values.items()])
             for key, value in req_values.items():
                 req_txt_items[key] = DummyTxtString(value)
-            req = Requirement(req_json, req_id, None, None, TestConfig())
+            req_txt_items['Invented on'] = inv_date
+            req = Requirement("", req_id, None, None, TestConfig())
             req.values = req_txt_items
             return req
         self.xlsh = xh(self._filename, self.oconfig)

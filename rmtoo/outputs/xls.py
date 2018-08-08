@@ -34,7 +34,7 @@ class XlsHandler():
         "output_filename": "artifacts/requirements.xlsx",
         "req_attributes": [
             "Id", "Priority", "Owner", "Invented on",
-            "Invented by", "Status", "Class"],
+            "Invented by", "Status"],
         "req_sheet": "Requirements",
         "topic_sheet": "Topics"
     }
@@ -76,11 +76,17 @@ class XlsHandler():
             elif key == "Status":
                 value = req.get_status().get_output_string()
             elif key == "Invented on":
-                value = datetime.strptime(req.get_value(key).get_content(),
-                                          "%Y-%m-%d").date()
+                value = req.get_value(key)
+            elif key == "Class":
+                raise NotImplementedError(
+                    "The class has no information __str__ equivalent")
             else:
-                value = req.get_value(key).get_content()
+                try:
+                    value = req.get_value(key).get_content()
+                except AttributeError:
+                    value = req.get_value(key)
             self._ws_req.cell(column=col, row=self.req_row, value=value)
+
             col += 1
         self.req_row += 1
 
@@ -111,125 +117,27 @@ class Xls(StdOutputParams, ExecutorTopicContinuum,
         return result
 
     def topic_set_pre(self, _topics_set):
-        '''Prepare the output file.'''
-        self.__fd = io.open(self._output_filename, "w", encoding="utf-8")
-
-    def __output_latex_one_constraint(self, cname, cnstrt):
-        '''Output one constraint.'''
-        cname = LatexJinja2.__strescape(cname)
-        tracer.debug("Output constraint [%s]." % cname)
-        self.__fd.write(u"%% CONSTRAINT '%s'\n" % cname)
-
-        self.__fd.write(u"\%s{%s}\label{CONSTRAINT%s}\n"
-                        "\\textbf{Description:} %s\n"
-                        % (self.level_names[1],
-                           cnstrt.get_value("Name").get_content(),
-                           cname, cnstrt.get_value(
-                               "Description").get_content()))
-
-        if cnstrt.is_val_av_and_not_null("Rationale"):
-            self.__fd.write(u"\n\\textbf{Rationale:} %s\n"
-                            % cnstrt.get_value("Rationale").get_content())
-
-        if cnstrt.is_val_av_and_not_null("Note"):
-            self.__fd.write(u"\n\\textbf{Note:} %s\n"
-                            % cnstrt.get_value("Note").get_content())
-
-        # Write out the references to the requirements
-
-        reqs_refs = []
-        for req in self.__constraints_reqs_ref[cname]:
-            refid = LatexJinja2.__strescape(req)
-            refctr = "\\ref{%s} \\nameref{%s}" \
-                     % (refid, refid)
-            reqs_refs.append(refctr)
-        self.__fd.write(u"\n\\textbf{Requirements:} %s\n" %
-                        ", ".join(reqs_refs))
-
-        tracer.debug("Finished.")
-
-    def __output_latex_constraints(self, constraints):
-        '''Write out all constraints for the topic set.'''
-        if len(constraints) == 0:
-            tracer.debug("No constraints to output.")
-            return
-
-        self.__fd.write(u"\\%s{Constraints}\n" % self.level_names[0])
-        for cname, cnstrt in sorted(iteritems(constraints)):
-            self.__output_latex_one_constraint(cname, cnstrt)
-
-    # TODO: Code duplication from constraints
-    def __output_latex_one_testcase(self, cname, cnstrt):
-        '''Output one testcase.'''
-        cname = LatexJinja2.__strescape(cname)
-        tracer.debug("Output testcase [%s]." % cname)
-        self.__fd.write(u"%% TEST-CASE '%s'\n" % cname)
-
-        self.__fd.write(u"\%s{%s}\label{TESTCASE%s}\n"
-                        "\hypertarget{TESTCASE%s}{}"
-                        "\\textbf{Description:} %s\n"
-                        % (self.level_names[1],
-                           cnstrt.get_value("Name").get_content(),
-                           cnstrt.get_value("Name").get_content(),
-                           cname, cnstrt.get_value(
-                               "Description").get_content()))
-
-        if cnstrt.is_val_av_and_not_null("Expected Result"):
-            self.__fd.write(u"\n\\textbf{Expected Result:} %s\n"
-                            % cnstrt.get_value(
-                                "Expected Result").get_content())
-
-        if cnstrt.is_val_av_and_not_null("Rationale"):
-            self.__fd.write(u"\n\\textbf{Rationale:} %s\n"
-                            % cnstrt.get_value("Rationale").get_content())
-
-        if cnstrt.is_val_av_and_not_null("Note"):
-            self.__fd.write(u"\n\\textbf{Note:} %s\n"
-                            % cnstrt.get_value("Note").get_content())
-        tracer.debug("Finished.")
-
-    def __output_latex_testcases(self, testcases):
-        '''Write out all testcases for the topic set.'''
-        if not len(testcases):
-            tracer.debug("No testcases to output.")
-            return
-
-        self.__fd.write(u"\\%s{Test Cases}\n" % self.level_names[0])
-        for cname, cnstrt in sorted(iteritems(testcases)):
-            self.__output_latex_one_testcase(cname, cnstrt)
+        pass
 
     def topic_set_post(self, topic_set):
-        '''Print out the constraints and clean up file.'''
-        tracer.debug("Called; output constraints.")
-        assert topic_set is not None
-        constraints = Constraints.collect(topic_set)
-        self.__output_latex_constraints(constraints)
-        testcases = collect(topic_set)
-        self.__output_latex_testcases(testcases)
+        '''Clean up file.'''
         tracer.debug("Clean up file.")
-        self.__fd.close()
+        self._opiface.write()
         tracer.debug("Finished.")
 
     def topic_pre(self, topic):
         '''Output one topic.'''
-        self.__level += 1
-        self.__fd.write(u"%% Output topic '%s'\n" % topic.name)
+        print(u"%% Output topic '%s'\n" % topic.name)
 
     def topic_post(self, _topic):
         '''Cleanup things for topic.'''
-        self.__level -= 1
+        pass
 
     def topic_name(self, name):
-        '''Output the topic name.'''
-        req_template = self._template_env.get_template("topicName.tex")
-        template_vars = {'level': self.__level, 'name': name}
-        self.__fd.write(req_template.render(template_vars))
+        pass
 
     def topic_text(self, text):
-        '''Write out the given text.'''
-        req_template = self._template_env.get_template("topicText.tex")
-        template_vars = {'text': text}
-        self.__fd.write(req_template.render(template_vars))
+        pass
 
     def requirement_set_pre(self, rset):
         '''Prepare the requirements set output.'''
@@ -240,112 +148,8 @@ class Xls(StdOutputParams, ExecutorTopicContinuum,
         '''Sort by id.'''
         return sorted(list_to_sort, key=lambda r: r.get_id())
 
-    def __add_constraint_req_ref(self, constraint, requirement):
-        if constraint not in self.__constraints_reqs_ref:
-            self.__constraints_reqs_ref[constraint] = []
-        self.__constraints_reqs_ref[constraint].append(requirement)
-
     def requirement(self, req):
-        self.__fd.write(self._get_requirement(req))
-
-    def _get_requirement(self, req):
-        '''Write out one requirement.'''
-        req_template = self._template_env.get_template("singleReq.tex")
-        template_vars = (
-            {'req_id': self.__strescape(req.get_id()),
-             'name':  req.get_value("Name").get_content(),
-             'description':  req.get_value("Description").get_content(),
-             'req_status': req.get_status().get_output_string()}
-        )
-
-        if req.is_val_av_and_not_null("Rationale"):
-            template_vars['rationale'] = (
-                req.get_value("Rationale").get_content()
-            )
-        if req.is_val_av_and_not_null("Note"):
-            template_vars['note'] = (
-                req.get_value("Note").get_content()
-            )
-
-        if len(req.outgoing) > 0:
-            # Create links to the corresponding dependency nodes.
-            inc = [d.get_id() for d in
-                   sorted(req.outgoing, key=lambda r: r.get_id())]
-            template_vars['solvedby'] = inc
-
-        if len(req.incoming) > 0:
-            # Only output the depends on when there are fields for output.
-            inc = [d.get_id() for d in
-                   sorted(req.incoming, key=lambda r: r.get_id())]
-            template_vars['dependson'] = inc
-
-        try:
-            template_vars['status'] = (
-                    req.get_status().get_output_string())
-        except KeyError:
-            pass
-        try:
-            template_vars['clstr'] = (
-                    req.get_value("Class").get_output_string())
-        except KeyError:
-            pass
-        try:
-            template_vars['rtype'] = req.get_value("Type").as_string()
-        except KeyError:
-            pass
-        try:
-            template_vars['prio'] = req.get_value("Priority") * 10
-        except KeyError:
-            pass
-        try:
-            template_vars['owner'] = req.get_value("Owner")
-        except KeyError:
-            pass
-        try:
-            template_vars['inventedon'] = (
-                    req.get_value("Invented on").strftime("%Y-%m-%d"))
-        except KeyError:
-            pass
-        try:
-            template_vars['inventedby'] = req.get_value("Invented by")
-        except KeyError:
-            pass
-
-        # The following has not been ported yet (TODO)
-        if self.__ce3set is not None:
-            cnstrt = self.__ce3set.get(req.get_id())
-            if cnstrt is not None and len(cnstrt) > 0:
-                raise NotImplementedError(
-                        'Not yet defined, use latex2 output instead!')
-                self.__fd.write(u"\n\\textbf{Constraints:} ")
-                cstrs = []
-                for key, val in sorted(iteritems(cnstrt)):
-                    refid = LatexJinja2.__strescape(key)
-                    refctr = "\\ref{CONSTRAINT%s} \\nameref{CONSTRAINT%s}" \
-                             % (refid, refid)
-                    description = val.description()
-                    if description is not None:
-                        refctr += " [" + description + "] "
-                    cstrs.append(refctr)
-                    # Also put a reference (for later use) in the
-                    # constraints to requirements ref.
-                    self.__add_constraint_req_ref(refid, req.get_id())
-
-                self.__fd.write(u", ".join(cstrs))
-                self.__fd.write(u"\n")
-
-        testcases = req.get_value_default("Test Cases")
-        if testcases is not None:
-            inc = [LatexJinja2.__strescape(testcase)
-                   for testcase in testcases]
-            template_vars['testcases'] = inc
-
-        return req_template.render(template_vars)
+        self._opiface.add_req(req)
 
     def cmad_topic_continuum_pre(self, _):
-        '''Write out the one and only dependency to all the requirements.'''
-        tracer.debug("Called.")
-        CreateMakeDependencies.write_reqs_dep(self._cmad_file,
-                                              self._output_filename)
-        self._cmad_file.write(u"REQS_LATEX2=%s\n" %
-                              self._output_filename)
+        pass
