@@ -11,6 +11,7 @@
 from __future__ import unicode_literals
 
 import io
+from datetime import date, datetime
 import openpyxl
 from six import iteritems
 
@@ -56,22 +57,32 @@ class XlsHandler():
         self._add_req_header()
 
     def _add_req_header(self):
+        self.req_row = 1
         col = 1
-        row = 1
         self._req_headers = self._cfg['req_attributes']
         for val in self._req_headers:
-            self._ws_req.cell(column=col, row=row, value=val)
+            self._ws_req.cell(column=col, row=self.req_row, value=val)
             col += 1
+        self.req_row += 1
 
     def write(self):
         self._wb.save(filename=self.__filename)
 
     def add_req(self, req):
-        self.__strescape(req.get_id())
-        req.get_value("Name").get_content()
-        req.get_value("Description").get_content()
-        req.get_status().get_output_string()
-
+        col = 1
+        for key in self._req_headers:
+            if key == "Id":
+                value = Xls.strescape(req.get_id())
+            elif key == "Status":
+                value = req.get_status().get_output_string()
+            elif key == "Invented on":
+                value = datetime.strptime(req.get_value(key).get_content(),
+                                          "%Y-%m-%d").date()
+            else:
+                value = req.get_value(key).get_content()
+            self._ws_req.cell(column=col, row=self.req_row, value=value)
+            col += 1
+        self.req_row += 1
 
     def add_topic(self, req):
             pass
@@ -89,7 +100,7 @@ class Xls(StdOutputParams, ExecutorTopicContinuum,
         self._opiface = XlsHandler(self._output_filename, self._config)
 
     @staticmethod
-    def __strescape(string):
+    def strescape(string):
         '''Escapes a string: hexifies it.'''
         result = ""
         for fchar in string:
