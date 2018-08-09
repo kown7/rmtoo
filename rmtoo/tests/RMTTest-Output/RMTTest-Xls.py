@@ -64,12 +64,12 @@ class RMTTestOutputXls:
             for key, value in req_values.items():
                 req_txt_items[key] = DummyTxtString(value)
             req_txt_items['Invented on'] = inv_date
-            req = Requirement("", req_id, None, None, TestConfig())
+            req = Requirement(u"", req_id, None, None, TestConfig())
             req.values = req_txt_items
             return req
         self.xlsh = xh(self._filename, self.oconfig)
-        self.xlsh.add_req(create_req('SW-101'))
-        self.xlsh.add_req(create_req('SW-102'))
+        self.xlsh.add_req(create_req(u'SW-101'))
+        self.xlsh.add_req(create_req(u'SW-102'))
         self.xlsh.write()
 
         twb = openpyxl.load_workbook(filename = self._filename,
