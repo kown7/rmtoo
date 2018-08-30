@@ -10,31 +10,30 @@
 '''
 from __future__ import unicode_literals
 
-import io
-from datetime import date, datetime
+import yaml
 import openpyxl
-from six import iteritems
 
-from rmtoo.lib.Constraints import Constraints
-from rmtoo.lib.TestCases import collect
 from rmtoo.lib.StdOutputParams import StdOutputParams
 from rmtoo.lib.ExecutorTopicContinuum import ExecutorTopicContinuum
 from rmtoo.lib.logging import tracer
 from rmtoo.lib.CreateMakeDependencies import CreateMakeDependencies
 
+
 class XlsHandler():
     '''Act as an abstraction layer between rmtoo-objects and OpenPyxl
     related things
 
-    The default configuration is intended for users to copy and
-    adapt. The filename is handled in the Xls' parent class.
+    The default configuration is intended to sort the important
+    objects. Users can adapt it to their needs.
+
+    The filename is handled in the Xls' parent class.
 
     '''
     default_config = {
         "output_filename": "artifacts/requirements.xlsx",
         "req_attributes": [
-            "Id", "Priority", "Owner", "Invented on",
-            "Invented by", "Status"],
+            "ID", "Name", "Topic", "Description", "Status", "Owner",
+            "Invented by", "Invented on"],
         "req_sheet": "Requirements",
         "topic_sheet": "Topics"
     }
@@ -54,44 +53,73 @@ class XlsHandler():
             self._cfg['topic_sheet'])
         self._ws_cfg = self._wb.create_sheet("Configuration")
 
-        self._add_req_header()
+        # We require those headers at least
+        self._req_headers = self._cfg['req_attributes']
+        self._headers = self._cfg['req_attributes'].copy()
+        self.req_row = None
+        self._reqlist = []
 
-    def _add_req_header(self):
+    def write(self):
+        self._add_header()
+        self._write_reqs()
+        self._wb.save(filename=self.__filename)
+
+    def _add_header(self):
         self.req_row = 1
         col = 1
-        self._req_headers = self._cfg['req_attributes']
-        for val in self._req_headers:
+        for val in self._headers:
             self._ws_req.cell(column=col, row=self.req_row, value=val)
             col += 1
         self.req_row += 1
 
-    def write(self):
-        self._wb.save(filename=self.__filename)
+    def _write_reqs(self):
+        for req in self._reqlist:
+            col = 1
+            for key in self._headers:
+                if key in req:
+                    val = req[key]
+                    if isinstance(val, list):
+                        val = str(val)
+                    self._ws_req.cell(column=col, row=self.req_row,
+                                      value=val)
+                col += 1
+            self.req_row += 1
+        self._reqlist = []
 
     def add_req(self, req):
-        col = 1
-        for key in self._req_headers:
-            if key == "Id":
-                value = Xls.strescape(req.get_id())
-            elif key == "Status":
-                value = req.get_status().get_output_string()
-            elif key == "Invented on":
-                value = req.get_value(key)
-            elif key == "Class":
-                raise NotImplementedError(
-                    "The class has no information __str__ equivalent")
-            else:
-                try:
-                    value = req.get_value(key).get_content()
-                except AttributeError:
-                    value = req.get_value(key)
-            self._ws_req.cell(column=col, row=self.req_row, value=value)
+        req_dict = self._req_extract_dict(req)
+        self._check_required_fields(req_dict)
+        self._add_new_headers(req_dict)
+        self._reqlist.append(req_dict)
 
-            col += 1
-        self.req_row += 1
+    @staticmethod
+    def _req_extract_dict(req):
+        req_dict = dict()
+        for key, value in req.values.items():
+            try:
+                req_dict[key] = value
+            except:
+                import pdb; pdb.set_trace()
+        return req_dict
+
+    def _check_required_fields(self, req_dict):
+        """This function will raise KeyError if required headers aren't
+        availble
+
+        """
+        for val in self._req_headers:
+            if not val in req_dict.keys():
+                tracer.warning("Key (" + val + ") error in " + req_dict['ID'])
+            assert val in req_dict.keys()
+
+    def _add_new_headers(self, req_dict):
+        for key in list(req_dict.keys()):
+            if not key in self._headers:
+                self._headers.append(key)
 
     def add_topic(self, req):
-            pass
+        pass
+
 
 class Xls(StdOutputParams, ExecutorTopicContinuum,
           CreateMakeDependencies):
