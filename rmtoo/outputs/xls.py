@@ -94,12 +94,9 @@ class XlsHandler():
 
     @staticmethod
     def _req_extract_dict(req):
-        req_dict = dict()
-        for key, value in req.values.items():
-            try:
-                req_dict[key] = value
-            except:
-                import pdb; pdb.set_trace()
+        req_dict = {'ID': req.get_id()}
+        for rec in req.record:
+            req_dict[rec.get_tag()] = rec.get_content()
         return req_dict
 
     def _check_required_fields(self, req_dict):
@@ -155,7 +152,7 @@ class Xls(StdOutputParams, ExecutorTopicContinuum,
 
     def topic_pre(self, topic):
         '''Output one topic.'''
-        print(u"%% Output topic '%s'\n" % topic.name)
+        pass
 
     def topic_post(self, _topic):
         '''Cleanup things for topic.'''
