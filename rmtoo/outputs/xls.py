@@ -12,6 +12,7 @@ from __future__ import unicode_literals
 
 import yaml
 import openpyxl
+import datetime
 
 from rmtoo.lib.StdOutputParams import StdOutputParams
 from rmtoo.lib.ExecutorTopicContinuum import ExecutorTopicContinuum
@@ -96,14 +97,15 @@ class XlsHandler():
     def _req_extract_dict(req):
         req_dict = {'ID': req.get_id()}
         for rec in req.record:
-            req_dict[rec.get_tag()] = rec.get_content()
+            if (rec.get_tag() in req.values and
+                isinstance(req.values[rec.get_tag()], datetime.date)):
+                req_dict[rec.get_tag()] = req.values[rec.get_tag()]
+            else:
+                req_dict[rec.get_tag()] = rec.get_content()
         return req_dict
 
     def _check_required_fields(self, req_dict):
-        """This function will raise KeyError if required headers aren't
-        availble
-
-        """
+        """Will raise KeyError if required fields aren't available"""
         for val in self._req_headers:
             if not val in req_dict.keys():
                 tracer.warning("Key (" + val + ") error in " + req_dict['ID'])
