@@ -1,9 +1,12 @@
 # (c) 2018 Kristoffer Nordstroem, see COPYING
 
 import os
-from datetime import date, datetime
 import openpyxl
-import pytest
+from datetime import datetime
+try:
+    from unittest.mock import Mock  # py33 ff.
+except ImportError:
+    from mock import Mock  # py27
 
 from rmtoo.outputs.xls import XlsHandler as xh
 from rmtoo.lib.Requirement import Requirement

@@ -10,7 +10,6 @@
 '''
 from __future__ import unicode_literals
 
-import yaml
 import openpyxl
 import datetime
 
@@ -56,7 +55,7 @@ class XlsHandler():
 
         # We require those headers at least
         self._req_headers = self._cfg['req_attributes']
-        self._headers = self._cfg['req_attributes'].copy()
+        self._headers = list(self._cfg['req_attributes'])
         self.req_row = None
         self._reqlist = []
         self._topiclist = []
@@ -109,8 +108,8 @@ class XlsHandler():
     def _req_extract_dict(req):
         req_dict = {'ID': req.get_id()}
         for rec in req.record:
-            if (rec.get_tag() in req.values and
-                isinstance(req.values[rec.get_tag()], datetime.date)):
+            if rec.get_tag() in req.values and isinstance(
+                    req.values[rec.get_tag()], datetime.date):
                 req_dict[rec.get_tag()] = req.values[rec.get_tag()]
             else:
                 req_dict[rec.get_tag()] = rec.get_content()
@@ -119,13 +118,13 @@ class XlsHandler():
     def _check_required_fields(self, req_dict):
         """Will raise KeyError if required fields aren't available"""
         for val in self._req_headers:
-            if not val in req_dict.keys():
+            if val not in req_dict.keys():
                 tracer.warning("Key (" + val + ") error in " + req_dict['ID'])
             assert val in req_dict.keys()
 
     def _add_new_headers(self, req_dict):
         for key in list(req_dict.keys()):
-            if not key in self._headers:
+            if key not in self._headers:
                 self._headers.append(key)
 
     def add_topic(self, topic):
