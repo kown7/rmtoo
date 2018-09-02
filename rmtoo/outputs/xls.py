@@ -59,10 +59,12 @@ class XlsHandler():
         self._headers = self._cfg['req_attributes'].copy()
         self.req_row = None
         self._reqlist = []
+        self._topiclist = []
 
     def write(self):
         self._add_header()
         self._write_reqs()
+        self._write_topics()
         self._wb.save(filename=self.__filename)
 
     def _add_header(self):
@@ -86,6 +88,16 @@ class XlsHandler():
                 col += 1
             self.req_row += 1
         self._reqlist = []
+
+    def _write_topics(self):
+        row = 1
+        for topic in self._topiclist:
+            self._ws_topics.cell(column=1, row=row, value=topic.name)
+            for key, content in topic.members.items():
+                self._ws_topics.cell(column=2, row=row, value=key)
+                self._ws_topics.cell(column=3, row=row, value=content)
+                row += 1
+        self._topiclist = []
 
     def add_req(self, req):
         req_dict = self._req_extract_dict(req)
@@ -116,8 +128,15 @@ class XlsHandler():
             if not key in self._headers:
                 self._headers.append(key)
 
-    def add_topic(self, req):
-        pass
+    def add_topic(self, topic):
+        class TopicList:
+            def __init__(self, name):
+                self.name = name
+                self.members = {}
+        ctop = TopicList(topic.get_topic_name())
+        for i in topic.get_tags():
+            ctop.members[i.get_tag()] = i.get_content()
+        self._topiclist.append(ctop)
 
 
 class Xls(StdOutputParams, ExecutorTopicContinuum,
@@ -154,7 +173,7 @@ class Xls(StdOutputParams, ExecutorTopicContinuum,
 
     def topic_pre(self, topic):
         '''Output one topic.'''
-        pass
+        self._opiface.add_topic(topic)
 
     def topic_post(self, _topic):
         '''Cleanup things for topic.'''
