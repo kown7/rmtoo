@@ -95,3 +95,22 @@ class RMTTestOutputXls:
         assert rws['H2'].value.date().isoformat() == "1970-01-01"
 
         assert rws['A3'].value == "SW-102"
+
+    def rmttest_adding_topic(self):
+        def mock_hdl():
+            pass
+        self.xlsh = xh(self._filename, self.oconfig)
+        topic_tags = [Mock(**{'get_tag.return_value': "asdf",
+                              'get_content.return_value': "qwer"})]
+        topic_cfg = {'get_topic_name.return_value': "SuperTopic",
+                     'get_tags.return_value': topic_tags}
+        topic = Mock(**topic_cfg)
+        self.xlsh.add_topic(topic)
+        self.xlsh.write()
+
+        twb = openpyxl.load_workbook(filename=self._filename,
+                                     guess_types=True)
+        rws = twb['Topics']
+        assert rws['A1'].value == "SuperTopic"
+        assert rws['B1'].value == "asdf"
+        assert rws['C1'].value == "qwer"
