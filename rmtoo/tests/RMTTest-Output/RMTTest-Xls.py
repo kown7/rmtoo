@@ -57,13 +57,11 @@ class MockRecordEntry:
 class RMTTestOutputXls:
     "Test-Class for the xlsx output class"
 
-    @classmethod
-    def teardown_class(self):
+    def teardown_method(self):
         if self.__tmpdir:
             delete_tmp_dir(self.__tmpdir)
 
-    @classmethod
-    def setup_class(self):
+    def setup_method(self):
         self.__tmpdir = create_tmp_dir()
         self.oconfig = xh.default_config
         self._filename = os.path.join(self.__tmpdir, "reqs.xlsx")
