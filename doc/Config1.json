@@ -20,6 +20,11 @@
             "stop_on_errors": false
         }
     }, 
+    "import": {
+        "xls": {
+            "import_filename": "import/requirements.xls"
+        }
+    },
     "requirements": {
         "input": {
             "default_language": "en_GB", 

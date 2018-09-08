@@ -195,5 +195,8 @@ setup(name=PACKAGE, version=VERSION,
               "not done = rmtoo.lib.RequirementStatus:RequirementStatusNotDone",
               "assigned = rmtoo.lib.RequirementStatus:RequirementStatusAssigned",
               "finished = rmtoo.lib.RequirementStatus:RequirementStatusFinished"
+          ],
+          "rmtoo.imports.plugin" : [
+              "xls = rmtoo.imports.xls:XlsImport"
           ]
       })
