@@ -1,8 +1,8 @@
 # (c) 2018 Kristoffer Nordstroem, see COPYING
 
 import os
-import openpyxl
 from datetime import datetime
+import openpyxl
 try:
     from unittest.mock import Mock  # py33 ff.
 except ImportError:
@@ -68,8 +68,8 @@ class RMTTestOutputXls:
         self.oconfig["output_filename"] = self._filename
 
     def rmttest_adding_req_header(self):
-        self.xlsh = xh(self._filename, self.oconfig)
-        self.xlsh.write()
+        xlsh = xh(self._filename, self.oconfig)
+        xlsh.write()
 
         twb = openpyxl.load_workbook(filename=self._filename)
         rws = twb['Requirements']
@@ -80,13 +80,12 @@ class RMTTestOutputXls:
             assert rws.cell(row=1, column=i).value == tval
         assert i == 8
         assert rws['B1'].value == "Name"
-        # TODO rm file
 
     def rmttest_adding_req(self):
-        self.xlsh = xh(self._filename, self.oconfig)
-        self.xlsh.add_req(create_req(u'SW-101'))
-        self.xlsh.add_req(create_req(u'SW-102'))
-        self.xlsh.write()
+        xlsh = xh(self._filename, self.oconfig)
+        xlsh.add_req(create_req(u'SW-101'))
+        xlsh.add_req(create_req(u'SW-102'))
+        xlsh.write()
 
         twb = openpyxl.load_workbook(filename=self._filename,
                                      guess_types=True)
@@ -98,16 +97,14 @@ class RMTTestOutputXls:
         assert rws['A3'].value == "SW-102"
 
     def rmttest_adding_topic(self):
-        def mock_hdl():
-            pass
-        self.xlsh = xh(self._filename, self.oconfig)
+        xlsh = xh(self._filename, self.oconfig)
         topic_tags = [Mock(**{'get_tag.return_value': "asdf",
                               'get_content.return_value': "qwer"})]
         topic_cfg = {'get_topic_name.return_value': "SuperTopic",
                      'get_tags.return_value': topic_tags}
         topic = Mock(**topic_cfg)
-        self.xlsh.add_topic(topic)
-        self.xlsh.write()
+        xlsh.add_topic(topic)
+        xlsh.write()
 
         twb = openpyxl.load_workbook(filename=self._filename,
                                      guess_types=True)
