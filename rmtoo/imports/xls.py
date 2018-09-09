@@ -21,6 +21,7 @@ class XlsImport(AbcImports):
         tracer.info("called")
         self._cfg = dict(self.default_config)
         self._cfg.update(self_cfg)
+        assert os.path.isdir(import_dest['requirements_dirs'])
         self._dest = import_dest
         self._wb = None
         tracer.debug("Finished.")
