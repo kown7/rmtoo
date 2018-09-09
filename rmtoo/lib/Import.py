@@ -69,7 +69,8 @@ class Import:
 
     def _set_run_modules(self):
         for module_name, cfg in iteritems(self._config):
-            import_obj = self.__plugin_manager[module_name].plugin(cfg)
+            import_obj = self.__plugin_manager[module_name].plugin(
+                cfg, self._input_dir)
             if isinstance(import_obj, AbcImports):
                 self._import_obj.append(import_obj)
 

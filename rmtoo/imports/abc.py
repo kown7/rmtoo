@@ -7,8 +7,10 @@ import abc
 class AbcImports(abc.ABC):
     '''Define an ABC for all imports classes'''
 
-    def __init__(self):
-        pass
+
+    @abc.abstractmethod
+    def __init__(self, self_cfg, import_dest):
+        raise NotImplementedError
 
     @abc.abstractmethod
     def run(self):

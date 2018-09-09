@@ -8,6 +8,7 @@ except ImportError:
 
 from rmtoo.lib.Import import Import
 from rmtoo.imports.xls import XlsImport
+from rmtoo.tests.lib.Utils import create_tmp_dir, delete_tmp_dir
 
 LDIR = os.path.dirname(os.path.abspath(__file__))
 
@@ -48,5 +49,16 @@ class RMTTestImport:
         assert isinstance(importer._import_obj[0], XlsImport)
 
     def rmttest_config_run_with_default_cfg(self):
-        importer = Import(self.def_cfg_imp_dest)
+        tmpdir = create_tmp_dir()
+
+        cfg = {"import": {"xls": {
+            'import_filename': os.path.join(LDIR, "test-reqs.xlsx")}}}
+        cfg.update(self.def_cfg_imp_dest)
+        cfg['topics']['ts_common']['sources'][0][1]['requirements_dirs'] = tmpdir
+        importer = Import(cfg)
         importer.process_all()
+
+        assert os.path.isfile(os.path.join(tmpdir, 'AutomaticGeneration'))
+        assert os.path.isfile(os.path.join(tmpdir, 'Completed'))
+
+        delete_tmp_dir(tmpdir)
