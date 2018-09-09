@@ -54,4 +54,7 @@ class XlsImport(AbcImports):
             filepath = os.path.join(self._dest['requirements_dirs'], entry['ID'])
             with codecs.open(filepath, "w", "utf-8") as fhdl:
                 for key, value in entry.items():
-                    fhdl.write(": ".join([key, str(value)]) + os.linesep)
+                    if key == 'ID':
+                        pass
+                    else:
+                        fhdl.write(": ".join([key, str(value)]) + os.linesep)
