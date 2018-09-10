@@ -51,7 +51,8 @@ class XlsImport(AbcImports):
 
     def _write_to_files(self, entries):
         for entry in entries:
-            filepath = os.path.join(self._dest['requirements_dirs'], entry['ID'])
+            filepath = os.path.join(self._dest['requirements_dirs'],
+                                    entry['ID'])
             with codecs.open(filepath, "w", "utf-8") as fhdl:
                 for key, value in entry.items():
                     if key == 'ID':

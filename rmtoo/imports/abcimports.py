@@ -7,7 +7,7 @@ import sys
 if sys.version_info >= (3, 4):
     ABC = abc.ABC
 else:
-    ABC = abc.ABCMeta('ABC', (object,), {}) # compatible with Python 2 *and* 3
+    ABC = abc.ABCMeta('ABC', (object,), {})  # compatible with Python 2 *and* 3
 
 
 class AbcImports(ABC):

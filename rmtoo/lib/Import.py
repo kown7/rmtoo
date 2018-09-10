@@ -53,7 +53,7 @@ class Import:
             self._config = self.DEFAULT_CONFIG
 
         self._input_dir = {'requirements_dirs': None,
-                           'topics_dirs': None }
+                           'topics_dirs': None}
         self._extract_input_dir(config)
 
         self._import_obj = []
@@ -62,8 +62,9 @@ class Import:
 
     def _extract_input_dir(self, config):
         for cfg in config['topics']['ts_common']['sources']:
-            if 'requirements_dirs' in cfg[1]:
-                self._input_dir['requirements_dirs'] = cfg[1]['requirements_dirs']
+            req_idx = 'requirements_dirs'
+            if req_idx in cfg[1]:
+                self._input_dir[req_idx] = cfg[1][req_idx]
             if 'topics_dirs' in cfg[1]:
                 self._input_dir['topics_dirs'] = cfg[1]['topics_dirs']
 

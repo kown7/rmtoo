@@ -1,10 +1,6 @@
 # (c) 2018 Kristoffer Nordstroem, see COPYING
 import os
 import pytest
-try:
-    from unittest.mock import Mock  # py33 ff.
-except ImportError:
-    from mock import Mock  # py27
 
 from rmtoo.lib.Import import Import
 from rmtoo.imports.xls import XlsImport
@@ -22,7 +18,7 @@ class RMTTestImport:
     def rmttest_invalid_config_parser(self):
         '''Just figure out where it blows up'''
         with pytest.raises(AssertionError):
-            importer = Import(None)
+            Import(None)
 
     def rmttest_config_parser_wo_cfg(self):
         '''Assert the default configuration is loaded, ignore the import
@@ -54,7 +50,8 @@ class RMTTestImport:
         cfg = {"import": {"xls": {
             'import_filename': os.path.join(LDIR, "test-reqs.xlsx")}}}
         cfg.update(self.def_cfg_imp_dest)
-        cfg['topics']['ts_common']['sources'][0][1]['requirements_dirs'] = tmpdir
+        cfg['topics']['ts_common']['sources'][
+            0][1]['requirements_dirs'] = Encoding.to_unicode(tmpdir)
         importer = Import(cfg)
         importer.process_all()
 
