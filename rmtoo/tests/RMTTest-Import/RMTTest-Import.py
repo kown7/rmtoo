@@ -5,8 +5,9 @@ import pytest
 from rmtoo.lib.Import import Import
 from rmtoo.imports.xls import XlsImport
 from rmtoo.tests.lib.Utils import create_tmp_dir, delete_tmp_dir
+from rmtoo.lib.Encoding import Encoding
 
-LDIR = os.path.dirname(os.path.abspath(__file__))
+LDIR = Encoding.to_unicode(os.path.dirname(os.path.abspath(__file__)))
 
 
 class RMTTestImport:

@@ -3,13 +3,17 @@
 Suits love Excel.
 
 '''
+from __future__ import unicode_literals
 import os
 import codecs
 import openpyxl
 from collections import OrderedDict
 
 from rmtoo.lib.logging import tracer
-from rmtoo.imports.abc import AbcImports
+from rmtoo.lib.RMTException import RMTException
+from rmtoo.lib.configuration.Cfg import Cfg
+from rmtoo.imports.abcimports import AbcImports
+
 
 class XlsImport(AbcImports):
     '''Import an xls-sheet created in the output plugins'''
@@ -19,17 +23,26 @@ class XlsImport(AbcImports):
 
     def __init__(self, self_cfg, import_dest):
         tracer.info("called")
+        self.useable = False
         self._cfg = dict(self.default_config)
         self._cfg.update(self_cfg)
-        assert os.path.isdir(import_dest['requirements_dirs'])
-        self._dest = import_dest
+
+        import_dest_cfg = Cfg(import_dest)
+        try:
+            req_dirs = import_dest_cfg.get_rvalue(u'requirements_dirs')
+            if req_dirs[0] and os.path.isdir(req_dirs[0]):
+                self.useable = True
+                self._dest = import_dest
+        except RMTException:
+            self.useable = False
         self._wb = None
         tracer.debug("Finished.")
 
     def run(self):
-        filename = self._cfg['import_filename']
-        if os.path.isfile(filename):
-            self.import_file(filename)
+        if self.useable:
+            filename = self._cfg['import_filename']
+            if filename and os.path.isfile(filename):
+                self.import_file(filename)
 
     def import_file(self, filename):
         self._wb = openpyxl.load_workbook(filename)
@@ -58,4 +71,5 @@ class XlsImport(AbcImports):
                     if key == 'ID':
                         pass
                     else:
-                        fhdl.write(": ".join([key, str(value)]) + os.linesep)
+                        content = "\n  ".join(str(value).splitlines())
+                        fhdl.write(": ".join([key, content]) + os.linesep)

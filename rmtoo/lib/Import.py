@@ -9,7 +9,7 @@ from stevedore import extension
 from six import iteritems
 
 from rmtoo.lib.logging import tracer
-from rmtoo.imports.abc import AbcImports
+from rmtoo.imports.abcimports import AbcImports
 
 
 class Import:
