@@ -112,7 +112,8 @@ class XlsHandler():
                     req.values[rec.get_tag()], datetime.date):
                 req_dict[rec.get_tag()] = req.values[rec.get_tag()]
             else:
-                req_dict[rec.get_tag()] = rec.get_content()
+                req_dict[rec.get_tag()] = "\n".join(
+                    rec.get_content_trimmed_with_nl())
         return req_dict
 
     def _check_required_fields(self, req_dict):

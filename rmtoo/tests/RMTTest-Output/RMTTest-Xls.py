@@ -47,6 +47,9 @@ class MockRecordEntry:
     def get_content(self):
         return self.__txt_string
 
+    def get_content_trimmed_with_nl(self):
+        return [x.strip() for x in self.__txt_string.splitlines()]
+
     def get_output_string(self):
         return self.__txt_string
 
