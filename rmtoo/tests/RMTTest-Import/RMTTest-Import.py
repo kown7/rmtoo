@@ -52,7 +52,7 @@ class RMTTestImport:
             'import_filename': os.path.join(LDIR, "test-reqs.xlsx")}}}
         cfg.update(self.def_cfg_imp_dest)
         cfg['topics']['ts_common']['sources'][
-            0][1]['requirements_dirs'] = Encoding.to_unicode(tmpdir)
+            0][1]['requirements_dirs'] = [Encoding.to_unicode(tmpdir)]
         importer = Import(cfg)
         importer.process_all()
 
