@@ -9,6 +9,7 @@ from stevedore import extension
 from six import iteritems
 
 from rmtoo.lib.logging import tracer
+from rmtoo.lib.configuration.Cfg import Cfg
 from rmtoo.imports.abcimports import AbcImports
 
 
@@ -51,6 +52,7 @@ class Import:
             self._config = config['import']
         else:
             self._config = self.DEFAULT_CONFIG
+        self._cfg = Cfg(self._config)
 
         self._input_dir = {'requirements_dirs': None,
                            'topics_dirs': None}
@@ -61,12 +63,14 @@ class Import:
         tracer.debug("Finished.")
 
     def _extract_input_dir(self, config):
-        for cfg in config['topics']['ts_common']['sources']:
+        input_cfg = Cfg(config)
+        sources_dirs = 'topics.ts_common.sources'
+        for cfg in input_cfg.get_value(sources_dirs):
             req_idx = 'requirements_dirs'
             if req_idx in cfg[1]:
                 self._input_dir[req_idx] = cfg[1][req_idx]
-            if 'topics_dirs' in cfg[1]:
-                self._input_dir['topics_dirs'] = cfg[1]['topics_dirs']
+            if 'sources_dirs' in cfg[1]:
+                self._input_dir['sources_dirs'] = cfg[1]['sources_dirs']
 
     def _set_run_modules(self):
         for module_name, cfg in iteritems(self._config):
