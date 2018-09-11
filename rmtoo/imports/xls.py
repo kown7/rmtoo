@@ -7,6 +7,7 @@ from __future__ import unicode_literals
 import os
 import codecs
 import openpyxl
+import datetime
 from collections import OrderedDict
 
 from rmtoo.lib.logging import tracer
@@ -26,13 +27,14 @@ class XlsImport(AbcImports):
         self.useable = False
         self._cfg = dict(self.default_config)
         self._cfg.update(self_cfg)
+        self._dest = dict()
 
         import_dest_cfg = Cfg(import_dest)
         try:
             req_dirs = import_dest_cfg.get_rvalue(u'requirements_dirs')
             if req_dirs[0] and os.path.isdir(req_dirs[0]):
                 self.useable = True
-                self._dest = import_dest
+                self._dest['requirements_dirs'] = req_dirs[0]
         except RMTException:
             self.useable = False
         self._wb = None
@@ -65,11 +67,15 @@ class XlsImport(AbcImports):
     def _write_to_files(self, entries):
         for entry in entries:
             filepath = os.path.join(self._dest['requirements_dirs'],
-                                    entry['ID'])
+                                    entry['ID'] + '.req')
             with codecs.open(filepath, "w", "utf-8") as fhdl:
                 for key, value in entry.items():
+                    content = None
                     if key == 'ID':
                         pass
-                    else:
+                    elif isinstance(value, datetime.date):
+                        content = str(value.date())
+                    elif value:
                         content = "\n  ".join(str(value).splitlines())
+                    if content:
                         fhdl.write(": ".join([key, content]) + os.linesep)

@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 import os
 import re
 import codecs
+import datetime
 
 from rmtoo.lib.Requirement import Requirement
 from rmtoo.imports.xls import XlsImport
@@ -34,12 +35,13 @@ class RMTTestXlsImport:
 
     def rmttest_config_run_with_default_cfg(self):
         tmpdir = create_tmp_dir()
-        dest_dir = {u'requirements_dirs': Encoding.to_unicode(tmpdir)}
+        dest_dir = {u'requirements_dirs': [Encoding.to_unicode(tmpdir)]}
         importer = XlsImport(self.config, dest_dir)
+        assert importer.useable
         importer.run()
 
-        assert os.path.isfile(os.path.join(tmpdir, 'AutomaticGeneration'))
-        completed_filename = os.path.join(tmpdir, 'Completed')
+        assert os.path.isfile(os.path.join(tmpdir, 'AutomaticGeneration.req'))
+        completed_filename = os.path.join(tmpdir, 'Completed.req')
         assert os.path.isfile(completed_filename)
 
         id_occ = [re.findall(r'^ID:', line)
@@ -51,24 +53,28 @@ class RMTTestXlsImport:
 
     def rmttest_treat_newlines_correctly(self):
         tmpdir = create_tmp_dir()
-        dest_dir = {u'requirements_dirs': Encoding.to_unicode(tmpdir)}
+        dest_dir = {u'requirements_dirs': [Encoding.to_unicode(tmpdir)]}
         importer = XlsImport(self.config, dest_dir)
         importer.run()
 
-        newlines_filename = os.path.join(tmpdir, 'TestNewlines')
+        newlines_filename = os.path.join(tmpdir, 'TestNewlines.req')
         assert os.path.isfile(newlines_filename)
         with codecs.open(newlines_filename, encoding='utf-8') as nl_fh:
             req_content = nl_fh.read()
-        nl_req = Requirement(req_content, 'TestNewlines', newlines_filename,
-                             None, None)
+        nl_req = Requirement(req_content, 'TestNewlines.req',
+                             newlines_filename, None, None)
 
         # Test Description
         parsed_desc = "\n".join(nl_req.record[2].
                                 get_content_trimmed_with_nl())
         assert parsed_desc == LIPSUM + "\n\nASDF"
 
-        parsed_note = "\n".join(nl_req.record[12].
+        parsed_note = "\n".join(nl_req.record[10].
                                 get_content_trimmed_with_nl())
         assert parsed_note == "Lipsum\n\nHandle it well"
+
+        parsed_invon = "\n".join(nl_req.record[7].
+                                get_content_trimmed_with_nl())
+        assert parsed_invon == "2010-03-06"
 
         delete_tmp_dir(tmpdir)

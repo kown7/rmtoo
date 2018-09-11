@@ -56,7 +56,7 @@ class RMTTestImport:
         importer = Import(cfg)
         importer.process_all()
 
-        assert os.path.isfile(os.path.join(tmpdir, 'AutomaticGeneration'))
-        assert os.path.isfile(os.path.join(tmpdir, 'Completed'))
+        assert os.path.isfile(os.path.join(tmpdir, 'AutomaticGeneration.req'))
+        assert os.path.isfile(os.path.join(tmpdir, 'Completed.req'))
 
         delete_tmp_dir(tmpdir)
