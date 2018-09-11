@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 import os
 import re
 import codecs
-import datetime
 
 from rmtoo.lib.Requirement import Requirement
 from rmtoo.imports.xls import XlsImport
@@ -74,7 +73,7 @@ class RMTTestXlsImport:
         assert parsed_note == "Lipsum\n\nHandle it well"
 
         parsed_invon = "\n".join(nl_req.record[7].
-                                get_content_trimmed_with_nl())
+                                 get_content_trimmed_with_nl())
         assert parsed_invon == "2010-03-06"
 
         delete_tmp_dir(tmpdir)
