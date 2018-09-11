@@ -22,7 +22,7 @@
     }, 
     "import": {
         "xls": {
-            "import_filename": "import/requirements.xls"
+            "import_filename": "doc/import/requirements.xlsx"
         }
     },
     "requirements": {
@@ -98,7 +98,7 @@
                 ], 
                 "xls": [
                     {
-                        "output_filename": "artifacts/requirements.xls"
+                        "output_filename": "artifacts/requirements.xlsx"
                     }
                 ],
                 "oopricing1": [
