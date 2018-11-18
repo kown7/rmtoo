@@ -1,0 +1,39 @@
+# Python package
+# Create and test a Python package on multiple Python versions.
+# Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/python
+
+jobs:
+
+- job: 'Test'
+  pool:
+    vmImage: 'Ubuntu 16.04'
+  strategy:
+    matrix:
+      Python36:
+        python.version: '3.6'
+        TOXENV: 'py36,pep8'
+      Python38:
+        python.version: '3.8'
+        TOXENV: 'py38'
+    maxParallel: 4
+
+  steps:
+  - task: UsePythonVersion@0
+    inputs:
+      versionSpec: '$(python.version)'
+      architecture: 'x64'
+
+  - script: python -m pip install --upgrade pip
+    displayName: 'Install dependencies'
+
+  - script: |
+      tox -e ${TOXENV}
+    displayName: 'tox/pytest'
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFiles: '**/result.xml'
+      testRunTitle: 'Python $(python.version)'
+    condition: succeededOrFailed()
+
