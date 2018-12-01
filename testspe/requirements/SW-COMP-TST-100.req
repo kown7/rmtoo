@@ -1,0 +1,10 @@
+Name: Test XLSX Exports
+Topic: XLSXExport
+Description: Test XLSX Exporter
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-01
+Invented by: default
+Type: requirement
+Solved by: SW-COMP-TST-101 SW-COMP-TST-102 SW-COMP-TST-103 SW-COMP-TST-110 SW-COMP-TST-120

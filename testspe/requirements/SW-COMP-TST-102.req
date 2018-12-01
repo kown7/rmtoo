@@ -1,0 +1,10 @@
+Name: Add Requirement
+Topic: XLSXExport
+Description: Add a requirements after the header line.
+Rationale: Add requirements under the header.
+Status: external
+Owner: qa
+Effort estimation: 2
+Invented on: 2018-12-01
+Invented by: default
+Type: requirement

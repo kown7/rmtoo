@@ -28,6 +28,7 @@
         ], 
         "stakeholders": [
             "development", 
+            "qa",
             "management", 
             "users", 
             "customers"

@@ -1,0 +1,3 @@
+Name: XLSX File Export
+IncludeRequirements: full
+Text: File Export creating files that can be read with Spreadsheet tools.

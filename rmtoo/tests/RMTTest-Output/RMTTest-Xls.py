@@ -71,6 +71,7 @@ class RMTTestOutputXls:
         self._filename = os.path.join(self.__tmpdir, "reqs.xlsx")
         self.oconfig["output_filename"] = self._filename
 
+    @pytest.mark.TST101
     def rmttest_adding_req_header(self):
         xlsh = xh(self._filename, self.oconfig)
         xlsh.write()
@@ -85,6 +86,7 @@ class RMTTestOutputXls:
         assert i == 9
         assert rws['B1'].value == "Name"
 
+    @pytest.mark.TST102
     def rmttest_adding_req(self):
         xlsh = xh(self._filename, self.oconfig)
         xlsh.add_req(create_req(u'SW-101'))
@@ -99,6 +101,7 @@ class RMTTestOutputXls:
 
         assert rws['A3'].value == "SW-102"
 
+    @pytest.mark.TST103
     def rmttest_adding_req_with_missing_field(self):
         xlsh = xh(self._filename, self.oconfig)
         req = create_req(u'SW-101')
@@ -110,6 +113,7 @@ class RMTTestOutputXls:
         with pytest.raises(AssertionError):
             xlsh.add_req(req)
 
+    @pytest.mark.TST110
     def rmttest_adding_topic(self):
         xlsh = xh(self._filename, self.oconfig)
         topic_tags = [Mock(**{'get_tag.return_value': "asdf",
@@ -142,6 +146,7 @@ class RMTTestOutputXlsTemplate:
         self.oconfig["template_filename"] = os.path.join(
             LDIR, 'DefaultTemplate.xlsx')
 
+    @pytest.mark.TST120
     def rmttest_adding_req(self):
         xlsh = xh(self._filename, self.oconfig)
         xlsh.add_req(create_req(u'SW-101'))
