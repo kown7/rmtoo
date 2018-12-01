@@ -1,0 +1,45 @@
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{graphicx}
+\usepackage[pdfauthor={john doe},%
+pdftitle={Requirment for project},%
+pdfsubject={Requirment description for project},%
+pdfkeywords={keywords},%
+pagebackref=true,%
+pdftex, bookmarks=true, colorlinks=true]{hyperref}
+
+\usepackage[a4paper]{geometry}
+\usepackage[titles]{tocloft}
+\usepackage{fancyhdr}
+
+\setlength{\cftsubsecnumwidth}{4em}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\rightmark}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{Version \input{../artifacts/reqs-version.txt}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\parindent0em
+
+\begin{document}
+\thispagestyle{empty}
+
+\title{Requirements Project Name}
+\author{John Doe}
+\date{\today}
+\maketitle
+\newpage
+
+\tableofcontents
+\newpage
+
+\input{../artifacts/reqtopics.tex}
+
+\appendix
+\chapter{Status}
+\input{../artifacts/reqsprios.tex}
+
+\end{document}
