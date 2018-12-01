@@ -3,7 +3,7 @@ import glob
 
 
 def task_rmtoo():
-    reqs = [i for i in glob.glob('requirements/**', recursive=True) if os.path.isfile(i)]
+    reqs = [i for i in glob.glob('specifications/**', recursive=True) if os.path.isfile(i)]
     topics = [i for i in glob.glob('topics/**', recursive=True) if os.path.isfile(i)]
     html = [i for i in glob.glob('html/**', recursive=True) if os.path.isfile(i)]
     deps = ['Config.json']
@@ -24,8 +24,8 @@ def task_pdflatex():
     return {
         'file_dep':  texs + [ os.path.join('artifacts', i + '.pdf')
                               for i in EPS_FILES ],
-        'targets': ['artifacts/requirement.pdf'],
-        'actions': [3*'pdflatex -interaction=nonstopmode -output-directory=artifacts latex/requirements.tex;']
+        'targets': ['artifacts/testspecification.pdf'],
+        'actions': [3*'pdflatex -interaction=nonstopmode -output-directory=artifacts latex/testspecification.tex;']
     }
 
 def task_gnuplot():
