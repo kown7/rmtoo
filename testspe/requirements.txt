@@ -1,2 +1,2 @@
 doit
-git+git://github.com/kown7/rmtoo@xls
+git+git://github.com/kown7/rmtoo@tracemat2
