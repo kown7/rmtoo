@@ -2,7 +2,7 @@
 .PHONY: all_html
 all: artifacts/requirements.pdf artifacts/req-graph1.png \
 	artifacts/requirements.xlsx artifacts/req-graph2.png \
-	all_html
+	all_html testspe/artifacts/testspecification.pdf
 
 # Adding new files (especially requirements) can not automatically
 # handled.  The 'force' target tries to handle this.
@@ -50,6 +50,9 @@ artifacts/requirements.pdf: ${REQS_LATEX2} doc/latex2/requirements.tex
 		pdflatex ../doc/latex2/requirements.tex; \
 		pdflatex ../doc/latex2/requirements.tex)
 
+testspe/artifacts/testspecification.pdf: artifacts/requirements.pdf
+	cd testspe/ && doit
+
 .PHONY: clean
 clean:
 	rm -f artifacts/req-graph1.png artifacts/req-graph2.png \
@@ -61,6 +64,7 @@ clean:
 		artifacts/requirements.xlsx \
 		add_data.py*
 	rm -fr debian/rmtoo build
+	rm -rf testspe/artifacts
 
 PYSETUP = python setup.py
 
