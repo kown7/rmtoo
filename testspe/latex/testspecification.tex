@@ -1,5 +1,6 @@
 \documentclass{report}
 \usepackage{longtable}
+\usepackage{booktabs}
 \usepackage{graphicx}
 \usepackage[pdfauthor={john doe},%
 pdftitle={Requirment for project},%
@@ -27,7 +28,7 @@ pdftex, bookmarks=true, colorlinks=true]{hyperref}
 \begin{document}
 \thispagestyle{empty}
 
-\title{Requirements Project Name}
+\title{Software Component Test Specification}
 \author{John Doe}
 \date{\today}
 \maketitle
@@ -39,7 +40,6 @@ pdftex, bookmarks=true, colorlinks=true]{hyperref}
 \input{../artifacts/reqtopics.tex}
 
 \appendix
-\chapter{Status}
-\input{../artifacts/reqsprios.tex}
+\input{../artifacts/tracematrix.tex}
 
 \end{document}

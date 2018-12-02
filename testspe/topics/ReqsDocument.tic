@@ -1,4 +1,4 @@
 Name: Software Component Test Specification 
+Text: This document describes the \emph{rmtoo} software components tests performed. The nomenclature follows EN50128.
 IncludeRequirements: full
 SubTopic: XLSXExport
-Text: This document describes the \emph{rmtoo} software components tests performed. The nomenclature follows EN50128.
