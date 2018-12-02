@@ -30,6 +30,9 @@ jobs:
   - script: python -m pip install --upgrade pip && pip install -r requirements.txt
     displayName: 'Install dependencies'
 
+  - script: env; ln -s $SYSTEM_DEFAULTWORKINGDIRECTORY $SYSTEM_DEFAULTWORKINGDIRECTORY/../rmtoo 
+    displayName: 'Setup symlinks'
+
   - script: |
       tox -e ${TOXENV}
     displayName: 'tox/pytest'
