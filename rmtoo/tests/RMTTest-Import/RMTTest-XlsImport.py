@@ -121,7 +121,7 @@ class RMTTestXlsImport:
             importer.run()
 
     def rmttest_set_solvedby(self, dest_dir, record_property):
-        '''Esnure stuff'''
+        '''Ensure stuff'''
         record_property('req', 'Import/XlsDefaultSolvedby-deadbeef')
         tmpdir = dest_dir['requirements_dirs'][0]
 
