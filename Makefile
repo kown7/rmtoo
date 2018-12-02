@@ -51,7 +51,7 @@ artifacts/requirements.pdf: ${REQS_LATEX2} doc/latex2/requirements.tex
 		pdflatex ../doc/latex2/requirements.tex)
 
 testspe/artifacts/testspecification.pdf: artifacts/requirements.pdf
-	cd testspe/ && doit
+	cd testspe/ && RMTOO_CONTRIB_DIR=`pwd`/../../ doit
 
 .PHONY: clean
 clean:

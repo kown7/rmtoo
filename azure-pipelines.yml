@@ -18,7 +18,7 @@ jobs:
         TOXENV: 'py34'
       Python35:
         python.version: '3.5'
-        TOXENV: 'py35,pep8'
+        TOXENV: 'py35,pep8,doc'
     maxParallel: 4
 
   steps:
