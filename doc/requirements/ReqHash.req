@@ -1,7 +1,7 @@
 Name: Requirement's Hash
 Type: requirement
 Invented on: 2018-05-24
-Invented by: nork
+Invented by: kno
 Description: Each requirement \textbf{must} have a hash unique to it's
  relevant properties.
  \begin{itemize}

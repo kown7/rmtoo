@@ -72,7 +72,9 @@
                 ], 
                 "xls": [
                     {
-                        "output_filename": "artifacts/testspecification.xlsx"
+                        "output_filename": "artifacts/testspecification.xlsx",
+                        "template_filename": "import/testspecification-template.xlsx",
+                        "req_sheet": "Specification"
                     }
                 ],
                 "TraceMatrix": [

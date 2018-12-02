@@ -1,7 +1,7 @@
 Name: Status: External
 Type: requirement
 Invented on: 2018-03-22
-Invented by: nork
+Invented by: kno
 Description: The status \textbf{may} be set to \emph{external} when
  the status of this requirement corresponds to its traceability status.
 Rationale: To create traceability a requirement needs to be solved
