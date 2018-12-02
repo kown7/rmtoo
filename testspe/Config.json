@@ -10,6 +10,11 @@
             "requirement_ws": "Specification"
         }
     },
+    "traceability": {
+	"files": {
+	    "UT": ["../rmtoo/result.xml", "xunit"]
+	}
+    },
     "requirements": {
         "input": {
             "commit_interval": {
@@ -59,12 +64,22 @@
                 "LatexJinja2": [
                     {
                         "template_path": "latex/LatexJinja2",
-                        "output_filename": "artifacts/reqtopics.tex"
+                        "output_filename": "artifacts/reqtopics.tex",
+			"req_attributes":
+			["Id", "Priority", "Owner", "Invented on",
+			 "Invented by", "Status", "Class", "Hash"]
                     }
                 ], 
                 "xls": [
                     {
                         "output_filename": "artifacts/testspecification.xlsx"
+                    }
+                ],
+                "TraceMatrix": [
+                    {
+                        "template_path": "latex/LatexJinja2/",
+                        "output_filename": "artifacts/tracematrix.tex",
+                        "input_files": ["UT"]
                     }
                 ],
                 "prios": [

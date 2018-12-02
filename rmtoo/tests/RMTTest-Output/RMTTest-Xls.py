@@ -72,7 +72,8 @@ class RMTTestOutputXls:
         self.oconfig["output_filename"] = self._filename
 
     @pytest.mark.TST101
-    def rmttest_adding_req_header(self):
+    def rmttest_adding_req_header(self, record_property):
+        record_property('req', 'SW-COMP-TST-101-9fe71492')
         xlsh = xh(self._filename, self.oconfig)
         xlsh.write()
 
@@ -87,7 +88,8 @@ class RMTTestOutputXls:
         assert rws['B1'].value == "Name"
 
     @pytest.mark.TST102
-    def rmttest_adding_req(self):
+    def rmttest_adding_req(self, record_property):
+        record_property('req', 'SW-COMP-TST-102-e2fb6ef7')
         xlsh = xh(self._filename, self.oconfig)
         xlsh.add_req(create_req(u'SW-101'))
         xlsh.add_req(create_req(u'SW-102'))
@@ -102,7 +104,8 @@ class RMTTestOutputXls:
         assert rws['A3'].value == "SW-102"
 
     @pytest.mark.TST103
-    def rmttest_adding_req_with_missing_field(self):
+    def rmttest_adding_req_with_missing_field(self, record_property):
+        record_property('req', 'SW-COMP-TST-103-2aec4f4d')
         xlsh = xh(self._filename, self.oconfig)
         req = create_req(u'SW-101')
         del(req.values['Invented by'])
@@ -114,7 +117,8 @@ class RMTTestOutputXls:
             xlsh.add_req(req)
 
     @pytest.mark.TST110
-    def rmttest_adding_topic(self):
+    def rmttest_adding_topic(self, record_property):
+        record_property('req', 'SW-COMP-TST-110-30ae6731')
         xlsh = xh(self._filename, self.oconfig)
         topic_tags = [Mock(**{'get_tag.return_value': "asdf",
                               'get_content.return_value': "qwer"})]
@@ -147,7 +151,8 @@ class RMTTestOutputXlsTemplate:
             LDIR, 'DefaultTemplate.xlsx')
 
     @pytest.mark.TST120
-    def rmttest_adding_req(self):
+    def rmttest_adding_req(self, record_property):
+        record_property('req', 'SW-COMP-TST-120-5e8d5cd1')
         xlsh = xh(self._filename, self.oconfig)
         xlsh.add_req(create_req(u'SW-101'))
         xlsh.add_req(create_req(u'SW-102'))

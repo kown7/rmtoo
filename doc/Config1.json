@@ -25,11 +25,6 @@
             "import_filename": "doc/import/requirements.xlsx"
         }
     },
-    "traceability": {
-	"files": {
-	    "UT": ["rmtoo/result.xml", "xunit"]
-	}
-    },
     "requirements": {
         "input": {
             "default_language": "en_GB", 
