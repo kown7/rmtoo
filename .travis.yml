@@ -17,7 +17,6 @@ install: pip install tox-travis flit
 script:
   - tox
   - tox -e pep8
-  - tox -e doc
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
