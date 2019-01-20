@@ -45,14 +45,16 @@ class RMTTestXlsImport:
               u'requirement_ws': u'Requirements',
               u'topics_sheet': u'Topics'}
 
-    def rmttest_invalid_config_parser(self):
+    def rmttest_invalid_config_parser(self, record_property):
         '''Just figure out where it blows up'''
+        record_property('req', 'SW-COMP-TST-141-deadbeef')
         dest_dirs = {u'requirements_dirs': [Encoding.to_unicode(tmpdir)],
                      u'topics_dirs': [Encoding.to_unicode(tmpdir)]}
         importer = XlsImport({}, dest_dirs)
         assert not importer.useable
 
-    def rmttest_config_run_with_default_cfg(self, dest_dir):
+    def rmttest_config_run_with_default_cfg(self, record_property, dest_dir):
+        record_property('req', 'SW-COMP-TST-142-deadbeef')
         tmpdir = dest_dir['requirements_dirs'][0]
         tmp_fn = os.path.join(tmpdir, 'test-reqs.xlsx')
         config = dict(self.config)
@@ -73,7 +75,8 @@ class RMTTestXlsImport:
         for i in id_occ:
             assert not i
 
-    def rmttest_treat_newlines_correctly(self, dest_dir):
+    def rmttest_treat_newlines_correctly(self, record_property, dest_dir):
+        record_property('req', 'SW-COMP-TST-143-deadbeef')
         tmpdir = dest_dir['requirements_dirs'][0]
 
         config = dict(self.config)
@@ -104,9 +107,9 @@ class RMTTestXlsImport:
                                  get_content_trimmed_with_nl())
         assert parsed_invon == "2010-03-06"
 
-    def rmttest_future_invented_on(self, dest_dir, record_property):
+    def rmttest_future_invented_on(self, record_property, dest_dir):
         '''Ensure future InventedOn are not imported'''
-        record_property('req', 'Import/XlsFutureInventedOn-deadbeef')
+        record_property('req', 'SW-COMP-TST-144-deadbeef')
         tmpdir = dest_dir['requirements_dirs'][0]
 
         lcfg = dict(self.config)
@@ -121,8 +124,8 @@ class RMTTestXlsImport:
             importer.run()
 
     def rmttest_set_solvedby(self, dest_dir, record_property):
-        '''Ensure stuff'''
-        record_property('req', 'Import/XlsDefaultSolvedby-deadbeef')
+        '''Ensure default SolvedBy field.'''
+        record_property('req', 'SW-COMP-TST-145-deadbeef')
         tmpdir = dest_dir['requirements_dirs'][0]
 
         lcfg = dict(self.config)
@@ -138,7 +141,8 @@ class RMTTestXlsImport:
         assert importer._entries[0]['ID'] == 'SW-101'
         assert importer._entries[0]['Solved by'] == 'SW-102 SW-104 SW-105'
 
-    def rmttest_defcfg_import_topics(self, dest_dir):
+    def rmttest_defcfg_import_topics(self, dest_dir, record_property):
+        record_property('req', 'SW-COMP-TST-146-deadbeef')
         tmpdir = dest_dir['requirements_dirs'][0]
         tmp_fn = os.path.join(tmpdir, 'test-reqs.xlsx')
         config = dict(self.config)
