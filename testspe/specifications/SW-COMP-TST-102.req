@@ -1,6 +1,10 @@
 Name: Add Requirement
 Topic: XLSXExport
-Description: Add a requirements after the header line.
+Description: Given a header row, see TST-101.
+  
+  When adding a requirement,
+  
+  Then it shall be in the row following the header row.
 Rationale: Add requirements under the header.
 Status: external
 Owner: qa
