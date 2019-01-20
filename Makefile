@@ -64,7 +64,7 @@ clean:
 		artifacts/requirements.xlsx \
 		add_data.py*
 	rm -fr debian/rmtoo build
-	rm -rf testspe/artifacts
+	rm -rf testspe/artifacts/*
 
 PYSETUP = python setup.py
 
