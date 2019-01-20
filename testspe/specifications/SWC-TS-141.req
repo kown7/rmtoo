@@ -1,0 +1,13 @@
+Name: Test Invalid Configuration
+Topic: XLSXImport
+Description: Given an invalid configuration, e.g., \texttt{\{\}}.
+  
+  When processing the configuration,
+  
+  then it shall be unusable and have no side-effects.
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-13
+Invented by: default
+Type: requirement
