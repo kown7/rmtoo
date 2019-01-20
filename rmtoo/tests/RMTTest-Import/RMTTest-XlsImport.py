@@ -47,14 +47,14 @@ class RMTTestXlsImport:
 
     def rmttest_invalid_config_parser(self, record_property):
         '''Just figure out where it blows up'''
-        record_property('req', 'SW-COMP-TST-141-deadbeef')
+        record_property('req', 'SWC-TS-141-a6d246f4')
         dest_dirs = {u'requirements_dirs': [Encoding.to_unicode(tmpdir)],
                      u'topics_dirs': [Encoding.to_unicode(tmpdir)]}
         importer = XlsImport({}, dest_dirs)
         assert not importer.useable
 
     def rmttest_config_run_with_default_cfg(self, record_property, dest_dir):
-        record_property('req', 'SW-COMP-TST-142-deadbeef')
+        record_property('req', 'SWC-TS-142-41a520cd')
         tmpdir = dest_dir['requirements_dirs'][0]
         tmp_fn = os.path.join(tmpdir, 'test-reqs.xlsx')
         config = dict(self.config)
@@ -76,7 +76,7 @@ class RMTTestXlsImport:
             assert not i
 
     def rmttest_treat_newlines_correctly(self, record_property, dest_dir):
-        record_property('req', 'SW-COMP-TST-143-deadbeef')
+        record_property('req', 'SWC-TS-143-d44bc966')
         tmpdir = dest_dir['requirements_dirs'][0]
 
         config = dict(self.config)
@@ -109,7 +109,7 @@ class RMTTestXlsImport:
 
     def rmttest_future_invented_on(self, record_property, dest_dir):
         '''Ensure future InventedOn are not imported'''
-        record_property('req', 'SW-COMP-TST-144-deadbeef')
+        record_property('req', 'SWC-TS-144-0a3415fb')
         tmpdir = dest_dir['requirements_dirs'][0]
 
         lcfg = dict(self.config)
@@ -125,7 +125,7 @@ class RMTTestXlsImport:
 
     def rmttest_set_solvedby(self, dest_dir, record_property):
         '''Ensure default SolvedBy field.'''
-        record_property('req', 'SW-COMP-TST-145-deadbeef')
+        record_property('req', 'SWC-TS-145-ce68b3e2')
         tmpdir = dest_dir['requirements_dirs'][0]
 
         lcfg = dict(self.config)
@@ -142,7 +142,7 @@ class RMTTestXlsImport:
         assert importer._entries[0]['Solved by'] == 'SW-102 SW-104 SW-105'
 
     def rmttest_defcfg_import_topics(self, dest_dir, record_property):
-        record_property('req', 'SW-COMP-TST-146-deadbeef')
+        record_property('req', 'SWC-TS-146-ef26dc5c')
         tmpdir = dest_dir['requirements_dirs'][0]
         tmp_fn = os.path.join(tmpdir, 'test-reqs.xlsx')
         config = dict(self.config)
