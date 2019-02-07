@@ -10,7 +10,8 @@ six
 jinja2>=2.10
 openpyxl>=2.6.0; python_version != '3.4'
 openpyxl==2.5.14; python_version == '3.4'
-doit-py
+doit==0.29.0; python_version <= '2.7'
+doit-py; python_version >= '3'
 
 tox
 pytest
