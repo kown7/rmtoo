@@ -69,12 +69,6 @@
                         "req_sheet": "Specification"
 		    }
 		],
-                "TraceMatrix": [
-                    {
-                        "template_path": "latex/LatexJinja2",
-                        "output_filename": "artifacts/tracematrix.tex"
-                    }
-                ],
                 "prios": [
                     {
                         "output_filename": "artifacts/reqsprios.tex"
@@ -106,4 +100,3 @@
         }
     }
 }
-j:q
