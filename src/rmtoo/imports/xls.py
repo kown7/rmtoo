@@ -127,8 +127,11 @@ class XlsImport(AbcImports):
             if entry["ID"] not in solved_entries:
                 added_entries.append(entry["ID"])
         if added_entries:
-            entries[0]["Solved by"] = (entries[0]["Solved by"].strip() + " " +
-                                       " ".join(added_entries))
+            if entries[0]["Solved by"]:
+                entries[0]["Solved by"] = (entries[0]["Solved by"].strip()
+                                           + " " + " ".join(added_entries))
+            else:
+                entries[0]["Solved by"] = " ".join(added_entries)
         return entries
 
     def _write_to_files(self, entries, topics):
