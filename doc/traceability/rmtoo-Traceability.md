@@ -74,6 +74,14 @@ Enter the *change request*:
 
 # rmtoo Traceability
 
+## Introduction
+
+* V-Model as reference
+* Directions for Traceability
+    * Forwards
+    * Backward
+
+
 ## Backwards --- Unit-tests
 
 Every specification-item has a name, e.g., ``SWC-TS-102``, and a unique hash (more later). Every unit-test lists the specifications it solves.
@@ -129,6 +137,23 @@ def test_adding_req(self, record_property):
 	* Verification Method (if available)
 * Rationale is only informative
 
+
+## Results
+
+The status *external* will yield the following results:
+
+* *open*
+    * No matching requirement ID
+* *passed*
+    * Matching requirement ID
+	* All hashes match
+	* Unit-tests passed
+* *failed*
+    * Matching requirement ID
+	* Some/all hashes didn't match, or
+	* Unit-tests haven't passed
+
+
 ## Example
 
 From the test specification in *rmtoo's* ``testspe`` folder.
@@ -139,15 +164,25 @@ From the test specification in *rmtoo's* ``testspe`` folder.
 
 ## Future Developements
 
+* An example use-case
+    * MSc Student Anwenden?
+	* sdlc-rmtoo with a GUI?
+	    * Write requirements documents for *sdlc-rmtoo*
+	    * Support multi-document natively
+		* Handle references easily
+		* Display missmatches -> simply updating the the references
 * Write Parser for *Test Reports*
     * Documents with the correct identifier automatically solve the specification
 	* Document Formats:
 	    * docx (maybe with pandoc)
 		* \LaTeX
 * Cross-Document References
-     * *Solved by external*
-	 * *Depends on external*
-	 * Same principle applies
+    * *Solved by external*
+	    * *Solved by* is used in *downwards* direction in the V.
+	    * Only within document at the moment. Makes merging documents easier.
+    * *Depends on external*
+	    * References requirements in other documents, can be with or without hashes.
+		* Think about extending the current *Depends on* handler (deprecated) for use as external (leftwards, upwards) reference.
 
 
 # Excel Support
@@ -175,19 +210,3 @@ At the moment the traceability features haven't been merged. Pull request is pen
 * Never test against your requirements
     * Always write some form of test specification
     * Consider cucumber for acceptance testing
-
-
-## Nucular Bonus Slide
-
-* Being agile and doing Agile is like being your sister and doing your ...
-
-## Pile of burning trash
-
-* Big Bullet Points \href[page=5]{Architects Master Class.pdf}{page 5 ff.}
-
-* Which code has to change?
-    * Whatever your architect tells you to do.
-* Which tests have to change?
-    * The one whose requirements have changed.
-	* Your RM Tool will tell you this
-* Is your traceability matrix correct?
