@@ -23,10 +23,9 @@ jobs:
     - stage: deploy
       python: 3.8
       script: flit build
-
-deploy:
-  provider: pypi
-  username: __token__
-  edge: true # opt in to dpl v2
-  on:
-    tags: true
+      deploy:
+        provider: pypi
+        username: __token__
+        edge: true # opt in to dpl v2
+        on:
+          tags: true
