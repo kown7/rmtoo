@@ -18,3 +18,9 @@ script:
   - tox
   - tox -e pep8
 
+deploy:
+  provider: pypi
+  username: __token__
+  edge: true # opt in to dpl v2
+  on:
+    tags: true
