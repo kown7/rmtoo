@@ -11,12 +11,13 @@ python:
   - "3.8"
 
 # Required to run the respective python env in tox
-install: pip install tox-travis
+install: pip install tox-travis flit
 
 # command to run tests
 script:
   - tox
   - tox -e pep8
+  - flit build
 
 deploy:
   provider: pypi
