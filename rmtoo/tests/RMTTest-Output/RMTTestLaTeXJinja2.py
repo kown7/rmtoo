@@ -33,13 +33,13 @@ class RMTTestOutputLaTeXJinja2(object):
 
     @classmethod
     def setup_class(self):
+        cdir = os.path.dirname(os.path.realpath(__file__))
         self.__tmpdir = create_tmp_dir()
         self.__def_mconfig = {
             "output_filename":
             os.path.join(self.__tmpdir, "TestLateXJinja2Out.tex"),
             "template_path":
-            os.path.join(os.environ['contribdir'],
-                         'latex', 'LatexJinja2')}
+            os.path.join(cdir, 'LatexJinja2')}
 
     @classmethod
     def teardown_class(self):
