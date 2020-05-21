@@ -17,7 +17,10 @@ install: pip install tox-travis flit
 script:
   - tox
   - tox -e pep8
-  - flit build
+
+jobs:
+  include:
+    - flit build
 
 deploy:
   provider: pypi
