@@ -20,7 +20,9 @@ script:
 
 jobs:
   include:
-    - flit build
+    - stage: deploy
+      python: 3.8
+      script: flit build
 
 deploy:
   provider: pypi
