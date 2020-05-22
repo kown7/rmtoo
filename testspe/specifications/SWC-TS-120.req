@@ -1,6 +1,8 @@
 Name: Add Requirement to Template
 Topic: XLSXExport
 Description: Add requirements after header line in template
+  
+  Jerome wants a blue requirement.
 Status: external
 Owner: qa
 Effort estimation: 2
