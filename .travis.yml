@@ -25,6 +25,7 @@ jobs:
       script: flit build
       deploy:
         provider: pypi
+        distributions: -t sdist
         username: __token__
         edge: true # opt in to dpl v2
         on:
