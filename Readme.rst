@@ -136,7 +136,7 @@ To install ``sltoo`` in a virtualenv, execute the following steps:
 
 .. code::
 
-   python3 -m virtualenv
+   python3 -m virtualenv venv
    source venv/bin/activate
    pip install sltoo
 
