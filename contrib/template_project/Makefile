@@ -1,6 +1,6 @@
 .PHONY: all
 .PHONY: all_html
-all: artifacts/requirements.pdf artifacts/req-graph1.png \
+all: artifacts/specification.pdf artifacts/req-graph1.png \
 	artifacts/req-graph2.png all_html
 
 
@@ -19,7 +19,7 @@ force:
 # ie:
 #      make RMTOO_CONFIG=YourConfig.json
 #
-RMTOO_CALL ?= rmtoo
+RMTOO_CALL ?= sltoo
 RMTOO_CONFIG=Config.json
 RMTOO_CONTRIB_DIR ?= /usr/local/pkg/rmtoo/rmtoo
 
@@ -47,7 +47,7 @@ artifacts/req-graph2.png: artifacts/req-graph2.dot
 
 # Two calls are needed: one for the requirments converting and one for
 # backlog creation.
-artifacts/requirements.pdf: ${REQS_LATEX2} latex/requirements.tex
+artifacts/specification.pdf: ${REQS_LATEX2} latex/specification.tex
 	(cd artifacts && \
 	   gnuplot ${RMTOO_CONTRIB_DIR}/contrib/gnuplot_stats_reqs_cnt.inc && \
 	   epstopdf stats_reqs_cnt.eps)
@@ -57,9 +57,9 @@ artifacts/requirements.pdf: ${REQS_LATEX2} latex/requirements.tex
 	(cd artifacts && \
 	   gnuplot ${RMTOO_CONTRIB_DIR}/contrib/gnuplot_stats_sprint_burndown.inc && \
 	   epstopdf stats_sprint_burndown.eps)
-	(cd artifacts && pdflatex ../latex/requirements.tex; \
-		pdflatex ../latex/requirements.tex; \
-		pdflatex ../latex/requirements.tex)
+	(cd artifacts && pdflatex ../latex/specification.tex; \
+		pdflatex ../latex/specification.tex; \
+		pdflatex ../latex/specification.tex)
 
 .PHONY: clean
 clean:

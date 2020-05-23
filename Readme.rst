@@ -136,7 +136,7 @@ To install ``sltoo`` in a virtualenv, execute the following steps:
 
 .. code::
 
-   python3 -m virtualenv
+   python3 -m virtualenv venv
    source venv/bin/activate
    pip install sltoo
 
@@ -176,12 +176,23 @@ A typical workflow is to change or add requirements, topics or the
 configuration in the ``MyNewProject`` directory, run ``make`` again
 and check the artifacts.
 
+The generated Excel file ``artifacts/specification.xlsx`` can be used to
+change the *Topics* and *Requirements*. If the changes are to be incorporated
+into the document simply put the Excel-file into the ``imports`` folder and
+run ``make clean && make``. Do not forget to ``git add`` and commit any
+changes made! To avoid problems with lock-files, copy the
+``artifacts/specification.xlsx`` somwhere else to edit.
+
 
 Release History
 ===================
 
-* 24.3.x
+To avoid conflicts with the original ``rmtoo`` releases, the major-numbers
+will follow the upstream numbers (for now).
 
+* 24.4.0 
+    * Excel import and export
+* 24.3.x
     * Fix tests for `py38`
     * Testing automatic deployment
     * Fixes the issues related to rmtoo, see https://github.com/florath/rmtoo/issues/36
