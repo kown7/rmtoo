@@ -170,7 +170,7 @@ To create all the artifacts for the template project, execute
    make
    ls artifacts
 
-All the generated files are in the artifacts directory.
+All the generated files are in the ``artifacts`` directory.
 
 A typical workflow is to change or add requirements, topics or the
 configuration in the ``MyNewProject`` directory, run ``make`` again
@@ -190,6 +190,8 @@ Release History
 To avoid conflicts with the original ``rmtoo`` releases, the major-numbers
 will follow the upstream numbers (for now).
 
+* 24.5.0
+    * Generate traceability matrix from xunit outputs
 * 24.4.0 
     * Excel import and export
 * 24.3.x
