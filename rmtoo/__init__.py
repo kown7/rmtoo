@@ -9,7 +9,7 @@
  For licensing details see COPYING
 '''
 __all__ = ["inputs", "lib", "tests", "outputs"]
-__version__ = "24.5b1"
+__version__ = "24.5b2"
 
 import os
 filepath = os.path.dirname(os.path.realpath(__file__))
