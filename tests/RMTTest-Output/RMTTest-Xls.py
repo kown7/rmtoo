@@ -11,8 +11,8 @@ except ImportError:
 
 from rmtoo.outputs.xls import XlsHandler as xh
 from rmtoo.lib.Requirement import Requirement
-from rmtoo.tests.lib.Utils import create_tmp_dir, delete_tmp_dir
-from rmtoo.tests.lib.TestConfig import TestConfig
+from Utils import create_tmp_dir, delete_tmp_dir
+from TestConfig import TestConfig
 
 LDIR = os.path.dirname(os.path.abspath(__file__))
 

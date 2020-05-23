@@ -5,7 +5,7 @@ import distutils.file_util
 
 from rmtoo.lib.Import import Import
 from rmtoo.imports.xls import XlsImport
-from rmtoo.tests.lib.Utils import create_tmp_dir, delete_tmp_dir
+from Utils import create_tmp_dir, delete_tmp_dir
 from rmtoo.lib.Encoding import Encoding
 
 LDIR = Encoding.to_unicode(os.path.dirname(os.path.abspath(__file__)))

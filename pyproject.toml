@@ -51,9 +51,10 @@ test = ["pytest", "pytest-cov", "tox", "flake8", "xmldiff==2.4"]
 include = ["contrib/"]
 
 [tool.flit.scripts]
-sltoo = "rmtoo.lib.RmtooMain:main"
+"sltoo" = "rmtoo.lib.RmtooMain:main"
 "sltoo-normalize-dependencies" = "rmtoo.lib.main.NormalizeDependencies:main"
 "sltoo-pricing-graph" = "rmtoo.lib.main.PricingGraph:main"
+"rmtoo" = "rmtoo.lib.RmtooMain:main"
 
 # Stevedore plugins
 [tool.flit.entrypoints."rmtoo.input.plugin"]

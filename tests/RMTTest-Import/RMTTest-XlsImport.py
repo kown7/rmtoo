@@ -8,7 +8,7 @@ import distutils.file_util
 
 from rmtoo.lib.Requirement import Requirement
 from rmtoo.imports.xls import XlsImport
-from rmtoo.tests.lib.Utils import create_tmp_dir, delete_tmp_dir
+from Utils import create_tmp_dir, delete_tmp_dir
 from rmtoo.lib.RMTException import RMTException
 from rmtoo.lib.Encoding import Encoding
 
