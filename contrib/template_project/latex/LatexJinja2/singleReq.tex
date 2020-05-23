@@ -6,9 +6,13 @@
 
 (((description)))
 
+((* if rationale is defined *))
 \textbf{Rationale:} (((rationale)))
+((* endif *))
 
+((* if note is defined *))
 \textbf{Note:} (((note)))
+((* endif *))
 
 ((* if solvedby is defined *)) \textbf{Solved by:}
 ((* for incoming in solvedby *)) \hyperlink{(((incoming)))}{(((incoming)))} ((* endfor *))
