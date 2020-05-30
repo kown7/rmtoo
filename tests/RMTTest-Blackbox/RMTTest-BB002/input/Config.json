@@ -33,12 +33,12 @@
 	    "sources": [
 		[
 		    "git", {
-		        "start_vers": "a92e470b9bdc87673530bbe9cc8a57afe6d832e2", 
-			"end_vers": "bb1ccb2f4e874d82cf679e1c1d135a16d6c99a65", 
-			"requirements_dirs": [ "${ENV:basedir}/input/reqs" ],
-			"topics_dirs": [ "${ENV:basedir}/input/topics"] ,
+		        "start_vers": "45e2c04dc6f624e63e4954cd0613d547ac88c65b",
+			"end_vers": "f7234235ca8cb7054ccec475800c9ca27b5ed2fb",
+			"requirements_dirs": [ "${ENV:rbasedir}/input/reqs" ],
+			"topics_dirs": [ "${ENV:rbasedir}/input/topics"] ,
 			"topic_root_node": "ReqsDocument",
-			"constraints_dirs": [ "${ENV:basedir}/input/topics" ] }
+			"constraints_dirs": [ "${ENV:rbasedir}/input/topics" ] }
 		]
 	    ],
             "output": {
