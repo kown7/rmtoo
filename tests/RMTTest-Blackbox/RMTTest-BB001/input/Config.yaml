@@ -22,12 +22,12 @@ topics:
   ts_common:
     sources:
     - - git
-      - start_vers: a8d5b085caf6f93677ef4c7bd30ad9393059833f
-        end_vers: c35f8e918ab1d05ab3e2ba0be52a3f4092035663
+      - start_vers: 05b7ef5eb82df8b4d2eb26f144b2149840ac8169
+        end_vers: 3df25640ac5e0af0784f2127fcca9d0bdcdf37d4
         requirements_dirs:
-        - "${ENV:basedir}/input/reqs"
+        - "${ENV:rbasedir}/input/reqs"
         topics_dirs:
-        - "${ENV:basedir}/input/topics"
+        - "${ENV:rbasedir}/input/topics"
         topic_root_node: ReqsDocument
         constraints_dirs:
         - "${ENV:basedir}/input/reqs"

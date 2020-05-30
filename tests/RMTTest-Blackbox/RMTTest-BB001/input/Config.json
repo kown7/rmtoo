@@ -33,8 +33,8 @@
 	    "sources": [
 		[
 		    "git", {
-		        "start_vers": "a8d5b085caf6f93677ef4c7bd30ad9393059833f", 
-			"end_vers": "c35f8e918ab1d05ab3e2ba0be52a3f4092035663", 
+		        "start_vers": "b2cac15ada4186eb40be503c22780415e8e785de", 
+			"end_vers": "aea041a402640629c7e9b8930d3a7e819b4acd32", 
 			"requirements_dirs": [ "${ENV:rbasedir}/input/reqs" ],
 			"topics_dirs": [ "${ENV:rbasedir}/input/topics"] ,
 			"topic_root_node": "ReqsDocument",
