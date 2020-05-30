@@ -9,4 +9,4 @@
  For licensing details see COPYING
 '''
 __all__ = ["inputs", "lib", "tests", "outputs"]
-__version__ = "24.5b2"
+__version__ = "24.5b3"
