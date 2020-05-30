@@ -12,6 +12,38 @@ IF YOU WANT TO USE THE NEW FEATURES, PLEASE FIRST READ THE
 DOCUMENTATION (rmtoo-config3(5)).  IF YOU HAVE PROBLEMS WITH THIS
 FEEL FREE TO CONTACT OUR SUPPORT AT rmtoo@florath.net
 
+24.4.1
+======
+
+Internal Changes
+----------------
+
+* Almost entire project is now configured using pyproject.toml file
+* Automatic build and deployment using flit
+
+
+24.4.0
+======
+
+User visible changes
+--------------------
+
+* Excel import and export
+
+24.3.4
+======
+
+User visible changes
+--------------------
+
+* Fixes the issues related to rmtoo, see https://github.com/florath/rmtoo/issues/36
+
+Internal Changes
+----------------
+
+* Fix tests for `py38`
+* Testing automatic deployment
+
 24.X.Y
 ======
 
