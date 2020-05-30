@@ -33,19 +33,19 @@
  	    "sources": [
 		[
 		    "git", {
-		        "start_vers": "v10", 
-			"end_vers": "a437640bddb36d31da1d2298a1810cd441b46e0a", 
+		        "start_vers": "45e2c04dc6f624e63e4954cd0613d547ac88c65b",
+			"end_vers": "f7234235ca8cb7054ccec475800c9ca27b5ed2fb",
 			"requirements_dirs": [ "${ENV:basedir}/input/reqs" ],
 			"topics_dirs": [ "${ENV:basedir}/input/topics"] ,
 			"topic_root_node": "ReqsDocument",
-			"constraints_dirs": [ "../rmtoo/collection/constraints" ] }
+			"constraints_dirs": [ "collection/constraints" ] }
 		],
 	        [
 		    "filesystem", {
-		        "requirements_dirs": [ "${ENV:rbasedir}/input/reqs" ],
-			"topics_dirs": [ "${ENV:rbasedir}/input/topics" ],
+		        "requirements_dirs": [ "${ENV:basedir}/input/reqs" ],
+			"topics_dirs": [ "${ENV:basedir}/input/topics" ],
 			"topic_root_node": "ReqsDocument",
-			"constraints_dirs": [ "../rmtoo/collection/constraints" ] }
+			"constraints_dirs": [ "collection/constraints" ] }
 		]
 	    ],
             "output": {
