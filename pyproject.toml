@@ -100,6 +100,7 @@ include = ["contrib/"]
 "xml1" = "rmtoo.outputs.xml1:Xml1"
 "xls" = "rmtoo.outputs.xls:Xls"
 "xml_ganttproject_2" = "rmtoo.outputs.xml_ganttproject_2:xml_ganttproject_2"
+"TraceMatrix" = "rmtoo.outputs.trace_matrix:TraceMatrix"
 
 [tool.flit.entrypoints."rmtoo.output.markup"]
 "latex" = "rmtoo.lib.Markup:LaTeX"
@@ -110,6 +111,10 @@ include = ["contrib/"]
 "not done" = "rmtoo.lib.RequirementStatus:RequirementStatusNotDone"
 "assigned" = "rmtoo.lib.RequirementStatus:RequirementStatusAssigned"
 "finished" = "rmtoo.lib.RequirementStatus:RequirementStatusFinished"
+"external" = "rmtoo.lib.RequirementStatus:RequirementStatusExternal"
+
+[tool.flit.entrypoints."rmtoo.input.requirement_status_parser"]
+"xunit" = "rmtoo.lib.VerificationStatusParser:VerificationStatusParserXUnit"
 
 [tool.flit.entrypoints."rmtoo.imports.plugin"]
 "xls" = "rmtoo.imports.xls:XlsImport"
