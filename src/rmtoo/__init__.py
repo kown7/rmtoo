@@ -13,7 +13,7 @@ from pathlib import Path
 
 
 __all__ = ["inputs", "lib", "tests", "outputs"]
-__version__ = "25.0.4"
+__version__ = "25.0.4b2"
 
 
 def rmtoo_contrib_dir():
