@@ -1,0 +1,7 @@
+digraph reqdeps {
+rankdir=BT;
+mclimit=10.0;
+nslimit=10.0;ranksep=1;
+"A1" [fontcolor=red,label="A1\n[10.00]"];
+ReqVersion [shape=plaintext label="ReqVersion\nCommit [f7234235ca8cb7054ccec475800c9ca27b5ed2fb] VCS Id [66e59cf55441a241dda96c4e21613517cf247164]"]
+}

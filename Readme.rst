@@ -185,14 +185,9 @@ changes made! To avoid problems with lock-files, copy the
 
 
 Release History
-===================
+===============
 
 To avoid conflicts with the original ``rmtoo`` releases, the major-numbers
 will follow the upstream numbers (for now).
 
-* 24.4.0 
-    * Excel import and export
-* 24.3.x
-    * Fix tests for `py38`
-    * Testing automatic deployment
-    * Fixes the issues related to rmtoo, see https://github.com/florath/rmtoo/issues/36
+See `doc/release_notes` folder for details.
