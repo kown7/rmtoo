@@ -68,7 +68,8 @@ class RMTTestOutputXls:
         self._filename = os.path.join(self.__tmpdir, "reqs.xlsx")
         self.oconfig["output_filename"] = self._filename
 
-    def rmttest_adding_req_header(self):
+    def rmttest_adding_req_header(self, record_property):
+        record_property('req', 'SWC-TS-101-9fe71492')
         xlsh = xh(self._filename, self.oconfig)
         xlsh.write()
 
@@ -82,7 +83,8 @@ class RMTTestOutputXls:
         assert i == 9
         assert rws['B1'].value == "Name"
 
-    def rmttest_adding_req(self):
+    def rmttest_adding_req(self, record_property):
+        record_property('req', 'SWC-TS-102-96ac8522')
         xlsh = xh(self._filename, self.oconfig)
         xlsh.add_req(create_req(u'SW-101'))
         xlsh.add_req(create_req(u'SW-102'))
@@ -96,7 +98,8 @@ class RMTTestOutputXls:
 
         assert rws['A3'].value == "SW-102"
 
-    def rmttest_adding_req_with_missing_field(self):
+    def rmttest_adding_req_with_missing_field(self, record_property):
+        record_property('req', 'SWC-TS-103-2aec4f4d')
         xlsh = xh(self._filename, self.oconfig)
         req = create_req(u'SW-101')
         del(req.values['Invented by'])
@@ -107,7 +110,8 @@ class RMTTestOutputXls:
         with pytest.raises(AssertionError):
             xlsh.add_req(req)
 
-    def rmttest_adding_topic(self):
+    def rmttest_adding_topic(self, record_property):
+        record_property('req', 'SWC-TS-110-6ebfdffe')
         xlsh = xh(self._filename, self.oconfig)
         topic_tags = [Mock(**{'get_tag.return_value': "asdf",
                               'get_content.return_value': "qwer"})]
@@ -139,7 +143,8 @@ class RMTTestOutputXlsTemplate:
         self.oconfig["template_filename"] = os.path.join(
             LDIR, 'DefaultTemplate.xlsx')
 
-    def rmttest_adding_req(self):
+    def rmttest_adding_req(self, record_property):
+        record_property('req', 'SWC-TS-120-5e8d5cd1')
         xlsh = xh(self._filename, self.oconfig)
         xlsh.add_req(create_req(u'SW-101'))
         xlsh.add_req(create_req(u'SW-102'))
