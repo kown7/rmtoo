@@ -14,6 +14,7 @@ from stevedore import extension
 
 from rmtoo.lib.DateUtils import parse_date, format_date
 from rmtoo.lib.RMTException import RMTException
+from rmtoo.lib.VerificationStatusParser import parse_config_with_requirement
 
 
 # pylint: disable=too-few-public-methods
@@ -21,11 +22,21 @@ class RequirementStatusBase(object):
     """Base class for StatusBase"""
 
     __metaclass__ = abc.ABCMeta
+    rid_hash = None
 
     @abc.abstractmethod
     def get_output_string(self):
         """Return the output string"""
         return
+
+    def get_output_string_short(self):
+        """Return short version of the status string
+
+        This is currently only required for the traceability matrix
+        and should be replaced with a call the verification status
+
+        """
+        return self.tval
 
 
 # pylint: disable=abstract-method
@@ -115,6 +126,49 @@ class RequirementStatusFinished(RequirementStatusBaseExt):
         """Generate output string"""
         return "%s (%s, %s, %s h)" % (self.tval, self.get_person(),
                                       self.get_date_str(), self.duration)
+
+
+class RequirementStatusExternal(RequirementStatusBase):
+    """Class representing the StatusExternal
+
+    The status corresponds to the verification status of its
+    requirement.
+
+    """
+    tval = "external"
+    _def_config = {'files': {}}
+    _verification_status = None
+
+    def __init__(self, _config, rid, t):
+        self._rid = rid
+        try:
+            self._tm_config = _config['traceability']
+        except KeyError:
+            self._tm_config = self._def_config
+
+        if t != self.tval:
+            raise RMTException(118, "%s: Not done contains "
+                               "additional data '%s'" % (rid, t))
+
+    def get_output_string_short(self):
+        """Overwrite base, not interested in the class' type."""
+        return self.verification_status.get_output_string_short()
+
+    def get_output_string(self):
+        return self.verification_status.get_output_string()
+
+    @property
+    def verification_status(self):
+        self._parse_status()
+        return self._verification_status
+
+    def _parse_status(self):
+        if self._verification_status is None:
+            if self.rid_hash is not None:
+                self._verification_status = parse_config_with_requirement(
+                    self._rid, self.rid_hash, self._tm_config)
+            else:
+                raise RMTException(119, "No hash available")
 
 
 class RequirementsStatusFactory(object):

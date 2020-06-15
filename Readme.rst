@@ -190,7 +190,7 @@ To create all the artifacts for the template project, execute
    make
    ls artifacts
 
-All the generated files are in the artifacts directory.
+All the generated files are in the ``artifacts`` directory.
 
 A typical workflow is to change or add requirements, topics or the
 configuration in the ``MyNewProject`` directory, run ``make`` again
