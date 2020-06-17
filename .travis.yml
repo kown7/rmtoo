@@ -25,6 +25,9 @@ jobs:
   include:
     - stage: deploy
       python: 3.8
+      env:
+      - FLIT_USERNAME='@token'
+      - FLIT_PASSWORD=$PYPI_PASSWORD
       script:
       - flit build
       deploy:
