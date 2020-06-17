@@ -26,7 +26,7 @@ jobs:
     - stage: deploy
       python: 3.8
       env:
-      - FLIT_USERNAME='@token'
+      - FLIT_USERNAME=__token__
       deploy:
         provider: script
         script: flit publish
