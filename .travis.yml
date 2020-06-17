@@ -25,11 +25,10 @@ jobs:
   include:
     - stage: deploy
       python: 3.8
-      script: flit build
+      script:
+      -	flit build
       deploy:
-        provider: pypi
-        distributions: "sdist bdist_wheel"
-        username: __token__
-        edge: true # opt in to dpl v2
+        provider: script
+	script: flit deploy
         on:
           tags: true
