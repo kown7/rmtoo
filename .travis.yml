@@ -27,9 +27,6 @@ jobs:
       python: 3.8
       env:
       - FLIT_USERNAME='@token'
-      - FLIT_PASSWORD=$PYPI_PASSWORD
-      script:
-      - flit build
       deploy:
         provider: script
         script: flit publish
