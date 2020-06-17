@@ -26,9 +26,9 @@ jobs:
     - stage: deploy
       python: 3.8
       script:
-      -	flit build
+      - flit build
       deploy:
         provider: script
-	script: flit deploy
+        script: flit publish
         on:
           tags: true
