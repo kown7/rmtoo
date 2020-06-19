@@ -1,0 +1,11 @@
+Name: Root Requirement
+Topic: ReqsDocument
+Description: Test all components
+Rationale: Testing software is important
+Status: finished:qa:2018-12-1:1h
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-01
+Invented by: default
+Type: requirement
+Solved by: SWC-TS-100 SWC-TS-140
