@@ -1,0 +1,10 @@
+Name: Missing Requirements Field
+Topic: XLSXExport
+Description: Do not add requirements that have missing required fields.
+Rationale: Do not export broken requirements.
+Status: external
+Owner: qa
+Effort estimation: 2
+Invented on: 2018-12-01
+Invented by: default
+Type: requirement

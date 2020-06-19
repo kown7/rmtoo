@@ -1,0 +1,10 @@
+Name: Add Header
+Topic: XLSXExport
+Description: Test default headers are added to second row of empty sheet.
+Rationale: Default behavior should work with default configuration without template.
+Status: external
+Owner: qa
+Effort estimation: 2
+Invented on: 2018-12-01
+Invented by: default
+Type: requirement

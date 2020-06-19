@@ -1,0 +1,14 @@
+Name: Future InventedOn
+Topic: XLSXImport
+Description: Given a InventedOn date in the xlsx file for any requirement.
+  
+  When processing the requirement,
+  
+  Then an RMTException shall be raised.
+Rationale: Future timestamps won’t be processed with a cryptic error message. It’s better to catch this condition early on.
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-13
+Invented by: default
+Type: requirement

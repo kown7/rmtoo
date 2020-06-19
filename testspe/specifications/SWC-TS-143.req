@@ -1,0 +1,14 @@
+Name: Newline Handling
+Topic: XLSXImport
+Description: Given newlines in the sample input file in the description or rationale field.
+  
+  When processing the input,
+  
+  Then the generated files shall also contain the newlines, i.e. not replaced by space or no character.
+Rationale: Latex needs newlines to display certain things properly.
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-13
+Invented by: default
+Type: requirement
