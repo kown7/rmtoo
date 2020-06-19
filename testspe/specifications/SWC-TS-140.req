@@ -1,0 +1,10 @@
+Name: Test XLSX Imports
+Topic: XLSXImport
+Description: Test XLSX Importer
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-01
+Invented by: default
+Type: requirement
+Solved by: SWC-TS-141 SWC-TS-142 SWC-TS-143 SWC-TS-144 SWC-TS-145 SWC-TS-146 

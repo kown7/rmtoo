@@ -1,0 +1,13 @@
+Name: Default SolvedBy
+Topic: XLSXImport
+Description: Given a requirement has no parent, unless it’s the first.
+  
+  When processing the input file,
+  
+  Then the first requirement is automatically assigned as the parent, i.e., SolvedBy.
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-13
+Invented by: default
+Type: requirement
