@@ -1,0 +1,14 @@
+Name: Test Default Configuration
+Topic: XLSXImport
+Description: Given the default configuration and a sample file \texttt{test-reqs.xlsx}.
+  
+  When processing the input,
+  
+  then the requirements in the sample shall be created. The filename shall not be written as a key or value to the file.
+Rationale: Ensure basic functionality and the default configuration.
+Status: external
+Owner: qa
+Effort estimation: 1
+Invented on: 2018-12-13
+Invented by: default
+Type: requirement
