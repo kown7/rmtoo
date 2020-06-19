@@ -25,11 +25,10 @@ jobs:
   include:
     - stage: deploy
       python: 3.8
-      script: flit build
+      env:
+      - FLIT_USERNAME=__token__
       deploy:
-        provider: pypi
-        distributions: build -h # we dont need it
-        username: __token__
-        edge: true # opt in to dpl v2
+        provider: script
+        script: flit publish
         on:
           tags: true

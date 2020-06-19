@@ -19,6 +19,7 @@ Internal Changes
 ----------------
 
 * Almost entire project is now configured using pyproject.toml file
+* Automatic build and deployment using flit
 
 
 24.4.0
