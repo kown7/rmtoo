@@ -19,44 +19,36 @@
   along with rmtoo.  If not, see <https://www.gnu.org/licenses/>.
 
 
-rmToo
+slToo
 +++++
 
-Open Source Requirements Management Tool
+Open Source Software development Life cycle Tool
 
-.. image:: https://img.shields.io/github/release/florath/rmtoo.svg
-    :target: https://github.com/florath/rmtoo/releases
-.. image:: https://travis-ci.org/florath/rmtoo.svg?branch=master
-    :target: https://travis-ci.org/florath/rmtoo
+.. image:: https://img.shields.io/github/release/kown7/sltoo.svg
+    :target: https://github.com/kown7/sltoo/releases
+.. image:: https://travis-ci.org/kown7/rmtoo.svg?branch=master
+    :target: https://travis-ci.org/kown7/rmtoo
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
     :target: http://www.gnu.org/licenses/gpl-3.0
 .. image:: https://img.shields.io/codecov/c/github/codecov/example-python.svg
-    :target: https://codecov.io/gh/florath/rmtoo
-.. image:: https://img.shields.io/github/downloads/florath/rmtoo/total.svg
-    :target: http://rmtoo.florath.net
-.. image:: https://img.shields.io/pypi/v/rmtoo.svg
-    :target: https://pypi.python.org/pypi/rmtoo
-.. image:: https://img.shields.io/coverity/scan/12488.svg
-    :target: https://scan.coverity.com/projects/rmtoo
-.. image:: https://codeclimate.com/github/florath/rmtoo/badges/gpa.svg
-   :target: https://codeclimate.com/github/florath/rmtoo
-   :alt: Code Climate
-.. image:: https://codeclimate.com/github/florath/rmtoo/badges/coverage.svg
-   :target: https://codeclimate.com/github/florath/rmtoo/coverage
-   :alt: Test Coverage
-.. image:: https://codeclimate.com/github/florath/rmtoo/badges/issue_count.svg
-   :target: https://codeclimate.com/github/florath/rmtoo
-   :alt: Issue Count
+    :target: https://codecov.io/gh/kown7/rmtoo
+.. image:: https://img.shields.io/pypi/v/sltoo.svg
+    :target: https://pypi.python.org/pypi/sltoo
 
 .. COMMENT pypi stats are not working
-.. COMMENT .. image:: https://img.shields.io/pypi/dm/rmtoo.svg
-.. COMMENT    :target: https://pypi.python.org/pypi/rmtoo
-	     
+.. COMMENT .. image:: https://img.shields.io/pypi/dm/sltoo.svg
+.. COMMENT    :target: https://pypi.python.org/pypi/sltoo
+
 Introduction
 ============
 
-This Readme gives a short overview over the available online
-documentation for rmtoo.
+This is a fork of ``rmtoo``. This fork is supposed to offer
+software development life-cycle management SDLC_ options as well, e.g.,
+traceability.
+
+At the moment the only difference is the Excel import and export.
+
+.. _SDLC: https://en.wikipedia.org/wiki/Software_development_process
 
 Content
 =======
@@ -66,56 +58,70 @@ This file contains the following chapters:
 .. contents:: Table of Contents
 
 
-Conventions
-===========
+Overview
+========
 
-``YY``
-  names the version of rmtoo.  You have to replace this with the real
-  version number.
+rmtoo is a free and open source requirements management tool.
 
-``$ cmd``
-  This is a command you have to type in.  The ``$`` is a replacement for
-  the shell prompt - do not enter it as a part of the command.
+rmtoo uses a different approach than most other requirements
+management tools: it comes as a command line tool which is optimized
+for handling requirements. The power of rmtoo lies in the fact that
+the development environment can handle the input and output files -
+there is no need for a special tool set environment.
 
+Example: if you need to handle baselines (and there often is), rmtoo
+can be configured using a revision control system (e.g. git). The
+revision control system can handle different revisions, baselining,
+tagging, branching and many other things extremely well - there is no
+reason to reinvent the wheel and making it less efficient.
 
-Operating System Support
-========================
-
-rmtoo is fully supported under Linux.  Nevertheless, because it is
-written in computer independent programming languages (such as
-python), is also works on other operating systems.
-
-Mac OS X users might want to read ``Readme-OS-X.txt``.
-
-Windows users might want to read the ``Readme-Windows.txt``.
+Let one thing do one thing.
 
 
-Preinstalled VMs
-================
+Unique Feature Set
+------------------
 
-For evaluation proposes and running small projects there is the
-possibility to use Amazon AWS EC2 preinstalled VMs.
+rmtoo fits perfectly in a development environment using text editors
+and command line tools such as emacs, vi, eclipse, make, maven.
 
-More details are available in a dedicated Readme_.
-
-.. _Readme: doc/vmsetup/Readme.rst
+* Use simple text files as input - use your favorite editor
+* Many different output formats and artifacts are supported:
+    * PDF - with links to dependent requirements
+    * HTML - also with links to dependent requirements
+    * Requirements dependency graph
+    * Requirement count history graph
+    * Lists of unfinished requirements including priority and effort
+      estimation, e.g., for use in agile project development
+* Fully integrated revision control system: git. Usages: history,
+  statistics and baseline handling.
+* A topic based output handling provides a common set of files for
+  different types of output (PDF, HTML, ...)
+* Complete support for automatic checking of constraints.
+* Analytics modules: Heuristics help to evaluate the quality of
+  requirements
+* Modules to support commercial biddings based on a given set of
+  requirements
+* Emacs mode files for editing requirements and topics included
+* Experimental output in XML
+* Fully integrated with Makefile handling of all artifacts
+* Fully modular design: additional output requires minimal effort
+* During parsing most common problems are detected: all syntax errors
+  and also many semantic errors.
+* Fully automated test environment - tests about 95% of the code and
+  is shipped with rmtoo packages to check for possible problems in
+  different environments.
 
 
 Installation
 ============
 
-The following sections assume, that you are using Linux.  Please
-refer to the appropriate Readme file for your operating system for
-more information if you do not use Linux.
-
 Dependencies
 ------------
 
-To use rmtoo, other software packages must be installed.
+To use ``sltoo``, other software packages must be installed.
 
-rmtoo is written in python.  At least version 3.5 of python is needed.
-python 3.8 may work, but there is a problem (bug (fix)?) is python 3.8
-which create different XML elements as the previous versions.
+``sltoo`` is written in python.  At least version 3.6 and 3.8 are supported,
+but other versions should work just fine.
 
 When you want to create LaTeX or PDF documentation, LaTeX is needed.
 
@@ -124,164 +130,85 @@ For the requirements dependency graph, graphviz is used.
 For statistics plot gnuplot is used.  For the estimation module the
 python-scipy package is needed.
 
-Typically the packages from your distribution will work.
+Typically the packages from your distribution will work. For Ubuntu the
+following packages are needed:
 
-First Project
--------------
+.. code::
 
-The recommended way of starting is to copy the provided template
-project.
+    sudo apt-get install texlive-font-utils texlive-latex-base \
+    texlive-font-utils graphviz
+    pip3 install unflatten
 
-The basic steps are:
+For Fedora these packets:
 
-1) Copy over the template project to some other directory.
-3) Run ``make``
-4) Check, if everything worked
-5) Start changing / adapting things to your needs
+.. code::
 
-Note that during this document the project will be called
-'MyNewProject'.  Please adapt the name for your needs.
+    sudo dnf install gnuplot texlive-latex texlive-tocloft \
+    texlive-fancyhdr texlive-epstodpf texlive-metafont texlive-mfware
 
 
-Installation using virtualenv / pip
-===================================
+virtualenv / pip
+----------------
 
-This is the preferred installation method - it takes care that
-at least the python dependencies are correctly installed.
+This is the preferred installation method — it takes care of installing the
+python dependencies correctly.
 
-Installation
-------------
+To install ``sltoo`` in a virtualenv, execute the following steps:
 
-To install ``rmtoo`` in a virtualenv, execute the following steps:
+.. code::
 
-.. code:: bash
+   python3 -m virtualenv venv
+   source venv/bin/activate
+   pip install sltoo
 
-   $ mkdir RMTOO
-   $ cd RMTOO
-   $ virtualenv venv
-   $ source venv/bin/activate
-   $ pip install --upgrade pip setuptools wheel
-   $ pip install --only-binary=numpy,scipy numpy scipy
-   $ pip install rmtoo
+This has to be done once.
 
-This has only to be done once.
 
 First Project
 =============
 
-Installation
-------------
+Setup
+-----
 
-Change to a directory where you want to create the new project. This
-is needed only once.
+Change to a directory where you want to create the new project. We assume the
+``virtualenv`` is available is the same directory (this is not necessary).
 
-.. code:: bash
+.. code::
 
-   # cd to virtualenv directory - if not already there
-   $ cd RMTOO
-   $ git clone https://github.com/florath/rmtoo.git
-   $ cp -r rmtoo/doc/template_project MyNewProject
+   git clone git@github.com:kown7/rmtoo.git
+   cp -r rmtoo/contrib/template_project MyNewProject
+
 
 Usage
 -----
 
 To create all the artifacts for the template project, execute
 
-.. code:: bash
+.. code::
 
-   $ cd MyNewProject
-   $ make
-   $ ls artifacts
+   cd MyNewProject
+   make
+   ls artifacts
 
-In the artifacts directory there are all the generated files.
-A typical workflow is, to change or add requirements, topics or the
+All the generated files are in the artifacts directory.
+
+A typical workflow is to change or add requirements, topics or the
 configuration in the ``MyNewProject`` directory, run ``make`` again
 and check the artifacts.
 
-Man Pages
-=========
+The generated Excel file ``artifacts/specification.xlsx`` can be used to
+change the *Topics* and *Requirements*. If the changes are to be incorporated
+into the document simply put the Excel-file into the ``imports`` folder and
+run ``make clean && make``. Do not forget to ``git add`` and commit any
+changes made! To avoid problems with lock-files, copy the
+``artifacts/specification.xlsx`` somwhere else to edit.
 
-When using the virtualenv, use
 
-.. code:: bash
+Release History
+===============
 
-   $ man -l rmtoo/share/man/man7/rmtoo.7
+To avoid conflicts with the original ``rmtoo`` releases, the major-numbers
+will follow the upstream numbers (for now).
 
-to get an overview over all available man pages.
-Those other man pages you can read also with man. Replace the
-file name with the appropriate manual page, like:
-
-.. code:: bash
-
-   $ man -l rmtoo/share/man/man7/rmtoo-analytics.7
-
-Additional Documentation
-------------------------
-
-Additional documentation can be found in the directories
-``RMTOO/rmtoo/doc`` (especially the Readme files).
-
-Other Documentation
-===================
-
-FAQ
----
-Frequently asked questions
-A collection of questions which were ask in the past - including
-the answers.
-
-Presentations
--------------
-There are also two presentations about the design and features of
-rmtoo. Theese presentations can be found in the download section of
-the sourceforge project page.  Please visit the projects home page
-http://rmtoo.florath.net
-
-Readme-Overview.txt
--------------------
-Description of the features of rmtoo.
-
-Readme-Hacking.txt
-------------------
-Small (and yet unfinished) document how to develop functionality
-and modules for rmtoo.
-
-Readme-OS-X.txt
----------------
-Hints for Mac Users.
-
-Readme-Windows.txt
-------------------
-Hints for Windows users.
-
-Readme-RmtooOnRmtoo.txt
------------------------
-Run rmtoo to get the documentation for rmtoo itself.
-
-Readme-GitPython.txt
---------------------
-Some note about the (internal) use of GitPython.
-
-Emacs Mode for Editing Requirements
-===================================
-
-When using the tar package, emacs mode can be loaded in emacs by:
-``M-x load-file``
-point to ``RMTOO/rmtoo/src/rmtoo/contrib/req-mode.el``
-All files with suffix ``.req`` will now use the requirements editing
-mode.
-
-Footer
-======
-
-If you have some problems, remarks or feature request, you're welcome
-to visit the project home page
-
-http://rmtoo.florath.net
-
-| flonatel GmbH & Co. KG
-| Andreas Florath
-| rmtoo@florath.net
-
-(c) 2010-2012,2017,2020 by flonatel GmbH & Co. KG
 For licensing details see COPYING
+See `doc/release_notes` folder for details.
