@@ -8,11 +8,11 @@ build-backend = "flit.buildapi"
 
 [tool.flit.metadata]
 module = "rmtoo"
-dist-name = "rmtoo"
-author = "Andreas Florath"
-author-email = "rmtoo@florath.net"
+dist-name = "sltoo"
+author = "Kristoffer Nordström"
+author-email = "kristoffer@nordstroem.ch"
 description-file = "Readme.rst"
-home-page = "https://github.com/florath/rmtoo"
+home-page = "https://github.com/kown7/rmtoo"
 classifiers=[
     "Development Status :: 6 - Mature",
     "Environment :: Console",
@@ -53,11 +53,11 @@ test = ["pytest", "pytest-cov", "tox", "flake8", "xmldiff==2.4"]
 
 [tool.flit.sdist]
 include = ["contrib/"]
-
 [tool.flit.scripts]
-rmtoo = "rmtoo.lib.RmtooMain:main"
-"rmtoo-normalize-dependencies" = "rmtoo.lib.main.NormalizeDependencies:main"
-"rmtoo-pricing-graph" = "rmtoo.lib.main.PricingGraph:main"
+"sltoo" = "rmtoo.lib.RmtooMain:main"
+"sltoo-normalize-dependencies" = "rmtoo.lib.main.NormalizeDependencies:main"
+"sltoo-pricing-graph" = "rmtoo.lib.main.PricingGraph:main"
+"rmtoo" = "rmtoo.lib.RmtooMain:main"
 
 # Stevedore plugins
 [tool.flit.entrypoints."rmtoo.input.plugin"]
