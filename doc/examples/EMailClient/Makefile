@@ -19,7 +19,7 @@ force:
 # ie:
 #      make RMTOO_CONFIG=YourConfig.json
 #
-RMTOO_CALL ?= rmtoo
+RMTOO_CALL ?= sltoo
 RMTOO_CONFIG=Config.json
 CALL_RMTOO=${RMTOO_CALL} -j file://${RMTOO_CONFIG}
 RMTOO_CONTRIB_DIR ?= $(shell rmtoo-contrib-dir)
