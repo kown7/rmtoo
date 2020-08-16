@@ -101,10 +101,10 @@ class VerificationStatusParserXUnit(object):
         testcases = []
         for i in root.findall(".//properties/property[@name='req']/../.."):
             if i:
-                property_req = i.find("properties/property[@name='req']")
-                req_id = property_req.get('value')
-                if re.match(r"\b" + self._rid + r"\b", req_id):
-                    testcases.append(i)
+                for property_req in i.find("properties/property[@name='req']"):
+                    req_id = property_req.get('value')
+                    if re.match(r"\b" + self._rid + r"\b", req_id):
+                        testcases.append(i)
         return testcases
 
 
