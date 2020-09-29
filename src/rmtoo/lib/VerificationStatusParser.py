@@ -83,25 +83,32 @@ class VerificationStatusParserXUnit(object):
         req_status._raw_results = found_testcases
         req_status.bool_status = True
         for testcase in found_testcases:
-            property_req = testcase.find("properties/property[@name='req']")
-            req_id = property_req.get('value')
-            if self._hash is not None:
-                a = re.match(self._rid + "." + self._hash, req_id)
-                if not a:
-                    req_status.bool_status = False
+            properties_req = testcase.findall(
+                "properties/property[@name='req']")
+            for property_req in properties_req:
+                req_id = property_req.get('value')
+                if not re.match(r"\b" + self._rid + r"\b", req_id):
+                    continue
+                if self._hash is not None:
+                    # Match requirement ID with hash
+                    a = re.match(self._rid + "." + self._hash, req_id)
+                    if not a:
+                        req_status.bool_status = False
             failure = testcase.findall('failure')
             if failure:
                 req_status.bool_status = False
         return req_status
 
     def _parse_xml_node(self):
+        """Return all testcases with matching req property"""
         tree = ET.parse(self._filename)
         root = tree.getroot()
 
         testcases = []
         for i in root.findall(".//properties/property[@name='req']/../.."):
             if i:
-                for property_req in i.find("properties/property[@name='req']"):
+                for property_req in i.findall(
+                        "properties/property[@name='req']"):
                     req_id = property_req.get('value')
                     if re.match(r"\b" + self._rid + r"\b", req_id):
                         testcases.append(i)
