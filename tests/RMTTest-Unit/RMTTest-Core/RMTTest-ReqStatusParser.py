@@ -90,6 +90,16 @@ def rmttest_regression_test_two_req_properties_in_one_test(record_property):
     assert len(ret._raw_results) == 1
 
 
+def rmttest_neg_regression_test_two_req_properties_in_one(record_property):
+    "Test two req-properties in one test-case and wrong hash"""
+    record_property("req", "ReqToBeDefinedEventually")
+    filedir = os.path.dirname(os.path.abspath(__file__))
+    filename = os.path.join(filedir, "RMTTest-ReqStatusParser.simple.xml")
+    ret = parse_file_with_requirement("StatusExternal2", "coffdefa",
+                                      filename, 'xunit')
+    assert not ret
+
+
 def rmttest_negative_test_StatusExternal_deadcoffee_req(record_property):
     "Simple query to xunit output with property req and incorrect hash"
     record_property("req", "ReqToBeDefinedEventually")
