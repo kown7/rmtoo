@@ -136,7 +136,9 @@ following packages are needed:
 .. code::
 
     sudo apt-get install texlive-font-utils texlive-latex-base \
-    texlive-font-utils graphviz
+    texlive-font-utils graphviz gnuplot
+    sudo apt-get -y install texlive-latex-recommended \
+    texlive-pictures texlive-latex-extra
     pip3 install unflatten
 
 For Fedora these packets:
