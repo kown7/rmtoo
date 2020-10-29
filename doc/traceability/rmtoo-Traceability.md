@@ -9,37 +9,57 @@ header-includes: |
 
 # Introduction
 
-## Purpose and Outline
+## *rmtoo*
+
+* File-based requirements tracking tool
+    * one file for each requirement
+    * group requirements by topics
+    * document and requirements \LaTeX based
+* Convert requirements into PDF document
+
+An
+\href{https://github.com/florath/rmtoo/releases/download/v23/rmtooIntroductionV9.pdf}{introduction
+presentation} into *rmtoo*  and with more
+\href{https://github.com/florath/rmtoo/releases/download/v23/rmtooDetailsV5.pdf}{details}.
+
+## Outline
 
 This slideshow provides an overview over the new features not mentioned in the presentation below.
 
-* Provide an introduction into the traceability features
+* Introduction into the traceability features
 * Export and import of *xlsx* files
 * Show missing features and how to solve them
 
-An introduction into *rmtoo* is available \href{https://github.com/florath/rmtoo/releases/download/v23/rmtooIntroductionV9.pdf}{here}
-and in more detail \href{https://github.com/florath/rmtoo/releases/download/v23/rmtooDetailsV5.pdf}{here}.
 
 # Traceability
 
-## The Scenario
+* Traceability for the given requirements 
+* Bring code and documentation into same repository
+* Integrate into build-system
+  * Detect upstream changes to requirements
+  * Quickly identify affected code-regions
+* No silver bullet for verification 
 
-Imagine your customer has provided you with *the perfect* requirements document.
-You've written your code and tests and your traceability matrix is perfect.
+## Scenario
 
-Enter the *change request*:
+The idea for this solution emerged when a requirements document with its
+traceability matrix was finalised. Then the inevitable happened: a change
+request.
 
-* some requirements have changed, and
+* Requirements have changed, and
 * some other code has to be changed as well.
 
-## Your Problems
+## Requirements (I)
+
+The following problems have been solved using *sltoo*
 
 * Keep requirements and code synced
 * Update test specification and keep tests synced
-* Traceability matrix must remain correct
-    * Filled out completely
+  * Detect upstream changes to requirements
+  * Quickly identify affected code-regions
+* Traceability matrix must be correct at any given time
 
-## What you want
+## Requirements (II)
 
 * Code and requirements belong together
     * Same repository
@@ -48,7 +68,7 @@ Enter the *change request*:
 * Unit-tests point to test specification
     * Changes to tests must be reflected in test specification
 	* Manual work
-	* No silver bullet (only golden ones)
+	* No silver bullet
 	* *Backwards* arrow in V-model
 * Changes to test specification must fail CI toolchain
     * For unchanged unit-tests
@@ -56,35 +76,21 @@ Enter the *change request*:
 	* CI tool must validate
 	* *Forwards* arrow in V-model
 
-
-## Available Solutions
-
-* Web based solutions
-    * We've just seperated our requirements from our code
-    * Does it fail your build?
-	    * Probably not and you're late, so ship anyways
-		* you'll be in trouble
-	* Your web-page isn't working in three years when the customer comes around
-* DOORS
-    * They're over there $\rightarrow$
-* Manual Reports
-    * Manually verify a traceability matrix twice and your engineers will use that golden bullet against you.
-	* Processes will not be followed, unless customer insists, e.g., ECSS or EN50128 is required.
-	* YMMV, but questionable correctness
-
-# rmtoo Traceability
+# sltoo Traceability
 
 ## Introduction
 
 * V-Model as reference
 * Directions for Traceability
-    * Forwards
-    * Backward
+    * Forwards (black)
+    * Backward (green)
 
+![Traceability Overview](vmodell-fwdrwd.png)
 
 ## Backwards --- Unit-tests
 
-Every specification-item has a name, e.g., ``SWC-TS-102``, and a unique hash (more later). Every unit-test lists the specifications it solves.
+Every specification-item has a name, e.g., ``SWC-TS-102``, and a unique hash
+(more later). Every unit-test lists the specifications it solves.
 
 The following unit-test will test the aforementioned  *software component test specification* item *102*.
 
@@ -161,16 +167,14 @@ From the test specification in *rmtoo's* ``testspe`` folder.
 ![Traceability Matrix Example](tracemat-example.png)
 
 
+## Example (II)
+
+Example project with versioned documents:
+\href{https://kown7.github.io/pymergevcd/}{pymergevcd}
+
 
 ## Future Developements
 
-* An example use-case
-    * MSc Student Anwenden?
-	* sdlc-rmtoo with a GUI?
-	    * Write requirements documents for *sdlc-rmtoo*
-	    * Support multi-document natively
-		* Handle references easily
-		* Display missmatches -> simply updating the the references
 * Write Parser for *Test Reports*
     * Documents with the correct identifier automatically solve the specification
 	* Document Formats:
@@ -192,6 +196,9 @@ From the test specification in *rmtoo's* ``testspe`` folder.
 * Good-enough GUI
 * Suits love it
 * The *Truth* is still in your repository
+  * Import from Excel to repository
+  * Export every build to a new Excel file
+  * Templating for branding
 
 
 # Final Thoughts
@@ -199,10 +206,10 @@ From the test specification in *rmtoo's* ``testspe`` folder.
 ## Installation
 
 ```bash
-pip3 install git+https://github.com/kown7/rmtoo.git@master
+pip3 install sltoo==24.5b5
 ```
 
-At the moment the traceability features haven't been merged. Pull request is pending.
+Traceability features are in the beta releases.
 
 
 ## Public Service Announcement
