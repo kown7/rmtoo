@@ -10,11 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     env:
       FLIT_USERNAME: '__token__'
+      FLIT_PASSWORD: ${{ secrets.FLIT_PASSWORD }}
 
     steps:
       - uses: actions/checkout@v2
-        with:
-          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
