@@ -15,11 +15,13 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: ${{ matrix.python }}
+          python-version: ${{ matrix.python-version }}
+      - name: Display Python version
+        run: python -c "import sys; print(sys.version)"
       - name: Install Dependencies
         run: |
-          py --version
-          py -m pip install wheel
-          py -m pip install tox
+          python --version
+          python -m pip install wheel
+          python -m pip install tox
       - name: Run Tests
-        run: py -m tox -e py
+        run: python -m tox -e py
