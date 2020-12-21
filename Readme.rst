@@ -26,8 +26,8 @@ Open Source Software development Life cycle Tool
 
 .. image:: https://img.shields.io/github/release/kown7/sltoo.svg
     :target: https://github.com/kown7/sltoo/releases
-.. image:: https://travis-ci.org/kown7/rmtoo.svg?branch=master
-    :target: https://travis-ci.org/kown7/rmtoo
+.. image:: https://github.com/kown7/rmtoo/workflows/build/badge.svg?branch=master
+    :target: https://github.com/kown7/rmtoo/actions?query=workflow%3Abuild
 .. image:: https://img.shields.io/badge/License-GPL%20v3-blue.svg
     :target: http://www.gnu.org/licenses/gpl-3.0
 .. image:: https://img.shields.io/codecov/c/github/codecov/example-python.svg

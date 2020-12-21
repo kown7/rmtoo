@@ -1,0 +1,39 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2020  GitHub, Inc. and contributors
+# see https://github.com/actions/starter-workflows/
+#
+# vim: set filetype=yaml ts=2 sts=2 sw=2 expandtab
+
+name: build
+on: [push]
+
+jobs:
+  tests:
+    runs-on: ubuntu-latest
+    env:
+      USING_COVERAGE: '3.8'
+    strategy:
+      matrix: 
+        python-version: [3.6, 3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Install Dependencies
+        run: |
+          python --version
+          python -m pip install wheel
+          python -m pip install tox
+          python -m pip install tox-gh-actions
+      - name: Run Tests
+        run: python -m tox
+      - name: "Upload coverage to Codecov"
+        if: "contains(env.USING_COVERAGE, matrix.python-version)"
+        uses: "codecov/codecov-action@v1"
+        with:
+          fail_ci_if_error: true
