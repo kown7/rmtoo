@@ -27,9 +27,6 @@ jobs:
           python --version
           python -m pip install wheel
           python -m pip install tox
+          python -m pip install tox-gh-actions
       - name: Run Tests
-        run: python -m tox -e py
-      - name: Linters
-        with:
-          python-version: 3.8
-        run: python -m tox -e pep8,doc  # tox --listenvs
+        run: python -m tox
