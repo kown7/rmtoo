@@ -1,3 +1,7 @@
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2020  GitHub, Inc. and contributors
+# see https://github.com/actions/starter-workflows/
+#
 # vim: set filetype=yaml ts=2 sts=2 sw=2 expandtab
 
 name: sltoo workflows
@@ -12,12 +16,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      - name: Display Python version
-        run: python -c "import sys; print(sys.version)"
       - name: Install Dependencies
         run: |
           python --version
