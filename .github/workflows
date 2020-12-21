@@ -1,0 +1,22 @@
+# vim: set filetype=yaml ts=2 sts=2 sw=2 expandtab
+
+name: sltoo workflows
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix: 
+        python-version: [3.6, 3.8]
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Setup Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: ${{ matrix.python }}
+      - name: Install Dependencies
+        run: pip install tox
+      - name: Run Tests
+        run: tox -e py
