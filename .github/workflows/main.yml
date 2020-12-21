@@ -17,6 +17,8 @@ jobs:
         with:
           python-version: ${{ matrix.python }}
       - name: Install Dependencies
-        run: pip install tox
+        run: |
+          pip install wheel
+          pip install tox
       - name: Run Tests
         run: tox -e py
