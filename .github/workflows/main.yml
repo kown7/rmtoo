@@ -21,4 +21,4 @@ jobs:
           pip install wheel
           pip install tox
       - name: Run Tests
-        run: tox -e py
+        run: python -m tox -e py
