@@ -6,10 +6,8 @@ under Mac OS X.
 
 Some hints:
 
-o macports is needed
-
-o sudo port install texlive-fontutils gnuplot
-
-o sudo port install texlive
+* macports is needed
+* sudo port install texlive-fontutils gnuplot
+* sudo port install texlive
 
 

@@ -1,3 +1,5 @@
+Warning: this information is deprecated.
+
 Starting with rmtoo version 11, git-python is shipped with rmtoo.  The
 API of git-python is changing rapidly - there are currently three
 different APIs out there.  As soon as the change rate settles, the

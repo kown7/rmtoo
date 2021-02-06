@@ -1,4 +1,9 @@
---- Overview ---
+---
+title: README
+---
+
+
+# Overview
 
 rmtoo is a free and open source requirements management tool.
 
@@ -17,37 +22,48 @@ reason to reinvent the wheel and making it less efficient.
 Let one thing do one thing.
 
 
---- Unique Feature Set ---
+## Read-Me
+
+The following `README` are available from the original repository
+
+* [Readme-GitPython](readme/Readme-GitPython)
+* [Readme-Hacking](readme/Readme-Hacking)
+* [Readme-OS-X](readme/Readme-OS-X)
+* [Readme-RmtooOnRmtoo](readme/Readme-RmtooOnRmtoo)
+* [Readme-Windows](readme/Readme-Windows)
+
+# Unique Feature Set
 
 rmtoo fits perfectly in a development environment using text editors
 and command line tools such as emacs, vi, eclipse, make, maven. 
 
-o Use simple text files as input - use your favorite editor
-o Many different output formats and artifacts are supported:
+* Use simple text files as input - use your favorite editor
+* Many different output formats and artifacts are supported:
   * PDF - with links to dependent requirements
   * HTML - also with links to dependent requirements
   * Requirements dependency graph
   * Requirement count history graph
   * Lists of unfinished requirements including priority and effort
     estimation - e.g. for use in agile project development 
-o Fully integrated revision control system: git. Usages: history,
+* Fully integrated revision control system: git. Usages: history,
   statistics and baseline handling. 
-o A topic based output handling provides a common set of files for
+* A topic based output handling provides a common set of files for
   different types of output (PDF, HTML, ...) 
-o Complete support for automatic checking of constraints.
-o Analytics modules: Heuristics help to evaluate the quality of
+* Complete support for automatic checking of constraints.
+* Analytics modules: Heuristics help to evaluate the quality of
   requirements 
-o Modules to support commercial biddings based on a given set of
+* Modules to support commercial biddings based on a given set of
   requirements 
-o Emacs mode files for editing requirements and topics included
-o Experimental output in XML
-o Fully integrated with Makefile handling of all artifacts
-o Fully modular design: additional output requires minimal effort
-o During parsing most common problems are detected: all syntax errors
+* Emacs mode files for editing requirements and topics included
+* Experimental output in XML
+* Fully integrated with Makefile handling of all artifacts
+* Fully modular design: additional output requires minimal effort
+* During parsing most common problems are detected: all syntax errors
   and also many semantic errors. 
-o Fully automated test environment - tests about 95% of the code and
+* Fully automated test environment - tests about 95% of the code and
   is shipped with rmtoo packages to check for possible problems in
   different environments. 
 
 rmtoo is not a fully integrated, tries-to-do-everything tool with a
 colorful GUI or different database backends. 
+
