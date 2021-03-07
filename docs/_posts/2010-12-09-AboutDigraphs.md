@@ -1,10 +1,8 @@
-
-How To: About Digraphs
-======================
-
-Date:   2010-12-09
-Author: Andreas Florath <rmtoo@florath.net>
-
+---
+title: "How To: About Digraphs"
+date: 2010-12-09
+author: Andreas Florath <rmtoo@florath.net>
+---
 
 Status
 ------
@@ -55,36 +53,36 @@ Pros and Cons
 
 A list of pros and cons is therefore needed about possible solutions: 
 
-Outgoing Only
-.............
+## Outgoing Only
+
 (The way topics are currently implemented.)
-++ Goto (instead of come-from) thinking
-+  No need to change a solution when it is used in another context
-+  Typical way of thinking (at least for me)
-+  Problem and Solution in one file 
-+  Give the customer what he needs
+* ++Goto (instead of come-from) thinking
+* +No need to change a solution when it is used in another context
+* +Typical way of thinking (at least for me)
+* +Problem and Solution in one file 
+* +Give the customer what he needs
 
 
-Incoming Only
-.............
+## Incoming Only
+
 (The way requirements are currently implemented.)
 ? 
 
 
-Incoming and Outgoing Mixed
-...........................
-+  Different projects can use different ways of description
+## Incoming and Outgoing Mixed
+
+* +Different projects can use different ways of description
    dependencies 
--  Not consistent: a member of one team may be confused
+* -Not consistent: a member of one team may be confused
    working on requirements from another team.
--  Give the customer what he wants
+* -Give the customer what he wants
 
 
-Sepatate Data Structure for edges
-.................................
+## Sepatate Data Structure for edges
+
 (Idea: Have a description for edges - separated from the nodes.) 
-++ Relations can be changed without changing the content (nodes).
--  Need for additional files / descriptions
+* ++Relations can be changed without changing the content (nodes).
+* -Need for additional files / descriptions
 
 
 Solution
