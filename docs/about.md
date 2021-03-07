@@ -21,3 +21,4 @@ reason to reinvent the wheel and making it less efficient.
 
 Let one thing do one thing.
 
+See the [release notes](../release_notes/) for the release history.
