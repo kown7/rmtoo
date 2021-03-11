@@ -1,6 +1,10 @@
-This file is not completed now - and never might be in the future.
+---
+no_header: true
+---
 
 # Development Environment
+
+This file is not completed now - and never might be in the future.
 
 ## Tools
 
