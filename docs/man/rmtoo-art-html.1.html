@@ -1,0 +1,182 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:16 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-art-html</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-art-html</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#HEADER">HEADER</a><br>
+<a href="#MIDDLE PART">MIDDLE PART</a><br>
+<a href="#FOOTER">FOOTER</a><br>
+<a href="#CSS">CSS</a><br>
+<a href="#CONFIGURATION">CONFIGURATION</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-art-html
+- requirements management tool: html artifact</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> requirment management tool is able to output
+one topic and all possible subtopics including the
+containing requirements as a set of HTML documents.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Each HTML page
+is generated out of three parts: a header, a middle part and
+a footer. The header and footer are files which are copied
+into each HTML page and are the same for all pages. The
+middle part is automatically generated.</p>
+
+<h2>HEADER
+<a name="HEADER"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The header must
+include the whole HTML header including the opening html,
+full head and opening body tags.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The header may
+also contain the definitions for the css tags which are used
+in the middle part. See section <b>CSS</b> for more
+details.</p>
+
+<h2>MIDDLE PART
+<a name="MIDDLE PART"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The middle part
+is automatically generated. The topic description is used as
+a base for layout, text and requirements.</p>
+
+<h2>FOOTER
+<a name="FOOTER"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The footer can
+contain arbritary HTML code. It is copied to the end of each
+page. At least closing body and html tags must be
+included.</p>
+
+<h2>CSS
+<a name="CSS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Mostly each
+element in a requirement has a separate CSS class. Therefore
+it is possible to format mostly every single bit of a
+requirement output as wanted. Please consult
+<i>doc/html/header.html</i> for an example. Here is a list
+of all special <b>rmtoo</b> CSS classes used by the
+requirements output. Of course additional standard CSS
+classes or attributes (like h1, h2, a and so on) can be
+defined.</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="9%">
+
+
+<p><b>fltext</b></p></td>
+<td width="2%"></td>
+<td width="78%">
+
+
+<p>The floating text which is specified in the <i>Text:</i>
+tag in the topic description.</p></td></tr>
+</table>
+
+<p style="margin-left:11%;"><b>requirment_end</b></p>
+
+<p style="margin-left:22%;">A separator can be defined
+here. This ends up a requirement.</p>
+
+<p style="margin-left:11%;"><b>dlt_&lt;name&gt;</b></p>
+
+<p style="margin-left:22%;">The tag (key) of mostly all
+requirements keys can be defined. Example:
+dlt_description</p>
+
+<p style="margin-left:11%;"><b>dlv_&lt;name&gt;</b></p>
+
+<p style="margin-left:22%;">The tag (key) of mostly all
+requirements keys can be defined. Example:
+dlv_description</p>
+
+<h2>CONFIGURATION
+<a name="CONFIGURATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">To configure
+HTML output, three mandatory fields are needed: <b><br>
+output_directory</b> output directory of the HTML files.
+<b><br>
+header</b> HTML header file name. <b><br>
+footer</b> HTML footer file name.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#NOTE">NOTE</a><br>
+<a href="#IDEA">IDEA</a><br>
+<a href="#IMPLEMENTATION">IMPLEMENTATION</a><br>
+<a href="#CONFIGURATION">CONFIGURATION</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-analytics
+- requirements management tool: analytics modules</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> package can check some different aspects of
+requirements properties. The tool has some built in
+heuristics to decide if a requirement or topic is a
+<i>good</i> or a <i>bad</i> one.</p>
+
+<h2>NOTE
+<a name="NOTE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>The
+analytics modules must be seen as alpha. A lot of research
+and statistics must be done to get a stable and usable
+version of the analytics modules.</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">Nevertheless
+the currently implemented measurements and heuristics may
+lead to hints for better requirements and topics.</p>
+
+<h2>IDEA
+<a name="IDEA"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">It is mostly
+impossible to decide whether a requirement is a good one. A
+lot of things must be known; mostly even the expertise in
+the described topic is needed for a decision.</p>
+
+<p style="margin-left:11%; margin-top: 1em">But it is often
+easy to decide, that a requirement is a bad one. Bad
+requirements contain words like <i>approximately</i> or
+<i>perhaps</i>. Even words like <i>or</i> or <i>and</i>
+typically render a requirement as bad. A requirements which
+is longer than some ten words or than one sentence is
+typically also not a good requirement.</p>
+
+<h2>IMPLEMENTATION
+<a name="IMPLEMENTATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The analytics
+modules are called after the requirements and topics are
+read in and parsed. It is configurable if <b>rmtoo</b>
+should stop if it finds problems or not.</p>
+
+<h2>CONFIGURATION
+<a name="CONFIGURATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<i>analytics</i> configuration entry is responsible for
+handling the analytics modules. It is a dictionary.</p>
+
+<p style="margin-left:11%; margin-top: 1em">All analytic
+modules work on one all topic sets (see
+<b>rmtoo-config(5)</b> for more details). All analytic
+modules also work on one set of topics.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration key <i>stop_on_errors</i> specifies if
+<b>rmtoo</b> should stop when a possible problem was
+detected.</p>
+
+<p style="margin-left:11%; margin-top: 1em">It might be
+possible that analytic modules support other configuration
+options. Please consult the appropriate man pages.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Example
+specification section:</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">&quot;processing&quot;:
+{ <br>
+&quot;analytics&quot;: { <br>
+&quot;stop_on_errors&quot;: false <br>
+} <br>
+}</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

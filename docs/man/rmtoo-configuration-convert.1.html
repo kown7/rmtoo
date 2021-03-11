@@ -1,0 +1,139 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-configuration-convert</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-configuration-convert</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#RETURN">RETURN</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-configuration-convert
+- requirements management tool: convert configuration
+version 1 to version 2</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo-configuration-convert
+-f</b> <i>cfgfile</i> <b>[-h] [-m</b> <i>moduledir]</i>
+<b>[-j</b> <i>JSON file / construct]</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This tools
+converts an old configuration into a new one. Additionally
+it is possible to add / overwrite values with the new JSON
+mechanism.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The new
+configuration is printed out on stdout.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Note:</b>
+Typically there is the need to edit the newly generated file
+and change some (default) values.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>-f</b>
+<i>CONFIG_FILE</i>,
+<b>--file-config</b>=<i>CONFIG_FILE</i></p>
+
+<p style="margin-left:22%;">The old configuration file.</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">Display a short usage help.</p>
+
+<p style="margin-left:11%;"><b>-m</b>
+<i>MODULES_DIRECTORY</i>,
+<b>--modules-directory</b>=<i>MODULES_DIRECTORY</i></p>
+
+<p style="margin-left:22%;">The directory where the rmtoo
+modules can be found. When the program was installed by
+standard system routines (e.g. as a deb or a rpm package)
+this option is not necessary. When using rmtoo from the
+repository or from a release tar ball this must point to the
+main directory.</p>
+
+<p style="margin-left:11%;"><b>-j</b>
+<i>file://json_file</i>, <b>-j</b> son_expression</p>
+
+<h2>RETURN
+<a name="RETURN"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo-configuration-convert</b>
+returns 0 when all commands are successfully completed and a
+value not equal 0 when there was a problem.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2011 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

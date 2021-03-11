@@ -35,6 +35,7 @@ The following `README` are available from the original repository
 
 There's also a [Roadmap](readme/roadmap)
 
+
 # Unique Feature Set
 
 rmtoo fits perfectly in a development environment using text editors
@@ -70,3 +71,41 @@ and command line tools such as emacs, vi, eclipse, make, maven.
 rmtoo is not a fully integrated, tries-to-do-everything tool with a
 colorful GUI or different database backends. 
 
+
+## Man Pages
+
+The man pages have been converted to HTML files for the reader's convenience.
+
+[rmtoo-analytics-descwords.7.html](man/rmtoo-analytics-descwords.7.html)\
+[rmtoo-analytics-hotspot.7.html](man/rmtoo-analytics-hotspot.7.html)\
+[rmtoo-analytics-req-topic-coherence.7.html](man/rmtoo-analytics-req-topic-coherence.7.html)\
+[rmtoo-analytics-topic-coherence.7.html](man/rmtoo-analytics-topic-coherence.7.html)\
+[rmtoo-analytics.7.html](man/rmtoo-analytics.7.html)\
+[rmtoo-art-html.1.html](man/rmtoo-art-html.1.html)\
+[rmtoo-art-latex2.1.html](man/rmtoo-art-latex2.1.html)\
+[rmtoo-art-oopricing.1.html](man/rmtoo-art-oopricing.1.html)\
+[rmtoo-art-prio-lists.1.html](man/rmtoo-art-prio-lists.1.html)\
+[rmtoo-art-req-dep-graph.1.html](man/rmtoo-art-req-dep-graph.1.html)\
+[rmtoo-art-req-dep-graph2.1.html](man/rmtoo-art-req-dep-graph2.1.html)\
+[rmtoo-art-reqs-history-cnt.1.html](man/rmtoo-art-reqs-history-cnt.1.html)\
+[rmtoo-art-stats-burndown1.1.html](man/rmtoo-art-stats-burndown1.1.html)\
+[rmtoo-art-stats-sprint-burndown1.1.html](man/rmtoo-art-stats-sprint-burndown1.1.html)\
+[rmtoo-art-tlp1.1.html](man/rmtoo-art-tlp1.1.html)\
+[rmtoo-art-version1.1.html](man/rmtoo-art-version1.1.html)\
+[rmtoo-art-xml-ganttproject2.1.html](man/rmtoo-art-xml-ganttproject2.1.html)\
+[rmtoo-art-xml1.1.html](man/rmtoo-art-xml1.1.html)\
+[rmtoo-config1.5.html](man/rmtoo-config1.5.html)\
+[rmtoo-config2.5.html](man/rmtoo-config2.5.html)\
+[rmtoo-config3.5.html](man/rmtoo-config3.5.html)\
+[rmtoo-config4.5.html](man/rmtoo-config4.5.html)\
+[rmtoo-configuration-convert.1.html](man/rmtoo-configuration-convert.1.html)\
+[rmtoo-constraints.5.html](man/rmtoo-constraints.5.html)\
+[rmtoo-emacs-mode-req.7.html](man/rmtoo-emacs-mode-req.7.html)\
+[rmtoo-invoking.1.html](man/rmtoo-invoking.1.html)\
+[rmtoo-normalize-dependencies.1.html](man/rmtoo-normalize-dependencies.1.html)\
+[rmtoo-pricing-graph.1.html](man/rmtoo-pricing-graph.1.html)\
+[rmtoo-req-format.5.html](man/rmtoo-req-format.5.html)\
+[rmtoo-template-project.1.html](man/rmtoo-template-project.1.html)\
+[rmtoo-testcase-format.5.html](man/rmtoo-testcase-format.5.html)\
+[rmtoo-topic-format.5.html](man/rmtoo-topic-format.5.html)\
+[rmtoo.7.html](man/rmtoo.7.html)

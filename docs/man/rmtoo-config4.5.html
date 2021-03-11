@@ -1,0 +1,507 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-config</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-config</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#DETAILS">DETAILS</a><br>
+<a href="#LOGGING DETAILS">LOGGING DETAILS</a><br>
+<a href="#REQUIREMENTS DETAILS">REQUIREMENTS DETAILS</a><br>
+<a href="#TOPICS DETAILS">TOPICS DETAILS</a><br>
+<a href="#SOURCES">SOURCES</a><br>
+<a href="#OUTPUT">OUTPUT</a><br>
+<a href="#HISTORY">HISTORY</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-config -
+requirements management tool configuration file version
+4</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo</b>
+needs some information to work, like input directories and
+which artifacts should be created. This information is
+stored in one or more configuratio files.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The format of
+the configuration files is <b>YAML.</b> As alternative the
+same information can be provided also as <b>JSON.</b> Please
+see the <b>rmtoo-config3</b> man page for details.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+example is the configuration file for the <b>rmtoo</b>
+requirements management tool.</p>
+
+<p style="margin-left:11%; margin-top: 1em">In the example,
+three different sets of documents (output artifacts) will be
+created: one document set containing prios, graph, stats,
+latex2 and html e.g. for internal use is called
+<i>all_topics</i>. One document for marketing which contains
+the latex2 document and the requirements dependency graph
+called <i>marketing_topic</i>. One document for a customer
+which uses a separate set of requirements. This is called
+<i>customer_topic</i>.</p>
+
+<p style="margin-left:22%; margin-top: 1em">--- <br>
+global: <br>
+modules: <br>
+directories: <br>
+- &quot;.&quot; <br>
+logging: <br>
+stdout: <br>
+loglevel: debug <br>
+tracer: <br>
+loglevel: debug <br>
+filename: &quot;./rmtoo.log&quot; <br>
+processing: <br>
+analytics: <br>
+stop_on_errors: false <br>
+requirements: <br>
+input: <br>
+default_language: en_GB <br>
+dependency_notation: <br>
+- Solved by <br>
+inventors: <br>
+- flonatel <br>
+stakeholders: <br>
+- development <br>
+- management <br>
+- users <br>
+- customers <br>
+topics: <br>
+ts_common: <br>
+sources: <br>
+- - git <br>
+- start_vers: v9 <br>
+end_vers: v11 <br>
+requirements_dirs: <br>
+- doc/requirements <br>
+topics_dirs: <br>
+- doc/topics <br>
+topic_root_node: ReqsDocument <br>
+constraints_dirs: <br>
+- rmtoo/collection/constraints <br>
+- - git <br>
+- start_vers: v13 <br>
+end_vers: v17 <br>
+requirements_dirs: <br>
+- doc/requirements <br>
+topics_dirs: <br>
+- doc/topics <br>
+topic_root_node: ReqsDocument <br>
+constraints_dirs: <br>
+- rmtoo/collection/constraints <br>
+- - filesystem <br>
+- requirements_dirs: <br>
+- doc/requirements <br>
+testcases_dirs: <br>
+- doc/testcases <br>
+topics_dirs: <br>
+- doc/topics <br>
+topic_root_node: ReqsDocument <br>
+constraints_dirs: <br>
+- rmtoo/collection/constraints <br>
+output: <br>
+graph: <br>
+- output_filename: artifacts/req-graph1.dot <br>
+graph2: <br>
+- output_filename: artifacts/req-graph2.dot <br>
+html: <br>
+- footer: doc/html/footer.html <br>
+header: doc/html/header.html <br>
+output_directory: artifacts/html <br>
+latex2: <br>
+- output_filename: artifacts/reqtopics.tex <br>
+oopricing1: <br>
+- output_filename: artifacts/reqspricing <br>
+prios: <br>
+- output_filename: artifacts/reqsprios.tex <br>
+start_date: &rsquo;2011-04-25&rsquo; <br>
+stats_burndown1: <br>
+- output_filename: artifacts/stats_burndown.csv <br>
+start_date: &rsquo;2011-04-25&rsquo; <br>
+stats_reqs_cnt: <br>
+- output_filename: artifacts/stats_reqs_cnt.csv <br>
+tlp1: <br>
+- output_filename: artifacts/reqdeps1.tlp <br>
+version1: <br>
+- output_filename: artifacts/reqs-version.txt</p>
+
+<h2>DETAILS
+<a name="DETAILS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The file must
+contain a map (dictionary) as the top level element. Valid
+keys for the top level map are: <i>global</i>,
+<i>processing</i>, <i>requirements</i>, <i>topics</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>global</b>
+<br>
+There are two possible entries in the <i>global</i> map:
+<i>modules</i> and <i>logging</i>. The only available entry
+in the <i>modules</i> map is <i>directories</i>. The value
+must be a list of directories where modules are searched.
+Details about configuration the logging can be found in the
+section <b>LOGGING DETAILS</b>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>processing</b>
+<br>
+The only available entry in the <i>processing</i> map is
+<i>analytics</i>. The only available entry in the
+<i>analytics</i> map is <i>stop_on_errors</i>. The value
+must be a boolean which reflects if <b>rmtoo</b> should stop
+on errors or not.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>requirements</b>
+<br>
+There are three possible values in the <i>requirements</i>
+map: <i>input</i>, <i>inventors</i> and <i>stakeholders</i>.
+Please see chapter <b>REQUIREMENTS DETAILS</b>.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>topics</b>
+<br>
+The configuration parameter <i>topics</i> is a map. The key
+is the name with which the entry can be referenced. For a
+description about the details, please see chapter <b>TOPICS
+DETAILS</b>.</p>
+
+<h2>LOGGING DETAILS
+<a name="LOGGING DETAILS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">There are two
+logging streams which can be configured seperately: one is
+the stdout stream and the other is a file. All log messages
+are sent to both strams. With the help of the configuration
+it is possible to filter out only those which may be of some
+interest.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Configuring the
+stdout, the key must be <b>stdout</b>. The value must be a
+map with the entry <b>loglevel</b>. The value of the
+loglevel must be one of &rsquo;debug&rsquo;,
+&rsquo;info&rsquo;, &rsquo;warn&rsquo;,
+&rsquo;error&rsquo;.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration for the file logging is very similar. The key
+is <b>tracer</b>. It also supports the <b>loglevel</b> entry
+which is described under stdout. There can be an additional
+entry called <b>filename</b> which is the name of the file
+where everything should be logged to.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Please note:
+due to the fact that the logging can be configured, reading
+in the configuration is logged with the default logging
+values.</p>
+
+<h2>REQUIREMENTS DETAILS
+<a name="REQUIREMENTS DETAILS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The input
+section defines properties of the requirement input format
+handling. Possible values are <i>default_language</i>,
+<i>dependency_notation</i>, or <i>txtfile</i>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>default_language</b>
+The paramter <i>default_language</i> specifies the language
+in which the requirements are written. This must be a
+standard language specifier like <i>en_GB</i> or
+<i>de_DE</i>. Please consult the
+<b>rmtoo-analytics-descwords(7)</b> man page for the list of
+available languages.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>dependency_notation</b>
+The parameter <i>dependency_notation</i> determines the way
+dependencies are specified. There are two ways how
+requirements can be specified: <i>Depends on</i> and
+<i>Solved by</i>. The last one is the preferred way of
+specifying dependencies - but the first is the old and
+default one. Therefore it is recommended to set the value to
+<i>Solved by</i> only.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>txtfile</b>
+This defines limitations while parsing the text file. By
+default for all different types of input, the maximum length
+of a line is 80. To change this, add the type (e.g.
+&rsquo;reqtag&rsquo; for requirments or &rsquo;ctstag&rsquo;
+for constraints). This map can contain the entry
+<i>max_line_length</i> which can be set to the new maximum
+line length.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>inventors</b>
+<br>
+This must be a list of string specifying inventors.
+Inventors can invent a requirement. Tags: <i>Invented
+by</i>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>stakeholders</b>
+<br>
+This must be a list of strings specifying the stakeholders.
+Stakeholders can own a and prioritize a requirement. Tags:
+<i>Owner</i> and <i>Priority</i>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>effort_estimation_values_check</b>
+<br>
+A boolean which flags if the effort estimation check is
+performed. Default: <i>true</i></p>
+
+<h2>TOPICS DETAILS
+<a name="TOPICS DETAILS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each topic
+contains configuration is a map as a value which the name of
+the topic set as the key.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The map can
+contain the following entries: <i>sources</i> and
+<i>output</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>name</b> The
+name of the entry node of the topic. It is possible to use
+the same directory but another entry name for additional
+topic specifications. This makes it possible to easily use a
+sub-topic for a complete set of output documents.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>sources</b>
+The sources to build up the documents from. Please consult
+the section <b>SOURCES</b> for more details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>output</b>
+The output specification. Please consult the section
+<b>OUTPUT</b> for more details.</p>
+
+<h2>SOURCES
+<a name="SOURCES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The sources are
+a list of sources from possible different input access
+methods. Currently there are two input access methods
+supported: files in the filesystem and files from a version
+control system like git.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The key in the
+map defines the access method name: eihter &rsquo;git&rsquo;
+or &rsquo;filesystem&rsquo;.</p>
+
+<p style="margin-left:11%; margin-top: 1em">For <b>git</b>
+the following attributes must be defined: <i>start_vers</i>,
+<i>end_vers</i>, <i>requirements_dirs</i>,
+<i>topics_dirs</i>, <i>topic_root_node</i> and
+<i>constraints_dirs</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">For
+<b>filesystem</b> the following attributes must be defined:
+<i>requirements_dirs</i>, <i>topics_dirs</i>,
+<i>topic_root_node</i> and <i>constraints_dirs</i>. (Which
+are the same as for <i>git</i> - except that the version
+information is missing - which is not needed for files in
+the filesystem.)</p>
+
+<p style="margin-left:11%; margin-top: 1em">The given
+intervals are concatenated and rmtoo works on all of them.
+Some output modules e.g. statistics are based on the whole
+input. Mostly all other operations are done on the last
+entry only.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>start_vers,
+end_vers</b> The values are either git version numbers (md5
+sums) or tag names.</p>
+
+<p style="margin-left:11%; margin-top: 1em">An entry like
+&quot;start_vers&quot;: &quot;v9&quot; and
+&quot;end_vers&quot;: &quot;HEAD&quot; specifies all checked
+in files (ignoring possible changes of local files)
+beginning from the tag v9 up to the HEAD of git.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>requirements_dirs</b>
+This contains a list of directories where the requirements
+are read from.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>topics_dirs</b>
+A list of directories where the topics are read from.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>topic_root_node</b>
+The name of the master (first) topic to read.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>constraints_dirs</b>
+A list of directories where the constraints are read
+from.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>constraints</b>
+<br>
+The only available entry in the <i>constraints</i> map is
+<i>search_dirs</i>. The value is a list of directories where
+constraints definitions are searched.</p>
+
+<h2>OUTPUT
+<a name="OUTPUT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The output
+which <b>rmtoo</b> writes out for one topic in different
+formats must be specified with the help of the <i>output</i>
+variable. The key describes the artifact to output, the
+value is specific to the chosen output parameter.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>graph</b>
+<br>
+When this option is specified a requirements dependency
+graph is written. Please see
+<b>rmtoo-art-req-dep-graph(1)</b> for more details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>graph2</b>
+<br>
+This is similar to the graph - but additionally groups the
+output requirements within the same topic as a cluster.
+Please see <b>rmtoo-art-req-dep-graph2(1)</b> for more
+details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>latex2</b>
+<br>
+When <i>latex2</i> is specified as output, <b>rmtoo</b>
+outputs a LaTeX document as output. For a detailed
+description about the needed parameters and a detailed
+description, see <b>rmtoo-art-latex2(1)</b>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>oopricing1</b>
+<br>
+This is a pricing module with ODF output. It can be used for
+commercial bidding. See <b>rmtoo-art-oopricing1</b> for
+further details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>prios</b>
+<br>
+This outputs a small LaTeX formatted artifact which includes
+the priority list and the requirements elaboration list. For
+more details consult <b>rmtoo-art-prio-lists(1)</b>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>stats_reqs_cnt</b>
+<br>
+When using <i>git</i> as the underlying revision control
+system it is possible to create a history of the number of
+requirements. See <b>rmtoo-art-reqs-history-cnt(1)</b> for
+more details.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>version1</b>
+<br>
+The version1 output writes the currently used version from
+the version control system to a file. This can then be used
+by other output documents.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>xml1</b>
+<br>
+This outputs the requirements as an xml file. See
+<b>rmtoo-art-xml1(1)</b> for details.</p>
+
+<h2>HISTORY
+<a name="HISTORY"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+third version of the configuration file format. This has
+some major advantages over the first versions: changing the
+format to JSON enables the possibility to use other
+programing languages than python to be used - especially
+with a possible future GUI in mind. Also the new format
+provides more flexibility: it is now possible to output two
+different documents of the same type (e.g. LaTeX documents)
+for the same topic set in only one rmtoo call.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo-config3(7)</b>
+- JSON formatted config</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010-2017,2020 by flonatel (rmtoo@florath.net).
+License GPLv3+: GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

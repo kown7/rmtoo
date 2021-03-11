@@ -1,0 +1,146 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:16 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-normalize-dependencies</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-normalize-dependencies</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#RETURN">RETURN</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-normalize-dependencies
+- requirements management tool: convert dependency
+notation</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo-normalize-dependencies
+-f</b> <i>cfgfile</i> <b>[-h] [-m</b> <i>moduledir]</i>
+<b>reqs_dir</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">There are
+currently two ways to describe dependencies: the
+&rsquo;Solved by&rsquo; and &rsquo;Depends on&rsquo; way.
+Please consult rmtoo-req-format.5 for a detailed
+discussion.</p>
+
+<p style="margin-left:11%; margin-top: 1em">This tool
+converts a set of requirements from the old and deprecated
+&rsquo;Depends on&rsquo; way to the new &rsquo;Solved
+by&rsquo; way of dependency notation.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Please note
+that the tools overwrites the requirements text files.
+Please first backup the original files before using this
+tool.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>-f</b>
+<i>CONFIG_FILE</i>,
+<b>--file-config</b>=<i>CONFIG_FILE</i></p>
+
+<p style="margin-left:22%;">The directory with the
+requirements files.</p>
+
+<p style="margin-left:11%;"><b>-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">Display a short usage help.</p>
+
+<p style="margin-left:11%;"><b>-m</b>
+<i>MODULES_DIRECTORY</i>,
+<b>--modules-directory</b>=<i>MODULES_DIRECTORY</i></p>
+
+<p style="margin-left:22%;">The directory where the rmtoo
+modules can be found. When the program was installed by
+standard system routines (e.g. as a deb or a rpm package)
+this option is not necessary. When using rmtoo from the
+repository or from a release tar ball this must point to the
+main directory.</p>
+
+<p style="margin-left:11%;"><b>reqs_dir</b> The directory
+of the requirements which will be</p>
+
+<p style="margin-left:22%;">converted.</p>
+
+<h2>RETURN
+<a name="RETURN"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo-normalize-dependencies</b>
+returns 0 when all commands are successfully completed and a
+value not equal 0 when there was a problem.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2011 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

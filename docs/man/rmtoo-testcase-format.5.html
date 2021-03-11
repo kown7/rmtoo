@@ -1,0 +1,186 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-testcase-format</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-testcase-format</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#FILE FORMAT">FILE FORMAT</a><br>
+<a href="#KEYS">KEYS</a><br>
+<a href="#KEY &rsquo;Name&rsquo;">KEY &rsquo;Name&rsquo;</a><br>
+<a href="#KEY &rsquo;Description&rsquo;">KEY &rsquo;Description&rsquo;</a><br>
+<a href="#KEY &rsquo;Expected Result&rsquo;">KEY &rsquo;Expected Result&rsquo;</a><br>
+<a href="#KEY &rsquo;Invented on&rsquo;">KEY &rsquo;Invented on&rsquo;</a><br>
+<a href="#KEY &rsquo;Invented by&rsquo;">KEY &rsquo;Invented by&rsquo;</a><br>
+<a href="#KEY &rsquo;Owner&rsquo;">KEY &rsquo;Owner&rsquo;</a><br>
+<a href="#KEY &rsquo;Note&rsquo;">KEY &rsquo;Note&rsquo;</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-testcase-format
+- requirements management tool: testcase format</p>
+
+<h2>FILE FORMAT
+<a name="FILE FORMAT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each testcase
+must be in its own file. The filename must end in
+&rsquo;.tec&rsquo;. Only ASCII characters are allowed. Each
+line must at maximum 80 characters long.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The topic must
+be written as a set of &rsquo;key: value&rsquo; pairs. A
+value is extended if the first column of a line is a
+space.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A key can
+exists multiple times in a topic data file. Order
+matters.</p>
+
+<h2>KEYS
+<a name="KEYS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+keys with the described syntax and semantic exists:</p>
+
+<h2>KEY &rsquo;Name&rsquo;
+<a name="KEY &rsquo;Name&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The value is
+the name of the testcase. This is used as a chapter headline
+in the output document.</p>
+
+<h2>KEY &rsquo;Description&rsquo;
+<a name="KEY &rsquo;Description&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The description
+of the testcase</p>
+
+<h2>KEY &rsquo;Expected Result&rsquo;
+<a name="KEY &rsquo;Expected Result&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The expected
+result of the testcase.</p>
+
+<h2>KEY &rsquo;Invented on&rsquo;
+<a name="KEY &rsquo;Invented on&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The value of
+&rsquo;Invented on&rsquo; is the date when the testcase was
+written. The format must be YYYY-MM-DD.</p>
+
+<h2>KEY &rsquo;Invented by&rsquo;
+<a name="KEY &rsquo;Invented by&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This value is
+the name of the author of the testcase. The author is the
+person who wrote the requirement. It must not be necessary
+one of the stakeholders.</p>
+
+<h2>KEY &rsquo;Owner&rsquo;
+<a name="KEY &rsquo;Owner&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+owner of the testcase. He is responsible for the
+testcase.</p>
+
+<h2>KEY &rsquo;Note&rsquo;
+<a name="KEY &rsquo;Note&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The note is an
+additional comment for the testcase.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Note that the
+following example has some initial indent resulting from the
+word processing program. The keywords must start at the
+first column. Additional lines must have a space in column
+one.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Name: Example
+Test Case <br>
+Owner: development <br>
+Invented by: flonatel <br>
+Invented on: 2012-03-19 <br>
+Description: This is an example test case. <br>
+Expected Result: This is the result. <br>
+Note: Just for testing.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview over rmtoo requirements management tool. All
+references can be found there.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2012 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

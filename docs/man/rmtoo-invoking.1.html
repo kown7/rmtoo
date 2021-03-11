@@ -1,0 +1,193 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:16 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#SYNOPSIS">SYNOPSIS</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#OPTIONS">OPTIONS</a><br>
+<a href="#DEPRECATED OPTIONS">DEPRECATED OPTIONS</a><br>
+<a href="#ENVIRONMENT">ENVIRONMENT</a><br>
+<a href="#RETURN">RETURN</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#LIMITATIONS">LIMITATIONS</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo -
+requirements management tool</p>
+
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo [-h]
+-j</b> <i>file://cfgfile.json</i> <b>[-j</b>
+<i>file://cfgfile.json]</i> <b>[-j</b> <i>cfgoption]</i>
+<b>-y</b> <i>file://cfgfile.yaml</i> <b>[-y</b>
+<i>file://cfgfile.yaml]</i></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> is a requirment management tool. It understand
+long and short command line options. For a detailed
+functional description see rmtoo(7).</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">JSON and YAML
+can be intermixed. They are strictly evaluated from left to
+right. <b><br>
+-h</b>, <b>--help</b></p>
+
+<p style="margin-left:22%;">Display a short usage help.</p>
+
+<p style="margin-left:11%;"><b>-j</b>
+<i>file://json_file</i>, <b>-j</b> <i>json_expr</i></p>
+
+<p style="margin-left:22%;">Any number of JSON
+configuration files or JSON expression. The evaluation will
+be from left to right. Duplicated values are
+overwritten.</p>
+
+<p style="margin-left:11%;"><b>-y</b>
+<i>file://yaml_file</i></p>
+
+<p style="margin-left:22%;">Any number of YAML
+configuration files. The evaluation will be from left to
+right. Duplicated values are overwritten.</p>
+
+<h2>DEPRECATED OPTIONS
+<a name="DEPRECATED OPTIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+options do still exists because of compatibility reasons.
+They should not used in new projects. <b>These options will
+be supported only until 31. 12. 2017. <br>
+-f</b> <i>CONFIG_FILE</i>,
+<b>--file-config</b>=<i>CONFIG_FILE</i></p>
+
+<p style="margin-left:22%;">The directory with the
+requirements files.</p>
+
+<p style="margin-left:11%;"><b>-m</b>
+<i>MODULES_DIRECTORY</i>,
+<b>--modules-directory</b>=<i>MODULES_DIRECTORY</i></p>
+
+<p style="margin-left:22%;">The directory where the rmtoo
+modules can be found. When the program was installed by
+standard system routines (e.g. as a deb or a rpm package)
+this option is not necessary. When using rmtoo from the
+repository or from a release tar ball this must point to the
+main directory.</p>
+
+<p style="margin-left:11%;"><b>-c</b> <i>MAKEFILE_DEPS</i>,
+<b>--create-makefile-dependencies</b>=<i>MAKEFILE_DEPS</i></p>
+
+<p style="margin-left:22%;">For handling the invocation of
+<b>rmtoo</b> with the help of a Makefile, <i>make</i> itself
+must know the dependencies. When called with this option,
+<b>rmtoo</b> only creates the dependency file. The
+dependency depends also from the config file: when changing
+output artifacts of curse the dependencies change.</p>
+
+<h2>ENVIRONMENT
+<a name="ENVIRONMENT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">When using the
+packages (e.g. deb) the system environment must be set up in
+the way that <b>rmtoo</b> can immediately be used. When
+using other ways (e.g. downloading the sources or using the
+tar file), the PYTHONPATH must be set. This must be set to
+the directory which contains the <b>rmtoo</b> directory
+which contains e.g. the lib and modules directory. In the
+tar file and the sources there is a file called setenv.sh
+which does exactly the right thing.</p>
+
+<h2>RETURN
+<a name="RETURN"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo</b>
+returns 0 when all commands are successfully completed and a
+value not equal 0 when there was a problem.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>LIMITATIONS
+<a name="LIMITATIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Currently the
+makefile dependency creation are a best effort. It should
+work in mostly all times, but there are situations where not
+all dependencies are tracked - especially when adding new
+requirement files.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010,2017 by flonatel (rmtoo@florath.net). License
+GPLv3+: GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,158 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-topic-format</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-topic-format</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#FILE FORMAT">FILE FORMAT</a><br>
+<a href="#KEYS">KEYS</a><br>
+<a href="#KEY &rsquo;Name&rsquo;">KEY &rsquo;Name&rsquo;</a><br>
+<a href="#KEY &rsquo;Text&rsquo;">KEY &rsquo;Text&rsquo;</a><br>
+<a href="#KEY &rsquo;IncludeRequirements&rsquo;">KEY &rsquo;IncludeRequirements&rsquo;</a><br>
+<a href="#KEY &rsquo;SubTopic&rsquo;">KEY &rsquo;SubTopic&rsquo;</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-topic-format
+- requirements management tool: topic format</p>
+
+<h2>FILE FORMAT
+<a name="FILE FORMAT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each topic must
+be in its own file. The filename must end in
+&rsquo;.tic&rsquo;. Only ASCII characters are allowed. Each
+line must at maximum 80 characters long.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The topic must
+be written as a set of &rsquo;key: value&rsquo; pairs. A
+value is extended if the first column of a line is a
+space.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A key can
+exists multiple times in a topic data file. Order
+matters.</p>
+
+<h2>KEYS
+<a name="KEYS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+keys with the described syntax and semantic exists:</p>
+
+<h2>KEY &rsquo;Name&rsquo;
+<a name="KEY &rsquo;Name&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The value is
+the name of the topic. This is used as a chapter headline in
+the output document.</p>
+
+<h2>KEY &rsquo;Text&rsquo;
+<a name="KEY &rsquo;Text&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The text value
+will be copied into the output document.</p>
+
+<h2>KEY &rsquo;IncludeRequirements&rsquo;
+<a name="KEY &rsquo;IncludeRequirements&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+position where all the requirements are inserted in the
+output document. The value must be the string
+&rsquo;full&rsquo;.</p>
+
+<h2>KEY &rsquo;SubTopic&rsquo;
+<a name="KEY &rsquo;SubTopic&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The value of
+the subtopic must be the id of another topic. This topic is
+inserted at the point of occurance.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Note that the
+following example has some initial indent resulting from the
+word processing program. The keywords must start at the
+first column. Additional lines must have a space in column
+one.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Name: Example
+Topic <br>
+Text: This is an indrocution to the Example Topic. <br>
+SubTopic: SomeMoreDetails <br>
+Text: The text appears between the SomeMoreDetails <br>
+topic and the requirements themselves. <br>
+IncludeRequirements: full <br>
+Text: The text after the requirements.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview over rmtoo requirements management tool. All
+references can be found there.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

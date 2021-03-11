@@ -1,0 +1,369 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-req-format</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-req-format</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#FILE FORMAT">FILE FORMAT</a><br>
+<a href="#KEYS">KEYS</a><br>
+<a href="#KEY &rsquo;Name&rsquo;">KEY &rsquo;Name&rsquo;</a><br>
+<a href="#KEY &rsquo;Type&rsquo;">KEY &rsquo;Type&rsquo;</a><br>
+<a href="#KEY &rsquo;Invented on&rsquo;">KEY &rsquo;Invented on&rsquo;</a><br>
+<a href="#KEY &rsquo;Invented by&rsquo;">KEY &rsquo;Invented by&rsquo;</a><br>
+<a href="#KEY &rsquo;Owner&rsquo;">KEY &rsquo;Owner&rsquo;</a><br>
+<a href="#KEY &rsquo;Description&rsquo;">KEY &rsquo;Description&rsquo;</a><br>
+<a href="#KEY &rsquo;Rationale&rsquo;">KEY &rsquo;Rationale&rsquo;</a><br>
+<a href="#KEY &rsquo;Note&rsquo;">KEY &rsquo;Note&rsquo;</a><br>
+<a href="#KEY &rsquo;Solved by&rsquo;">KEY &rsquo;Solved by&rsquo;</a><br>
+<a href="#KEY &rsquo;Status&rsquo;">KEY &rsquo;Status&rsquo;</a><br>
+<a href="#KEY &rsquo;Topic&rsquo;">KEY &rsquo;Topic&rsquo;</a><br>
+<a href="#KEY &rsquo;Class&rsquo;">KEY &rsquo;Class&rsquo;</a><br>
+<a href="#KEY &rsquo;Priority&rsquo;">KEY &rsquo;Priority&rsquo;</a><br>
+<a href="#KEY &rsquo;Effort estimation&rsquo;">KEY &rsquo;Effort estimation&rsquo;</a><br>
+<a href="#KEY &rsquo;Constraints&rsquo;">KEY &rsquo;Constraints&rsquo;</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#HISTORY">HISTORY</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-req-format
+- requirements management tool: requirements format</p>
+
+<h2>FILE FORMAT
+<a name="FILE FORMAT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each
+requirement must be in its own file. The filename must be
+end in &rsquo;.req&rsquo;. Only ASCII characters are
+allowed. Each line must at maximum 80 characters long.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The requirement
+must be written as a set of &rsquo;key: value&rsquo; pairs.
+A value is extended if the first column of a line is a
+space.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A key can only
+exists once in a requirement description file.</p>
+
+<h2>KEYS
+<a name="KEYS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+keys with the described syntax and semantic exists:</p>
+
+<h2>KEY &rsquo;Name&rsquo;
+<a name="KEY &rsquo;Name&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This value of
+this key is a short headline for the requirement. It is used
+as a section headline in the output document.</p>
+
+<h2>KEY &rsquo;Type&rsquo;
+<a name="KEY &rsquo;Type&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This value can
+be one of <i>master requirement</i>, <i>requirement</i> and
+<i>design decision</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">There can only
+be one &rsquo;master requirement&rsquo;. This is the
+requirement (product, artifact) the whole project is about.
+This can be typically have the project title as the name.
+There can only be one <i>master requirement</i> in a whole
+set.</p>
+
+<h2>KEY &rsquo;Invented on&rsquo;
+<a name="KEY &rsquo;Invented on&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The value of
+&rsquo;Invented on&rsquo; is the date when the requirement
+was written. The format must be YYYY-MM-DD.</p>
+
+<h2>KEY &rsquo;Invented by&rsquo;
+<a name="KEY &rsquo;Invented by&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This value is
+the name of the author of the requirement. The author is the
+person who wrote the requirement. It must not be necessary
+one of the stakeholders.</p>
+
+<h2>KEY &rsquo;Owner&rsquo;
+<a name="KEY &rsquo;Owner&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+owner of the requirement. He is responsible for the
+requirement.</p>
+
+<h2>KEY &rsquo;Description&rsquo;
+<a name="KEY &rsquo;Description&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The description
+is the formulation of the requirement. There must be one of
+the words &rsquo;must&rsquo; or &rsquo;shall&rsquo;. The
+following words are not allowed: may, possible, might, and,
+or. Requirements must be testable.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Requirements
+must be positive; negative requirements can mostly not
+tested.</p>
+
+<h2>KEY &rsquo;Rationale&rsquo;
+<a name="KEY &rsquo;Rationale&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is
+optional. This gives a hint and some more details about the
+requirement. Typically some background information is given
+here.</p>
+
+<h2>KEY &rsquo;Note&rsquo;
+<a name="KEY &rsquo;Note&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The note is an
+additional comment for the requirement.</p>
+
+<h2>KEY &rsquo;Solved by&rsquo;
+<a name="KEY &rsquo;Solved by&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each
+requirement which is &rsquo;solved&rsquo; by other
+requirements must have one or more children. The
+&rsquo;Solved by&rsquo; tag contains a list of these
+children.</p>
+
+<h2>KEY &rsquo;Status&rsquo;
+<a name="KEY &rsquo;Status&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The status can
+be one of &rsquo;not done&rsquo; or
+&rsquo;finished&rsquo;.</p>
+
+<h2>KEY &rsquo;Topic&rsquo;
+<a name="KEY &rsquo;Topic&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+topic this requirement belongs to.</p>
+
+<h2>KEY &rsquo;Class&rsquo;
+<a name="KEY &rsquo;Class&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This gives the
+class of the requirement. Currently two values are possible
+&rsquo;detailable&rsquo;, &rsquo;implementable&rsquo; or
+&rsquo;selected&rsquo;</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>detailable</b>
+means that the requirement must be elaborated before they
+can be implemented.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>implementable</b>
+means that the requirement is detailed enough to start with
+implementation.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>selected</b>
+means that the requirement is selected for the next sprint.
+Based on this selection the sprint burndown and the selected
+table is printed.</p>
+
+<h2>KEY &rsquo;Priority&rsquo;
+<a name="KEY &rsquo;Priority&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each
+requirement must have a priority. The effective priority is
+computed by the currently given priority multiplied by a
+normalized maximum priority of all parents.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The format is
+&rsquo;stakeholer:num&rsquo;. &rsquo;num&rsquo; must be a
+number between and including 0 and 10. It is possible to
+specify more than one stakeholders separating them with a
+space.</p>
+
+<h2>KEY &rsquo;Effort estimation&rsquo;
+<a name="KEY &rsquo;Effort estimation&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The effort
+estimation is done with the help of an abstract measurement
+so called &rsquo;effort points&rsquo;. These effort points
+are used in agile processes (especially SCRUM) to get a
+prediction about the burn-down speed and the expected
+finished date.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>0</b> - no
+effort</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>1</b> - tiny
+effort</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>2</b> - very
+small effort (two times a tiny effort)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>3</b> -
+small effort (same as a tiny and a very small effort)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>5</b> -
+medium effort (same as a very small and a small effort)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>8</b> - big
+effort (same as a small and a medium effort)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>13</b> -
+very big effort (same as big effort and a medium effort)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>21</b> -
+huge effort (same as very big effort and big effort)</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>34</b> -
+imense effort (mostly too big to do in one step)</p>
+
+<p style="margin-left:11%; margin-top: 1em">If this way of
+providing effort does not fit to the project, the check /
+enforcing can be switched off by setting the configuration
+parameter
+<b>requirements.effort_estimation_values_check</b></p>
+
+<p style="margin-left:11%; margin-top: 1em">to false.</p>
+
+<h2>KEY &rsquo;Constraints&rsquo;
+<a name="KEY &rsquo;Constraints&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This must be a
+list of constraints - including possible arguments. Please
+consult the <b>rmtoo-constraints(5)</b> man page for more
+details.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Note that the
+following example has some initial indent resulting from the
+word processing program. The keywords must start at the
+first column. Additional lines must have a space in column
+one.</p>
+
+<p style="margin-left:22%; margin-top: 1em">Name: Example
+Requirement <br>
+Type: requirement <br>
+Invented on: 2010-02-14 <br>
+Invented by: Mustermann <br>
+Description: The example application must use TCP/IP for
+<br>
+communication with the database instance. <br>
+Rationale: Here are some reasons why this must be <br>
+implemented in this way. <br>
+Owner: security <br>
+Solved by: DetailedRequirement <br>
+Status: not done <br>
+Constraints: [ &quot;MinShockResistance(5)&quot; ]</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview over rmtoo requirements management tool. All
+references can be found there.</p>
+
+<h2>HISTORY
+<a name="HISTORY"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">There is also a
+tag named &rsquo;Depends on&rsquo; which is the opposite of
+the &rsquo;Solved by&rsquo; tag: Instead of specifying the
+requirement&rsquo;s children the parents were specified. The
+&rsquo;Depends on&rsquo; must be seen as deprecated.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The
+&rsquo;Depends on&rsquo; tag is the older and is still (for
+compatibility reasons) the default. Nevertheless the
+&rsquo;Solved by&rsquo; tag is the one which should be used
+in new projects.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010-2011,2020 by flonatel (rmtoo@florath.net).
+License GPLv3+: GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

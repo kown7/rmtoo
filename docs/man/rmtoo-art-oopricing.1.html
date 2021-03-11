@@ -1,0 +1,173 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-art-oopricing</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-art-oopricing</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#DETAILS">DETAILS</a><br>
+<a href="#CONFIGURATION">CONFIGURATION</a><br>
+<a href="#LIMITATIONS">LIMITATIONS</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-art-oopricing
+- requirements management tool: pricing table in ODF
+format</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> requirement management tool has the ability to
+output all requirements which directly or indirectly depend
+on topic as a commercial used pricing / bid spreadsheet. The
+spreadsheet is outputted in ODF - which can be read by e.g.
+OpenOffice.</p>
+
+<h2>DETAILS
+<a name="DETAILS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo</b>
+output pricing module is designed for the following
+procedure of commercial bidding:</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Requirement
+Specification</b> <br>
+The first step is to write down the requirements. During
+writing and organizing requirements remember to put
+requirements in topics that one topic including subtopics
+form understandable and complete set of requirements.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Create
+spreadsheet</b> <br>
+Based on one topic (and of course all it&rsquo;s depended
+child-topics) run <b>rmtoo</b> which outputs the spreadsheet
+in ODF format.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Send out
+spreadsheet</b> <br>
+Send out the spreadsheet to all possible vendors. They can
+fill the following things for each requirement: compliance
+(fully, partial and non-compliant), price (broken down to
+dayrate, number of days and material) and the chosen
+(commercial) link to the dependent requirement.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Example: The
+<i>Documentation for Training</i> depends on training and
+documentation. At vendor A the (whole) documentation is done
+inside the documentation department while at vendor B the
+training documentation will be done by the training
+department. Therefore there is the need to reflect the
+different dependencies a vendor might implement a
+requirement. In case of vendor A the documentation for
+training is included in the documentation budget while for
+vendor B the training documentation is included in the
+documentation budget.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>Collect
+spreadsheets</b> <br>
+After a while, collect the filled in spreadsheets from the
+vendors. It is now easy to compare the prices and
+dependencies. There are additional modules for supporting
+the evaluation. Please consult <b>rmtoo.7</b> for a full
+list of available and planned modules.</p>
+
+<h2>CONFIGURATION
+<a name="CONFIGURATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration for this output module goes (as all other
+output module&rsquo;s configuration) in the <b>output</b>
+section of the configuration file.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The first
+element (the key) must be <i>oopricing1</i>. This must be
+followed by <i>output_filename</i> (without the suffix).</p>
+
+<p style="margin-left:11%; margin-top: 1em">Example</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">&quot;oopricing1&quot;:
+[ <br>
+{ <br>
+&quot;output_filename&quot;:
+&quot;artifacts/reqspricing&quot; <br>
+} <br>
+],</p>
+
+<h2>LIMITATIONS
+<a name="LIMITATIONS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Currently the
+output module can handle at maximum 702 requirements which
+covers spreadsheet columns A up to ZZ.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Some old
+OpenOffice versions (e.g. 2.X) limit the number of rows
+(which is also the number of requirements) to 256.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010-2011 by flonatel (rmtoo@florath.net). License
+GPLv3+: GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

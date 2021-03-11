@@ -1,0 +1,431 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-config</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-config</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DEPRECATION WARNING">DEPRECATION WARNING</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#DETAILS">DETAILS</a><br>
+<a href="#OUTPUT">OUTPUT</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-config1 -
+requirements management tool configuration file version
+1</p>
+
+<h2>DEPRECATION WARNING
+<a name="DEPRECATION WARNING"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>The use of
+this configuration file format is deprecated and will be
+supported upto version 20. For new projects use the new
+configuration file format which is described in
+rmtoo-config3(5).</b></p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">One parameter
+calling the <b>rmtoo</b> requirements management tool is the
+configuration file. (For a detailed description about
+command line parameters see <b>rmtoo-invoking(1)</b>).</p>
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration file is a python file which must define a
+class named <i>Config</i>. See the <b>DETAILS</b> section
+for an explanation about the configuration parameters.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+example is the configuration file for the <b>rmtoo</b>
+requirements management tool.</p>
+
+<p style="margin-left:11%; margin-top: 1em">In the example,
+three different sets of documents (output artifacts) will be
+created: one document set containing prios, graph, stats,
+latex2 and html e.g. for internal use is called
+<i>all_topics</i>. One document for marketing which contains
+the latex2 document and the requirements dependency graph
+called <i>marketing_topic</i>. One document for a customer
+which uses a separate set of requirements. This is called
+<i>customer_topic</i>.</p>
+
+<p style="margin-left:22%; margin-top: 1em">class Config:
+<br>
+stakeholders = [&quot;development&quot;,
+&quot;management&quot;, &quot;users&quot;, <br>
+&quot;customers&quot;] <br>
+inventors = [&quot;flonatel&quot;, ]</p>
+
+<p style="margin-left:22%; margin-top: 1em">reqs_spec = {
+<br>
+&quot;directory&quot;: &quot;doc/requirements&quot;, <br>
+&quot;commit_interval&quot;: <br>
+[&quot;93c4951bed1a01c82342e370be891a5fc569985f&quot;,
+&quot;FILES&quot;], <br>
+&quot;default_language&quot;: &quot;en_GB&quot;, <br>
+&quot;dependency_notation&quot;: set([&quot;Solved by&quot;,
+]) <br>
+}</p>
+
+<p style="margin-left:22%; margin-top: 1em">topic_specs = {
+<br>
+&quot;all_topics&quot;: [&quot;doc/topics&quot;,
+&quot;ReqsDocument&quot;], <br>
+&quot;marketing_topic&quot;: [&quot;doc/topics&quot;,
+&quot;Marketing&quot;], <br>
+&quot;customer_topic&quot;: [&quot;doc/cust_topics&quot;,
+&quot;Customer&quot;], <br>
+}</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">analytics_specs
+= { <br>
+&quot;stop_on_errors&quot;: False, <br>
+&quot;topics&quot;: &quot;all_topics&quot;, <br>
+}</p>
+
+<p style="margin-left:22%; margin-top: 1em">output_specs =
+[ <br>
+[&quot;prios&quot;, <br>
+[&quot;all_topics&quot;,
+&quot;doc/latex2/reqsprios.tex&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;graph&quot;,
+<br>
+[&quot;all_topics&quot;, &quot;reqtree.dot&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;stats_reqs_cnt&quot;,
+<br>
+[&quot;all_topics&quot;,
+&quot;doc/latex2/stats_reqs_cnt.csv&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;latex2&quot;,
+<br>
+[&quot;all_topics&quot;,
+&quot;doc/latex2/reqtopics.tex&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;html&quot;,
+<br>
+[&quot;all_topics&quot;, <br>
+&quot;doc/html/reqs&quot;, &quot;doc/html/header.html&quot;,
+<br>
+&quot;doc/html/footer.html&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;graph&quot;,
+<br>
+[&quot;marketing_topic&quot;,
+&quot;marketing_reqtree.dot&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;latex2&quot;,
+<br>
+[&quot;marketing_topic&quot;,
+&quot;doc/latex2/marketing.tex&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;latex2&quot;,
+<br>
+[&quot;customer_topic&quot;,
+&quot;doc/latex2/customer.tex&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;oopricing1&quot;,
+<br>
+[&quot;ts_common&quot;, &quot;reqspricing&quot;]],</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">[&quot;version1&quot;,
+<br>
+[&quot;ts_common&quot;, &quot;reqs-version.txt&quot;]],</p>
+
+<p style="margin-left:22%; margin-top: 1em">]</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+
+
+<p>parser =</p><td width="28%"></td>
+<td width="-20%"></td>
+<td width="7%"></td>
+<td width="8%"></td>
+<td width="8%"></td>
+<td width="69%">
+
+
+<p>{</p></td></tr>
+<tr valign="top" align="left">
+<td width="28%"></td>
+<td width="-20%"></td>
+<td width="7%"></td>
+<td width="8%"></td>
+<td width="8%">
+
+
+<p>&quot;requirements&quot;: { &quot;max_line_length&quot;:
+80 },</p></td>
+<td width="69%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="28%"></td>
+<td width="-20%"></td>
+<td width="7%"></td>
+<td width="8%"></td>
+<td width="8%">
+
+
+<p>&quot;topics&quot;: { &quot;max_line_length&quot;: 990
+},</p> </td>
+<td width="69%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="28%"></td>
+<td width="-20%"></td>
+<td width="7%"></td>
+<td width="8%"></td>
+<td width="8%">
+
+
+<p>}</p></td>
+<td width="69%">
+</td></tr>
+</table>
+
+<h2>DETAILS
+<a name="DETAILS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The class
+<b>Config</b> must contain some class level variables.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>stakeholders</b>
+<br>
+This must be a list of strings specifying the stakeholders.
+Stakeholders can own a and prioritize a requirement. Tags:
+<i>Owner</i> and <i>Priority</i>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>inventors</b>
+<br>
+This must be a list of string specifying inventors.
+Inventors can invent a requirement. Tags: <i>Invented
+by</i>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>reqs_spec</b>
+<br>
+This is the definition of the set of requirements
+<b>rmtoo</b> uses. It is a dictionary: the entry named
+<i>directory</i> is the name of the directory where all the
+requirements can be found.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The entry named
+<i>commit_interval</i> is a list (pair) of start and end
+specification: these are either git version numbers (md5
+sums) or tag names. The given interval is used during the
+run of <b>rmtoo</b> and everything e.g. statistics in based
+(only) on this interval. Mostly all operations are done on
+the second entry. Additional to the git version strings, the
+special string <i>FILES</i> can be used. This references to
+the local stored files.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When both
+elements are the same, only this unique version is used.
+When using only files (e.g. during requirements elaboration)
+an entry like [&quot;FILES&quot;, &quot;FILES&quot;] makes
+sense here: then only the locally stored files are used.</p>
+
+<p style="margin-left:11%; margin-top: 1em">An entry like
+[&quot;v9&quot;, &quot;HEAD&quot;] specifies all checked in
+files (ignoring possible changes of local files) beginning
+from the tag v9 up to the HEAD of git.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The paramter
+<i>default_language</i> specifies the language in which the
+requirements are written. This must be a standard language
+specifier like <i>en_GB</i> or <i>de_DE</i>. Please consult
+the <b>rmtoo-analytics-descwords(7)</b> man page for the
+list of available languages.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The parameter
+<i>dependency_notation</i> determines the way dependencies
+are specified. There are two ways how requirements can be
+specified: <i>Depends on</i> and <i>Solved by</i>. The last
+one is the preferred way of specifying dependencies - but
+the first is the old and default one. Therefore it is
+recommended to set the value to <i>Solved by</i> only.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>topic_specs</b>
+<br>
+The configuration parameter <i>topic_spec</i> is a map. The
+key is the name with which the entry can be referenced. The
+value is a list containing two elements. The first is the
+directory where all the topics for this topic set can be
+found. The second is the initial (first) topic.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>analytics_specs</b>
+<br>
+The configuration parameter <i>analytics_specs</i> is a map.
+See <b>rmtoo-analytics(7)</b> <i>for a detailed description
+of the parameters.</i></p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>output_specs</b>
+<br>
+The variable <i>output_specs</i> must be a list which
+contains pairs. Each pair itself is a list containing two
+elements: the first is the name of the output module, the
+second is the list of parameters for the given output
+module. For details about the different output modules, see
+section <b>OUTPUT</b> for further details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>parser</b>
+<br>
+The parser is a map which contains two entries:
+<i>requirements</i> and <i>topics</i> to specify the
+appropriate parser. Each entry is also a map. Currently the
+only parameter which can used here in this inner map is the
+parameter <i>max_line_length</i> to specify the maximum line
+length of the input files. If this is not specified, the
+default is 80 characters.</p>
+
+<h2>OUTPUT
+<a name="OUTPUT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The output
+which <b>rmtoo</b> writes out in different formats must be
+specified with the help of the <i>output_specs</i> variable.
+The key describes the artifact to output, the value is
+specific to the chosen output parameter.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>graph</b>
+<br>
+When this option is specified a requirements dependency
+graph is written. Please see
+<b>rmtoo-art-req-dep-graph(1)</b> for more details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>graph2</b>
+<br>
+This is similar to the graph - but additionally groups the
+output requirements within the same topic as a cluster.
+Please see <b>rmtoo-art-req-dep-graph2(1)</b> for more
+details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>latex2</b>
+<br>
+When <i>latex2</i> is specified as output, <b>rmtoo</b>
+outputs a LaTeX document as output. For a detailed
+description about the needed parameters and a detailed
+description, see <b>rmtoo-art-latex2(1)</b>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>oopricing1</b>
+<br>
+This is a pricing module with ODF output. It can be used for
+commercial bidding. See <b>rmtoo-art-oopricing1</b> for
+further details.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>prios</b>
+<br>
+This outputs a small LaTeX formatted artifact which includes
+the priority list and the requirements elaboration list. For
+more details consult <b>rmtoo-art-prio-lists(1)</b>.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>stats_reqs_cnt</b>
+<br>
+When using <i>git</i> as the underlying revision control
+system it is possible to create a history of the number of
+requirements. See <b>rmtoo-art-reqs-history-cnt(1)</b> for
+more details.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>version1</b>
+<br>
+The version1 output writes the currently used version from
+the version control system to a file. This can then be used
+by other output documents.</p>
+
+<p style="margin-left:11%; margin-top: 1em"><b>xml1</b>
+<br>
+This outputs the requirements as an xml file. See
+<b>rmtoo-art-xml1(1)</b> for details.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010-2011 by flonatel (rmtoo@florath.net). License
+GPLv3+: GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-constraints</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-constraints</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#FILE FORMAT">FILE FORMAT</a><br>
+<a href="#KEYS">KEYS</a><br>
+<a href="#KEY &rsquo;Name&rsquo;">KEY &rsquo;Name&rsquo;</a><br>
+<a href="#KEY &rsquo;Invented on&rsquo;">KEY &rsquo;Invented on&rsquo;</a><br>
+<a href="#KEY &rsquo;Invented by&rsquo;">KEY &rsquo;Invented by&rsquo;</a><br>
+<a href="#KEY &rsquo;Owner&rsquo;">KEY &rsquo;Owner&rsquo;</a><br>
+<a href="#KEY &rsquo;Description&rsquo;">KEY &rsquo;Description&rsquo;</a><br>
+<a href="#KEY &rsquo;Note&rsquo;">KEY &rsquo;Note&rsquo;</a><br>
+<a href="#KEY &rsquo;CE3&rsquo;">KEY &rsquo;CE3&rsquo;</a><br>
+<a href="#CE3">CE3</a><br>
+<a href="#EXAMPLE">EXAMPLE</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-constraints
+- requirements management tool: constraints format</p>
+
+<h2>FILE FORMAT
+<a name="FILE FORMAT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Each constraint
+must be in its own file. The filename must be end in
+&rsquo;.ctr&rsquo;. Only ASCII characters are allowed. Each
+line must at maximum 80 characters long.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The constraint
+must be written as a set of &rsquo;key: value&rsquo; pairs.
+A value is extended if the first column of a line is a
+space.</p>
+
+<p style="margin-left:11%; margin-top: 1em">A key can only
+exists once in a constraint description file.</p>
+
+<h2>KEYS
+<a name="KEYS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The following
+keys with the described syntax and semantic exists:</p>
+
+<h2>KEY &rsquo;Name&rsquo;
+<a name="KEY &rsquo;Name&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This value of
+this key is a short headline for the constraint.</p>
+
+<h2>KEY &rsquo;Invented on&rsquo;
+<a name="KEY &rsquo;Invented on&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The value of
+&rsquo;Invented on&rsquo; is the date when the constraint
+was written. The format must be YYYY-MM-DD.</p>
+
+<h2>KEY &rsquo;Invented by&rsquo;
+<a name="KEY &rsquo;Invented by&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This value is
+the name of the author of the constraint.</p>
+
+<h2>KEY &rsquo;Owner&rsquo;
+<a name="KEY &rsquo;Owner&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is the
+owner of the constraint. He is responsible for the
+constraint.</p>
+
+<h2>KEY &rsquo;Description&rsquo;
+<a name="KEY &rsquo;Description&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The description
+is the formulation of the constraint. There must be</p>
+
+<h2>KEY &rsquo;Note&rsquo;
+<a name="KEY &rsquo;Note&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The note is an
+additional comment for the constraint.</p>
+
+<h2>KEY &rsquo;CE3&rsquo;
+<a name="KEY &rsquo;CE3&rsquo;"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This defines
+the class for the constraint execution and evaluation
+environment. The class must follow a specific interface with
+a special semantic. Please see the section <b>CE3</b> for
+more details.</p>
+
+<h2>CE3
+<a name="CE3"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The evaluation
+for all constraints is started at the master requirement.
+For each requirement all constraint objects are created -
+i.e. all those from the list given in the
+requirement&rsquo;s constraints tag. The parameters given
+are the parameters which are used to call the object&rsquo;s
+constructor.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The provided
+class must have a method called <i>unite</i>. This method
+has two parameterers: the first is the constraint object of
+the requirement itself, the second is the list of constraint
+objects from the parents (the inherited objects).</p>
+
+<p style="margin-left:11%; margin-top: 1em">When it
+receives only a list of inherited objects, the method must
+return an object with represents these constraints for the
+local requirement.</p>
+
+<p style="margin-left:11%; margin-top: 1em">When the method
+is also called with the constraint object of the requirement
+itself, the method must check if the local requirement
+constraint can be hold against the list of inherited
+constraints from the parents.</p>
+
+<h2>EXAMPLE
+<a name="EXAMPLE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Please consule
+the file <i>MinShockResistance.ctr</i> and testcases
+<i>tests/blackbox-test/bb017-test</i> and
+<i>tests/blackbox-test/bb018-test</i>.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2011 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

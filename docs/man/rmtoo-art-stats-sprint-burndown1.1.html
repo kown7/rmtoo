@@ -1,0 +1,127 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-art-stats-sprint-burndown1</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-art-stats-sprint-burndown1</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONFIGURATION">CONFIGURATION</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-art-stats-sprint-burndown1
+- requirements management tool: Burndown diagram for current
+sprint</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> requirment management tool is able to output
+the burndown diagram for the complete project as well as for
+the current sprint. For the first one, please consult
+<b>rmtoo-art-stats-burndown(1)</b>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The burndown
+diagram contains the &rsquo;not done&rsquo;,
+&rsquo;assigned&rsquo; and &rsquo;finished&rsquo;
+requirements started from the given sprint start until today
+in units of the Effort Estimation. Please consult
+<b>rmtoo-req-format(5)</b> section <i>KEY &rsquo;Effort
+estimation&rsquo;</i> for details about this units.</p>
+
+<h2>CONFIGURATION
+<a name="CONFIGURATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration for this output module goes (as all other
+output module&rsquo;s configuration) in the <b>output</b>
+section of the configuration.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The key must be
+<i>stats_sprint_burndown1</i>. The following parameters must
+be included in the map:</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>output_filename</b>
+The parameter is the name of the file where the priority
+lists will be stored.</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>start_date</b>
+The date when the project starts. The format must be
+YYYY-MM-DD. If this is not specified, yesterday is
+assumed.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Example</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">&quot;stats_sprint_burndown1&quot;:
+[ <br>
+{ <br>
+&quot;output_filename&quot;:
+&quot;artifacts/stats_sprint_burndown.csv&quot;, <br>
+&quot;start_date&quot;: &quot;2011-04-25&quot; <br>
+} <br>
+]</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2011 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

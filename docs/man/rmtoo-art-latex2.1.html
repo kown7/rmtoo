@@ -1,0 +1,129 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:17 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-art-latex2</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-art-latex2</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONFIGURATION">CONFIGURATION</a><br>
+<a href="#USAGE">USAGE</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#HISTORY">HISTORY</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-art-latex2
+- requirements management tool: latex2 artifact</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> requirment management tool is able to output
+one topic and all possible subtopics including the
+containing requirements as a LaTeX output.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Each topic is
+output as one level logical structuring level. The outermost
+level will be a <i>chapter</i>, the next sub-topic will be a
+<i>section</i> and so on.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Text from the
+topic is directly copied into the document.</p>
+
+<p style="margin-left:11%; margin-top: 1em">At the moment
+there is no possibility to configure the LaTeX output
+itself.</p>
+
+<h2>CONFIGURATION
+<a name="CONFIGURATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The key in the
+output configuration must be <i>latex2</i>.</p>
+
+<p style="margin-left:11%; margin-top: 1em">There must be a
+value for the key <i>output_filename</i> inside the output
+configuration which names the file where the LaTeX output
+will be stored.</p>
+
+<h2>USAGE
+<a name="USAGE"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Typically the
+LaTeX file in included with <i>include</i> or <i>input</i>
+directly from the master LaTeX document. Please consult the
+file <i>doc/latex2/requirements.tex</i> document as an
+example.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>HISTORY
+<a name="HISTORY"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">This is called
+&rsquo;2&rsquo; because it is the second version of the
+LaTeX output module. The first module used a pre-topic
+method to handle the output - which is not supported
+anymore.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010 by flonatel (rmtoo@florath.net). License GPLv3+:
+GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>

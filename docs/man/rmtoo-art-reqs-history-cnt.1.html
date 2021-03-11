@@ -1,0 +1,134 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Thu Mar 11 19:25:16 2021 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>rmtoo-art-reqs-history-cnt</title>
+
+</head>
+<body>
+
+<h1 align="center">rmtoo-art-reqs-history-cnt</h1>
+
+<a href="#NAME">NAME</a><br>
+<a href="#DESCRIPTION">DESCRIPTION</a><br>
+<a href="#CONFIGURATION">CONFIGURATION</a><br>
+<a href="#POSTPROCESSING">POSTPROCESSING</a><br>
+<a href="#SEE ALSO">SEE ALSO</a><br>
+<a href="#AUTHOR">AUTHOR</a><br>
+<a href="#COPYRIGHT">COPYRIGHT</a><br>
+
+<hr>
+
+
+<h2>NAME
+<a name="NAME"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em">rmtoo-art-reqs-history-cnt
+- requirements management tool: requirement history
+count</p>
+
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+<b>rmtoo</b> requirement management tool is able to store
+the requirements in a version control system. Therefore it
+is possible to access the whole history of requirements
+evolution.</p>
+
+<p style="margin-left:11%; margin-top: 1em">One simple
+application of this is to extract the number of requirements
+during complete history of the project.</p>
+
+<p style="margin-left:11%; margin-top: 1em">With the help
+of the requirements history count module it is possible to
+visualize the evolution of the requirements count.</p>
+
+<h2>CONFIGURATION
+<a name="CONFIGURATION"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The
+configuration for this output module goes (as all other
+output module&rsquo;s configuration) in the <b>output</b>
+section of the configuration.</p>
+
+<p style="margin-left:11%; margin-top: 1em">The key must be
+<i>stats_reqs_cnt</i>. This must be followed by a map
+containing one entry:</p>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>output_filename</b>
+The filename where the output is written to.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Example</p>
+
+
+<p style="margin-left:22%; margin-top: 1em">&quot;stats_reqs_cnt&quot;:
+[ <br>
+{ <br>
+&quot;output_filename&quot;:
+&quot;artifacts/stats_reqs_cnt.csv&quot; <br>
+} <br>
+]</p>
+
+<h2>POSTPROCESSING
+<a name="POSTPROCESSING"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The resulting
+file is a tabulator separated file. The first entry is the
+point of time, the second the number of requirements.
+Example line: 2010-10-06_08:29:14 158</p>
+
+<p style="margin-left:11%; margin-top: 1em">The doc
+directory contains an example file how to use the output and
+how to use gnuplot to convert the input file to a graph.</p>
+
+<h2>SEE ALSO
+<a name="SEE ALSO"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>rmtoo(7)</b>
+- overview of rmtoo including all references to available
+documentation.</p>
+
+<h2>AUTHOR
+<a name="AUTHOR"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Written by
+Andreas Florath (rmtoo@florath.net)</p>
+
+<h2>COPYRIGHT
+<a name="COPYRIGHT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Copyright
+&copy; 2010-2011 by flonatel (rmtoo@florath.net). License
+GPLv3+: GNU GPL version 3 or later</p>
+<hr>
+</body>
+</html>
