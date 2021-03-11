@@ -43,3 +43,11 @@ exclude:
   - template_project/
   - template_project_build.sh
   - vmsetup/
+  - Config1.json
+  - examples
+  - html
+  - latex2
+  - requirements
+  - testcases
+  - topics
+  - traceability

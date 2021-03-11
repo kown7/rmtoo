@@ -1,0 +1,165 @@
+{
+    "global": {
+        "modules": {
+            "directories": [
+                "."
+            ]
+        },
+        "logging": {
+            "stdout": {
+                "loglevel": "info"
+            },
+            "tracer": {
+                "loglevel": "info",
+                "filename": "./rmtoo.log"
+            }
+        }
+    },
+    "processing": {
+        "analytics": {
+            "stop_on_errors": false
+        }
+    },
+    "import": {
+        "xls": {
+            "import_filename": "docs/import/requirements.xlsx"
+        }
+    },
+    "requirements": {
+        "input": {
+            "default_language": "en_GB",
+            "dependency_notation": [
+                "Solved by"
+            ]
+        },
+        "inventors": [
+            "flonatel",
+            "kno"
+        ],
+        "stakeholders": [
+            "development",
+            "management",
+            "users",
+            "customers"
+        ]
+    },
+    "topics": {
+        "ts_common": {
+            "sources": [
+                [
+                    "ignore:git",
+                    {
+                        "start_vers": "v9",
+                        "end_vers": "v11",
+                        "requirements_dirs": [
+                            "docs/requirements"
+                        ],
+                        "topics_dirs": [
+                            "docs/topics"
+                        ],
+                        "topic_root_node": "ReqsDocument",
+                        "constraints_dirs": [
+                            "collection/constraints"
+                        ]
+                    }
+                ],
+                [
+                    "ignore:git",
+                    {
+                        "start_vers": "v21",
+                        "end_vers": "v22",
+                        "requirements_dirs": [
+                            "docs/requirements"
+                        ],
+                        "topics_dirs": [
+                            "docs/topics"
+                        ],
+                        "topic_root_node": "ReqsDocument",
+                        "constraints_dirs": [
+                            "collection/constraints"
+                        ]
+                    }
+                ],
+                [
+                    "filesystem",
+                    {
+                        "requirements_dirs": [
+                            "docs/requirements"
+                        ],
+                        "testcases_dirs": [
+                            "docs/testcases"
+                        ],
+                        "topics_dirs": [
+                            "docs/topics"
+                        ],
+                        "topic_root_node": "ReqsDocument",
+                        "constraints_dirs": [
+                            "collection/constraints"
+                        ]
+                    }
+                ]
+            ],
+            "output": {
+                "graph": [
+                    {
+                        "output_filename": "artifacts/req-graph1.dot"
+                    }
+                ],
+                "graph2": [
+                    {
+                        "output_filename": "artifacts/req-graph2.dot"
+                    }
+                ],
+                "html": [
+                    {
+                        "footer": "docs/html/footer.html",
+                        "header": "docs/html/header.html",
+                        "output_directory": "artifacts/html"
+                    }
+                ],
+                "latex2": [
+                    {
+                        "output_filename": "artifacts/reqtopics.tex"
+                    }
+                ],
+                "xls": [
+                    {
+                        "output_filename": "artifacts/requirements.xlsx"
+                    }
+                ],
+                "oopricing1": [
+                    {
+                        "output_filename": "artifacts/reqspricing"
+                    }
+                ],
+                "prios": [
+                    {
+                        "output_filename": "artifacts/reqsprios.tex",
+                        "start_date": "2011-04-25"
+                    }
+                ],
+                "stats_burndown1": [
+                    {
+                        "output_filename": "artifacts/stats_burndown.csv",
+                        "start_date": "2011-04-25"
+                    }
+                ],
+                "stats_reqs_cnt": [
+                    {
+                        "output_filename": "artifacts/stats_reqs_cnt.csv"
+                    }
+                ],
+                "tlp1": [
+                    {
+                        "output_filename": "artifacts/reqdeps1.tlp"
+                    }
+                ],
+                "version1": [
+                    {
+                        "output_filename": "artifacts/reqs-version.txt"
+                    }
+                ]
+            }
+        }
+    }
+}

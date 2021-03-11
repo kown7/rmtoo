@@ -14,7 +14,7 @@ force:
 #
 # This is the way the rmtoo must be called.
 #
-CONFIG_FILE=file://doc/Config1.json
+CONFIG_FILE=file://docs/Config1.json
 CALL_RMTOO=rmtoo -m . -j ${CONFIG_FILE}
 
 #
@@ -39,16 +39,16 @@ artifacts/req-graph2.png: artifacts/req-graph2.dot
 
 # Two calls are needed: one for the requirments converting and one for
 # backlog creation.
-artifacts/requirements.pdf: ${REQS_LATEX2} doc/latex2/requirements.tex
+artifacts/requirements.pdf: ${REQS_LATEX2} docs/latex2/requirements.tex
 	(cd artifacts && \
 	   gnuplot ../src/rmtoo/contrib/gnuplot_stats_reqs_cnt.inc && \
 	   epstopdf stats_reqs_cnt.eps)
 	(cd artifacts && \
 	   gnuplot ../src/rmtoo/contrib/gnuplot_stats_burndown.inc && \
 	   epstopdf stats_burndown.eps)
-	(cd artifacts && pdflatex ../doc/latex2/requirements.tex; \
-		pdflatex ../doc/latex2/requirements.tex; \
-		pdflatex ../doc/latex2/requirements.tex)
+	(cd artifacts && pdflatex ../docs/latex2/requirements.tex; \
+		pdflatex ../docs/latex2/requirements.tex; \
+		pdflatex ../docs/latex2/requirements.tex)
 
 .PHONY: clean
 clean:
