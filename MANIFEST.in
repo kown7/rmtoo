@@ -1,7 +1,6 @@
 include *.txt
 include *.rst
 recursive-include doc *
-recursive-include share *
 recursive-include collection *
 prune *~
 prune *.pyc
