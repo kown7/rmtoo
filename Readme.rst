@@ -213,4 +213,4 @@ To avoid conflicts with the original ``rmtoo`` releases, the major-numbers
 will follow the upstream numbers (for now).
 
 For licensing details see COPYING
-See `doc/release_notes` folder for details.
+See `docs/release_notes` folder for details.
