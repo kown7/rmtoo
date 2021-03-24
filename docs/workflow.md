@@ -4,66 +4,56 @@ title: slToo Workflow
 
 # Introduction
 
-A solution is presented to collaboratively work on and track requirements. 
+A solution is presented to collaboratively work on and track requirements.
 Furthermore ensure the traceability over all specification items.
 
 # Motivation
 
-Collaborate on requirements documents with various stakeholders and ensure 
-transparency on sources for requirements.
-
-Ensure that verification and validation (V&V) activities are invalidated
-when requirements change, i.e. requirements traceability[^1]:
-
-    Requirements traceability is the ability to follow and audit the life of a 
-    requirement, in both a forward and backward direction; from its origins, 
-    through its realization in the design and functional specifications, to its 
-    eventual development and deployment and use, through subsequent rounds of 
-    modification and refinement.
+On an embedded project some years ago that we inherited from previous
+collaborators, there was at least an Excel sheet with various requirements
+listed. All changes made by the various stakeholders were in different files.
+Merging those changes were tedious manual work with no clear traceability of who
+proposed which changes and no automated way to ensure there were no conflicting
+changes. [Here a workflow is proposed that ensures clear authorship, fails to
+merge conflicting changes and creates PDF documents on top.](#collaborative-workflow).
 
 
-## Technical Requirements
+On a different project some full moons ago there was a test report in a *Word*
+document. This test report listed all requirements and how they were verified,
+i.e. testing or analysis. For every entry there was a link to the report
+documenting the relevant tests/analysis. This became tedious to keep updated and
+correct with every changed test or requirement. [Here an automated solution is
+presented](#traceability).
 
-* Keep the specifications documents and code synchronised
-  * Single source of truth
-* Automate the generation of documents
-  * Always up-to-date documents
-  * Document baselining
-* Edit requirements with Excel.
-  
 
-# Workflow
 
-It is assumed that the owner of the requirements specification has an initial 
-proposal. The generated *xls* and *pdf* documents will be distributed to all 
-stakeholders. 
+# Collaborative Workflow
+
+It is assumed that the owner of the requirements specification has an initial
+proposal. The generated *xls* and *pdf* documents will be distributed to all
+stakeholders.
 
 {% include image.html url="assets/images/Workflow-init.png" description="Initial Distribution of Requirements Specifications" %}
 
-The stakeholders can edit the spreadsheets they've received to their liking 
-without any side-effects. Their feedback will then be imported and reviewed. 
+The stakeholders can edit the spreadsheets they've received to their liking
+without any side-effects. Their feedback will then be imported and reviewed.
 When all feedback has been imported, the various changes can be merged.
 
 As all specification items are stored as plain text files, they can be merged
-with your favourite version-control system, i.e. `git merge`. If there are 
+with your favourite version-control system, i.e. `git merge`. If there are
 merge conflicts or review issues, they need to be solved separately.
 
 {% include image.html url="assets/images/Workflow-feedback.png" description="Incorporating Stakeholder Feedback" %}
 
-Generate a new set of documents (new baseline) for review. Repeat this 
+Generate a new set of documents (new baseline) for review. Repeat this
 process until the project is finished.
-
-# Example Document
-
-For the following example, the *architecture specification*[^2] for 
-[*pymergevcd*](https://kown7.github.io/pymergevcd/) will be used.
 
 
 ## Requirements
 
-Every requirement specification issue is stored in its own file. For the following
-example called `SW-AS-501.req`. This allows us to track changes with a *version
-control system*, i.e. `git`.
+Every requirement specification issue is stored in its own file. The following
+example is called `SW-AS-501.req`. This allows us to track changes with a
+*version control system*, i.e. `git`.
 
 In the following image a reference specification item is shown.
 
@@ -74,18 +64,29 @@ title, description and identifier.
 
 ## Editing Requirements
 
-The specification can be edited using any compatible spreadsheet program. It 
-will along the lines the following image.
+The specification can be edited using any compatible spreadsheet program. It
+will be along the lines of the following image.
 
 New items can easily be created by copying the existing rows.
 
 {% include image.html url="assets/images/excel-ex.png" description="Editing the specification items" %}
 
 
-## Traceability
+# Traceability
 
-The previous specification item `SW-AS-501` is referenced the 
-unit-tests[^3]. The following code snippet shows the test code and the 
+Ensure that verification and validation (V&V) activities are invalidated
+when requirements change, i.e. requirements traceability[^1]:
+
+    Requirements traceability is the ability to follow and audit the life of a
+    requirement, in both a forward and backward direction; from its origins,
+    through its realization in the design and functional specifications, to its
+    eventual development and deployment and use, through subsequent rounds of
+    modification and refinement.
+
+## Traceability to Tests
+
+The previous specification item `SW-AS-501` is referenced the
+unit-tests[^3]. The following code snippet shows the test code and the
 reference.
 
 ```python
@@ -113,13 +114,30 @@ xunit XML results file `result.xml`.
 </testcase>
 ```
 
-The `result.xml` file is then used to derive the traceability matrix. 
+The `result.xml` file is then used to derive the traceability matrix.
 
 {% include image.html url="assets/images/tracemat-ex.png" description="Sample traceability matrix" %}
 
 Should this specific specification item change so will the traceability matrix
 show a failed instead of passed. This due to the different hashes.
 
+
+# Example Document
+
+The previous examples were copied from the *architecture specification*[^2] for
+[*pymergevcd*](https://kown7.github.io/pymergevcd/).
+
+
+# Further goals
+
+Technical Requirements
+
+* Keep the specifications documents and code synchronised
+  * Single source of truth
+* Automate the generation of documents
+  * Always up-to-date documents
+  * Document baselining
+* Edit requirements with Excel.
 
 ----
 
