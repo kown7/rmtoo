@@ -11,7 +11,10 @@ Furthermore ensure the traceability over all specification items.
 
 On an embedded project some years ago that we inherited from previous
 collaborators, there was at least an Excel sheet with various requirements
-listed. All changes made by the various stakeholders were in different files.
+listed. The origins of this file was shrouded in mystery, but probably
+from some web-based ALM tool that definitely didn't ship with the code.
+
+All changes made by the various stakeholders were in different files.
 Merging those changes were tedious manual work with no clear traceability of who
 proposed which changes and no automated way to ensure there were no conflicting
 changes. [Here a workflow is proposed that ensures clear authorship, fails to
@@ -130,14 +133,26 @@ The previous examples were copied from the *architecture specification*[^2] for
 
 # Further goals
 
-Technical Requirements
-
 * Keep the specifications documents and code synchronised
   * Single source of truth
 * Automate the generation of documents
   * Always up-to-date documents
   * Document baselining
 * Edit requirements with Excel.
+* Integrate with your CI/CD pipeline
+* Still there in 10 years.
+
+## Alternatives
+
+This is an incomplete list of existing ALM tools that will solve your problems
+with a different UI.
+
+* [Octane ALM](https://www.microfocus.com/en-us/products/alm-octane/overview)
+* [Codebeamer](https://codebeamer.com)
+* [Aligned elements](https://www.aligned.ch/)
+* ...
+
+They're gone in 10 years though.
 
 ----
 
