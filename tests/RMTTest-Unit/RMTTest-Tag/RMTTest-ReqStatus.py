@@ -10,13 +10,13 @@
 '''
 from __future__ import unicode_literals
 
-
 from rmtoo.inputs.ReqStatus import ReqStatus
 from rmtoo.lib.RMTException import RMTException
 from ReqTag import create_parameters
 from rmtoo.lib.storagebackend.RecordEntry import RecordEntry
 from rmtoo.lib.RequirementStatus import RequirementStatusNotDone, \
-    RequirementStatusFinished
+    RequirementStatusFinished, RequirementStatusAssigned, \
+    RequirementStatusExternal
 
 import pytest
 
@@ -33,7 +33,9 @@ class RMTTestReqStatus(object):
         assert "Status" == name
         assert isinstance(value, RequirementStatusNotDone)
 
-    def rmttest_positive_02(self):
+        assert "not done" == value.get_output_string_short()
+
+    def rmttest_positive_02__StatusFinished(self):
         "Requirement Tag Status - tag given 'finished'"
         config, req = create_parameters()
         req["Status"] = RecordEntry("Status", "finished")
@@ -44,6 +46,37 @@ class RMTTestReqStatus(object):
         assert isinstance(value, RequirementStatusFinished)
         assert value.get_person() is None
         assert value.get_duration() is None
+
+        assert "finished" == value.get_output_string_short()
+
+    def rmttest_positive_03(self, record_property):
+        "Requirement Tag Status - tag given 'assigned'"
+        record_property("req", "StatusAssigned")
+        config, req = create_parameters()
+        req["Status"] = RecordEntry("Status", "assigned:nork:2018-03-18")
+
+        rt = ReqStatus(config)
+        name, value = rt.rewrite("Status-test", req)
+        assert "Status" == name
+        assert isinstance(value, RequirementStatusAssigned)
+
+        assert "assigned" == value.get_output_string_short()
+
+    def rmttest_positive_04__StatusExternal(self, record_property):
+        "Requirement Tag Status - tag given 'external'"
+        record_property("req", "StatusExternal-5fedf23b")
+
+        config, req = create_parameters()
+        req["Status"] = RecordEntry("Status", "external")
+
+        rt = ReqStatus(config)
+        name, value = rt.rewrite("Status-test", req)
+        value.rid_hash = "deadbeef"
+
+        assert "Status" == name
+        assert isinstance(value, RequirementStatusExternal)
+        assert "open" == value.get_output_string_short()
+        assert "external" == value.tval
 
     def rmttest_negative_01(self):
         "Requirement Tag Status - no tag given"
