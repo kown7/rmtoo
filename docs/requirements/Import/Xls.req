@@ -7,7 +7,7 @@ Description: Import requirement files from the exported xlsx
  file.
 Rationale: Some people prefer to handle their requirements in
  familiar tools.
-Status: not done
+Status: finished:kno:2018-10-12:10h
 Priority: development:10
 Effort estimation: 3
 Topic: Import

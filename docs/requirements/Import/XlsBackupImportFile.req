@@ -6,7 +6,7 @@ Owner: development
 Description: Xlsx files that have been successfully imported are
  renamed to its current name with the current timestamp appended.
 Rationale: Avoid importing files multiple times.
-Status: assigned:kno:2018-10-12
+Status: finished:kno:2018-10-12:2h
 Priority: development:10
 Effort estimation: 1
 Topic: Import
