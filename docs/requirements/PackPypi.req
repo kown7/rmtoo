@@ -1,0 +1,12 @@
+Name: Python Package
+Type: design decision
+Invented on: 2020-04-11
+Invented by: kno
+Description: \textsl{rmtoo} \textbf{must} be distributed as a \emph{pypi} package
+Rationale: This is the simplest way to install \emph{Python} packages.
+Owner: development
+Status: finished
+Priority: management:8
+Class: implementable
+Effort estimation: 13
+Topic: Deployment

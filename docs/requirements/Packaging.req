@@ -12,5 +12,5 @@ Priority: management:10
 Effort estimation: 3
 Topic: Deployment
 
-Solved by: PackDebian TestBeforePack
+Solved by: PackPypi TestBeforePack
 # Added by rmtoo-normalize-dependencies
