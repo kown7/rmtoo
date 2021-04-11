@@ -33,7 +33,8 @@ The following `README` are available from the original repository
 * [Readme-RmtooOnRmtoo](readme/Readme-RmtooOnRmtoo)
 * [Readme-Windows](readme/Readme-Windows)
 
-There's also a [Roadmap](readme/roadmap)
+There's also the original *rmtoo* [Roadmap](readme/roadmap). See also
+[the plans for 2021]({{ site.baseurl }}{% link _posts/2021-04-11-near-term-roadmap.md %}).
 
 
 # Unique Feature Set
