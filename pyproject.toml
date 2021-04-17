@@ -82,6 +82,7 @@ test = ["pytest", "pytest-cov", "tox", "flake8", "xmldiff==2.4"]
 "ReqPriority" = "rmtoo.inputs.ReqPriority:ReqPriority"
 "ReqRationale" = "rmtoo.inputs.ReqRationale:ReqRationale"
 "ReqStatus" = "rmtoo.inputs.ReqStatus:ReqStatus"
+"ReqDependsExt" = "rmtoo.inputs.ReqDependsExt:ReqDependsExt"
 "ReqTestCase" = "rmtoo.inputs.ReqTestCase:ReqTestCase"
 "ReqTopic" = "rmtoo.inputs.ReqTopic:ReqTopic"
 "ReqType" = "rmtoo.inputs.ReqType:ReqType"

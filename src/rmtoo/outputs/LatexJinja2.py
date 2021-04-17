@@ -233,6 +233,11 @@ class LatexJinja2(StdOutputParams, ExecutorTopicContinuum,
             template_vars['note'] = (
                 req.get_value("Note").get_content()
             )
+        if req.is_val_av_and_not_null("Depends ext"):
+            depext = req.get_value("Depends ext").get_content().split()
+            template_vars['dependsext'] = " ".join(depext)
+            template_vars['dependsextLabel'] = [
+                x + "-" + template_vars['hash'] for x in depext]
 
         if len(req.outgoing) > 0:
             # Create links to the corresponding dependency nodes.
