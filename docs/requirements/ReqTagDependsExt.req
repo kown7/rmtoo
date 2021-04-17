@@ -1,0 +1,10 @@
+Name: Depends Ext
+Topic: ReqTags
+Description: A requirement \emph{can} make a reference to a requirement in another document.
+Status: not done
+Rationale: Create traceability across multiple documents, e.g.: \texttt{Depends ext: SW-RS-101-deadbeef}.
+Owner: development
+Effort estimation: 1
+Invented on: 2020-04-17
+Type: requirement
+Invented by: kno

@@ -10,5 +10,5 @@ Status: finished
 Priority: development:10
 Effort estimation: 3
 Topic: ReqTags
-Solved by: ReqTagDescription ReqTagInventedBy ReqTagInventedOn ReqTagStatus ReqTagTopic ReqTagsAgile ReqTagsBasic
 # Added by rmtoo-normalize-dependencies
+Solved by: ReqTagDescription ReqTagInventedBy ReqTagInventedOn ReqTagStatus ReqTagTopic ReqTagsAgile ReqTagsBasic ReqTagDependsExt
