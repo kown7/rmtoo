@@ -118,6 +118,7 @@ test = ["pytest", "pytest-cov", "tox", "flake8", "xmldiff==2.4"]
 
 [tool.flit.entrypoints."rmtoo.input.requirement_status_parser"]
 "xunit" = "rmtoo.lib.VerificationStatusParser:VerificationStatusParserXUnit"
+"auxlabel" = "rmtoo.lib.VerificationStatusParser:VerificationStatusParserLatexLabels"
 
 [tool.flit.entrypoints."rmtoo.imports.plugin"]
 "xls" = "rmtoo.imports.xls:XlsImport"

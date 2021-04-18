@@ -1,13 +1,10 @@
-'''
- rmtoo
-   Free and Open Source Requirements Management Tool
+"""Unit test for ReqStatusParser
 
-  Unit test for ReqStatusParser
+rmtoo Free and Open Source Requirements Management Tool
+© 2018-2021 Kristoffer Nordström; for licensing details see COPYING
+SPDX-License-Identifier: GPL-3.0-or-later
 
- (c) 2018 Kristoffer
-
- For licensing details see COPYING
-'''
+"""
 from __future__ import unicode_literals
 import os
 import pytest
@@ -178,3 +175,18 @@ def rmttest_positive_test_config_parser_4(record_property):
     assert bool(ret) is False
     assert len(ret.result) == 2  # Parsing two files
     assert ret.get_output_string() == "open"
+
+
+"""Parse a configuration for one or more files"""
+FILE_NAME_REQSAUX = os.path.join(FILE_DIR, "requirements.aux")
+AUX_CONFIG = {'files': {"AS": (FILE_NAME_REQSAUX, "auxlabel")}}
+
+
+def rmttest_auxlabel_basic_behaviour(record_property):
+    """Simple configuration test with rid/rhash found in aux-file."""
+    ret = parse_config_with_requirement(
+        "SW-RS-420", "a114bee3", AUX_CONFIG)
+    assert len(ret.result) == 1  # Parsing one file
+    assert ret.rid_match
+    assert bool(ret) is True
+    assert ret.get_output_string() == "passed"

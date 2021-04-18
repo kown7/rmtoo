@@ -7,6 +7,8 @@ SPDX-License-Identifier: GPL-3.0-or-later
 """
 import os
 import re
+from rmtoo.lib.logging import logger
+from typing import Optional
 import xml.etree.ElementTree as ET
 
 from stevedore import extension
@@ -115,6 +117,60 @@ class VerificationStatusParserXUnit(object):
                     if re.match(r"\b" + self._rid + r"\b", req_id):
                         testcases.append(i)
         return testcases
+
+
+class VerificationStatusParserLatexLabels(object):
+    """Parse LaTeX labels with `rid` and optionally `rhash`.
+
+    If a label with `rid` is found, then it is deemed verified,
+    i.e. not open. If the `rhash` matches for all occurences then the
+    requirement is passed. Otherwise it's failed.
+
+    rhash -- Hash uniquely identifying the requirement. Ignored if None.
+
+    """
+    def __init__(self, rid, rhash, filename) -> None:
+        self._filename = filename
+        self._rid = rid
+        self._hash = rhash
+
+    def parse(self) -> Optional[VerificationStatusParserFileInfo]:
+        if not self._filename or (not os.path.isfile(self._filename)):
+            logger.warning("Filename %s not found", self._filename)
+            return None
+        with open(self._filename, mode='r') as fptr:
+            file_contents = fptr.read()
+        req_status = VerificationStatusParserFileInfo()
+
+        # Matches e.g. r'label{SW-AS-42-deadbeef}'
+        match_cnt = r'label\{' + self._rid + r'.{0,1}[a-f0-9]*\}'
+        all_matches = re.findall(match_cnt, file_contents)
+        if len(all_matches) == 0:
+            # No matches to  be expected -> return open
+            return req_status
+        req_status.rid_match = True
+
+        if self._hash is None:
+            is_equal_matches = True
+        else:
+            match_exact = r'label\{' + self._rid + r'.' + self._hash + r'\}'
+            exact_matches = re.findall(match_exact, file_contents)
+            is_equal_matches = len(all_matches) == len(exact_matches)
+
+        req_status._raw_results_type = 'latexlabels'
+        req_status._raw_results = {}
+        req_status.bool_status = is_equal_matches
+        for match in all_matches:
+            match_label = match[6:-1]
+            if self._hash is None:
+                req_status._raw_results.update({match_label: True})
+            else:
+                if not re.match(match_exact, match):
+                    req_status.bool_status = False
+                    req_status._raw_results.update({match_label: False})
+                else:
+                    req_status._raw_results.update({match_label: True})
+        return req_status
 
 
 PARSE_FACTORY = VerificationStatusParserFactory()
