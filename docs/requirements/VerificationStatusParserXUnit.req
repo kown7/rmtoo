@@ -3,10 +3,8 @@ Type: requirement
 Invented on: 2018-05-24
 Invented by: kno
 Description: The verification status is parsed from an xunit log
- file. The following example shows the required XML-tags.
-
- The value of the \emph{property} tag is the name of the requirement
- followed by its hash.
+ file. The \emph{property} tag has a name and value property with the
+ requirement's name and hash.
 Rationale: Create traceability matrix directly from your unit-tests
 Owner: development
 Status: finished:kno:2018-05-24:4h
