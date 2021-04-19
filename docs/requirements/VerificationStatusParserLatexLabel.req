@@ -5,5 +5,6 @@ Invented by: kno
 Description: The verification status is parsed from a \LaTeX label with the requirement ID and Hash (if selected).
 Rationale: Create multi-document traceability
 Owner: development
+# Status: finished:kno:2018-05-24:4h
 Status: not done
 Topic: StatusParsers

@@ -126,7 +126,14 @@ class VerificationStatusParserLatexLabels(object):
     i.e. not open. If the `rhash` matches for all occurences then the
     requirement is passed. Otherwise it's failed.
 
-    rhash -- Hash uniquely identifying the requirement. Ignored if None.
+    Valid examples:
+
+    * \\label{rid-rhash}
+    * \\label{rid-rhash-identifier}
+    * \\label{rid} if `rhash` is None
+
+    `rhash` must be at most 64 chars long, at least 4.
+    `identifier` is only A-z and numbers
 
     """
     def __init__(self, rid, rhash, filename) -> None:
@@ -143,7 +150,8 @@ class VerificationStatusParserLatexLabels(object):
         req_status = VerificationStatusParserFileInfo()
 
         # Matches e.g. r'label{SW-AS-42-deadbeef}'
-        match_cnt = r'label\{' + self._rid + r'.{0,1}[a-f0-9]*\}'
+        match_cnt = (r'label\{' + self._rid +
+                     r'.{0,1}[a-f0-9]{4,64}.{0,1}[A-z0-9]*\}')
         all_matches = re.findall(match_cnt, file_contents)
         if len(all_matches) == 0:
             # No matches to  be expected -> return open
@@ -153,7 +161,8 @@ class VerificationStatusParserLatexLabels(object):
         if self._hash is None:
             is_equal_matches = True
         else:
-            match_exact = r'label\{' + self._rid + r'.' + self._hash + r'\}'
+            match_exact = (r'label\{' + self._rid + r'.' +
+                           self._hash + r'.{0,1}[A-z0-9]*\}')
             exact_matches = re.findall(match_exact, file_contents)
             is_equal_matches = len(all_matches) == len(exact_matches)
 

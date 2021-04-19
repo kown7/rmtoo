@@ -190,3 +190,47 @@ def rmttest_auxlabel_basic_behaviour(record_property):
     assert ret.rid_match
     assert bool(ret) is True
     assert ret.get_output_string() == "passed"
+
+
+def rmttest_auxlabel_two_ids_w_diff_rhash(record_property):
+    """Differing hashes for the same RID."""
+    ret = parse_config_with_requirement(
+        "SW-RS-42", "deadbeef", AUX_CONFIG)
+    assert len(ret.result) == 1  # Parsing one file
+    assert ret.rid_match
+    assert bool(ret) is False
+    assert ret.get_output_string() == "failed"
+
+
+def rmttest_auxlabel_two_labels_same_line(record_property):
+    """Same hashes for the same RID, but on same line."""
+    ret = parse_config_with_requirement(
+        "SW-RS-43", "feedbee3", AUX_CONFIG)
+    assert len(ret.result) == 1  # Parsing one file
+    assert ret.rid_match
+    assert bool(ret) is True
+    assert ret.get_output_string() == "passed"
+    # Yes, we're aliasing labels if the're equal!
+    assert len(ret.result['AS']._raw_results) == 1
+
+
+def rmttest_auxlabel_two_labels_suffix_same_line(record_property):
+    """Same hashes for the same RID, on same line but with suffix."""
+    ret = parse_config_with_requirement(
+        "SW-RS-52", "eeffaa33", AUX_CONFIG)
+    assert len(ret.result) == 1  # Parsing one file
+    assert ret.rid_match
+    assert bool(ret) is True
+    assert ret.get_output_string() == "passed"
+    assert len(ret.result['AS']._raw_results) == 2
+
+
+def rmttest_auxlabel_two_labels_differing(record_property):
+    """Differing hashes for the same RID, on same line but with suffix."""
+    ret = parse_config_with_requirement(
+        "SW-RS-53", "ffaa3355", AUX_CONFIG)
+    assert len(ret.result) == 1  # Parsing one file
+    assert ret.rid_match
+    assert bool(ret) is False
+    assert ret.get_output_string() == "failed"
+    assert len(ret.result['AS']._raw_results) == 2
