@@ -177,6 +177,22 @@ def rmttest_positive_test_config_parser_4(record_property):
     assert ret.get_output_string() == "open"
 
 
+def rmttest_positive_test_config_parser_regression_1(record_property):
+    """Test with rid found in xunit output, no file for second file
+
+    Test should report passed
+
+    """
+    cfg = {'files': {"UT": (FILE_NAME_SIMPLE, "xunit"),
+                     "AS": (FILE_NAME_SIMPLE + ".xml", "xunit")}}
+    ret = parse_config_with_requirement(
+        "StatusAssigned", None, cfg)
+    assert ret.rid_match is True
+    assert bool(ret) is True
+    assert len(ret.result) == 2  # Parsing two files
+    assert ret.get_output_string() == "passed"
+
+
 """Parse a configuration for one or more files"""
 FILE_NAME_REQSAUX = os.path.join(FILE_DIR, "requirements.aux")
 AUX_CONFIG = {'files': {"AS": (FILE_NAME_REQSAUX, "auxlabel")}}

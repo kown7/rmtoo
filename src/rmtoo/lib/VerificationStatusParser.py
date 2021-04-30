@@ -220,7 +220,7 @@ class VerificationStatusParserRidInfo(object):
                 rid, rhash, file_info[0], file_info[1])
             if parsed_file is not None:
                 self.rid_match = self.rid_match or parsed_file.rid_match
-            self.parsed_status = self.parsed_status and bool(parsed_file)
+                self.parsed_status = self.parsed_status and bool(parsed_file)
             self.result[file_id_short] = parsed_file
 
     def get_output_string_short(self):
