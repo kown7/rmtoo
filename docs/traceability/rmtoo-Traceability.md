@@ -9,6 +9,63 @@ header-includes: |
 
 # Introduction
 
+## Storytime
+
+* The Foundling
+* Word is also a Hammer
+* The Spanish Review
+* The Blame Game
+
+## The Foundling
+
+Once upon a time a we inherited from another contractor a project that has 
+been dormant for a couple of years. 
+
+It came with one document that contained all requirements and use-cases. It 
+appeared to have been exported from some web-based tool.
+
+**Question:** How do we ensure that all requirements and documentation is 
+shipped with the code for future use?
+
+## Word is also a Hammer
+
+A different project had one test report with a traceability matrix. It's 
+perfectly fine to create one manually. Ff the requirements change it'll be 
+hard to figure out the minimal delta-test.
+
+Obviously the requirements change more than once. Hence we want this fully 
+automated.
+
+## The Spanish Review
+
+I've once had the pleasure to review multiple specifications for an ESA 
+contractor. Unfortunately, they didn't provide a consistent set of documents.
+
+We have CI/CD for software, why don't we include our documents?
+
+## The Blame Game
+
+We can branch software files and have tools to review merges/changes.
+
+Software is just text, requirement specifications too. Can we use the same 
+tools?
+
+Running `git blame` on the spec?
+
+
+# Theory
+
+
+# Practice
+
+
+# Conclusion
+
+
+# Demonstration
+
+
+
 ## *rmtoo*
 
 * File-based requirements tracking tool
