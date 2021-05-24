@@ -48,13 +48,70 @@ We have CI/CD for software, why don't we include our documents?
 We can branch software files and have tools to review merges/changes.
 
 Software is just text, requirement specifications too. Can we use the same 
-tools?
-
-Running `git blame` on the spec?
+tools, e.g., running `git blame` on the spec?
 
 
 # Theory
 
+## Non-locality of comments
+
+Perhaps the biggest problem with code comments are their non-locality
+
+```python
+# Here be dragons: do that later
+some_code()
+```
+
+Changes to `some_code()` will not propagate back to the above snippet
+
+
+## Traceability
+
+* Traceability from specification items
+    * Forward from requirements specification to dependant documents
+	* Backwards from verification to specifications
+
+![Traceability Overview](vmodell-fwdrwd.png)
+
+
+## Traceability Two-Ways
+
+* Change something
+* Find all the dependent ...
+* Manual nightmare
+
+
+## Here be two-column dragons
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+   some text here some text here some text here some text here some text here
+   
+![Traceability Overview](vmodell-fwdrwd.png)
+
+\end{column}
+\begin{column}{0.5\textwidth}  
+    \begin{center}
+     %%%%% this is a minipage, so \textwidth is already adjusted to the size of the column
+     \includegraphics[width=\textwidth]{vmodell-fwdrwd.png}
+     \end{center}
+\end{column}
+\end{column
+
+
+## Here be dragons
+
+::: columns
+
+:::: column
+left
+::::
+
+:::: column
+right
+::::
+
+:::
 
 # Practice
 
