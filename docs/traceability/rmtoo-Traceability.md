@@ -11,6 +11,8 @@ header-includes: |
 
 # Introduction
 
+\note{Motivation, kurzer Theorieteil, Implementation, Zusammenfassung}
+
 ## Storytime
 
 * The Foundling
@@ -81,6 +83,10 @@ public boolean isAvailable() {
 }
 ```
 
+## Non-locality of comments (III)
+
+\centering WAT?
+
 
 ## Traceability Directions
 
@@ -97,7 +103,7 @@ public boolean isAvailable() {
 * *Implementation a* says implemented `A`
     * What if `A` changes?
 	* *A* knows nothing of *a*
-	* Can be tedious manually
+	* Can be automated
 
 
 ## Proposed Solution
@@ -205,7 +211,7 @@ bash -ec 'test "$(grep -c failed \
 
 ## Versioning
 
-* Every document has a release process
+Every document has a its own version tag
 
 ```bash
 git tag -a RS/1A
@@ -256,9 +262,7 @@ $ RS/1A-8-g76b3ffe — 76b3ffe4
 
 
 
-## *rmtoo*
-
-Introduction Presentations
+## *rmtoo* -- Introductions
 
 An
 \href{https://github.com/florath/rmtoo/releases/download/v23/rmtooIntroductionV9.pdf}{introduction
@@ -317,13 +321,7 @@ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 	* Document Formats:
 	    * docx (maybe with pandoc)
 		* \LaTeX
-* Cross-Document References
-    * *Solved by external*
-	    * *Solved by* is used in *downwards* direction in the V.
-	    * Only within document at the moment. Makes merging documents easier.
-    * *Depends on external*
-	    * References requirements in other documents, can be with or without hashes.
-		* Think about extending the current *Depends on* handler (deprecated) for use as external (leftwards, upwards) reference.
+
 
 ## Final Thoughts
 
