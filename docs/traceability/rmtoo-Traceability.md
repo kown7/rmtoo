@@ -15,7 +15,7 @@ header-includes: |
   ]{doclicense}
 ---
 
-# Introduction
+# Motivation
 
 \note{It's an honour to open this session.
 
@@ -26,41 +26,28 @@ of the problem we're trying to solve. For all requirements there's a anecdote.}
 ## Storytime
 
 * Word is also a Hammer
+    * Fully automated traceability matrix
 * The Hopeless Review
+    * Consistent documents
 * The Foundling
+    * Ship consistent documents with code
 
-## Word is also a Hammer
+\note{It's perfectly fine to create one manually. If the requirements change
+it'll be hard to figure out the minimal delta-test. Obviously the requirements
+change more than once. Hence we want this fully automated.
 
-A different project had one test report with a traceability matrix. It's
-perfectly fine to create one manually. If the requirements change it'll be
-hard to figure out the minimal delta-test.
-
-Obviously the requirements change more than once. Hence we want this fully
-automated.
-
-## The Spanish Review
 
 I've once had the pleasure to review multiple specifications for a different
 contractor. Unfortunately, they didn't provide a consistent set of documents.
 
+To use the term Jon Holt uses in his introduction to MBSE:
 Documents need to be a live *view* of the system to be built (not pretty
-pictures).
-
-\note{To use the term Jon Holt uses in his introduction to MBSE}
-
-We have CI/CD for software, why don't we include our documents?
-
-
-## The Foundling
-
-Once upon a time a we inherited from another contractor a project that has
-been dormant for a couple of years.
+pictures). We have CI/CD for software, why don't we include our documents?
 
 It came with one document that contained all requirements and use-cases. It
 appeared to have been exported from some web-based tool.
 
-**Question:** How do we ensure that all requirements and documentation is
-shipped with the code for future use?
+Also: Interface with management/business side}
 
 
 # Theory
@@ -90,6 +77,13 @@ shipped with the code for future use?
     * What if `A` changes?
 	* *A* knows nothing of *a*
 	* Can be automated
+
+\begin{tikzpicture}[remember picture,overlay]
+    \node[xshift=-2cm,yshift=2cm] at (current page.south east){%
+    \includegraphics[width=4cm]{Redbutton.png}};
+\end{tikzpicture}
+
+
 
 
 ## Proposed Solution
@@ -181,16 +175,6 @@ Example excerpt from page 7
 
 ![](baseline-footer.png)
 
-## CI/CD
-
-* Integration for every output document
-* Match *open* and/or *failed* issues
-* Example for *failed* issues
-```bash
-$ bash -ec 'test "$(grep -c failed \
-    arch/artifacts/tracematrix.tex)" -eq "0"'
-```
-
 
 ## Excel Workflow
 
@@ -200,6 +184,19 @@ $ bash -ec 'test "$(grep -c failed \
     * Works if all you've got is Office and E-Mail
 
 * INSERT IMAGE HERE
+
+
+## Integrating Requirements into CI/CD
+
+* Integration for every output document
+* Match *open* and/or *failed* issues
+* Example for *failed* issues
+
+```bash
+$ bash -ec 'test "$(grep -c failed \
+    arch/artifacts/tracematrix.tex)" -eq "0"'
+```
+
 
 # Conclusion
 
