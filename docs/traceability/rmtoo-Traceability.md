@@ -17,7 +17,7 @@ header-includes: |
 
 # Motivation
 
-\note{It's an honour to open this session.
+\note{It's an honour to open this topic's session.
 
 When talking about requirements, we should also define the requirements
 of the problem we're trying to solve. For all requirements there's a anecdote.}
@@ -28,11 +28,14 @@ of the problem we're trying to solve. For all requirements there's a anecdote.}
 * Word is also a Hammer
     * Fully automated traceability matrix
 * The Hopeless Review
-    * Consistent documents
+    * Consistent documents straight from the source
 * The Foundling
-    * Ship consistent documents with code
+    * Store requirements' meta-information with code
 
-\note{It's perfectly fine to create one manually. If the requirements change
+\note{
+4'
+
+It's perfectly fine to create one manually. If the requirements change
 it'll be hard to figure out the minimal delta-test. Obviously the requirements
 change more than once. Hence we want this fully automated.
 
@@ -47,7 +50,8 @@ pictures). We have CI/CD for software, why don't we include our documents?
 It came with one document that contained all requirements and use-cases. It
 appeared to have been exported from some web-based tool.
 
-Also: Interface with management/business side}
+Propose and implement a solution to these problems.
+Also: Too technical, need an interface with management/business side}
 
 
 # Theory
@@ -74,13 +78,28 @@ Also: Interface with management/business side}
 
 * *Requirement A* says do `A`
 * *Implementation a* says implemented `A`
-    * What if `A` changes?
-	* *A* knows nothing of *a*
 	* Can be automated
+* What if `A` changes?
+	* *A* knows nothing of *a*
 
 \begin{tikzpicture}[remember picture,overlay]
-    \node[xshift=-2cm,yshift=2cm] at (current page.south east){%
-    \includegraphics[width=4cm]{Redbutton.png}};
+    \filldraw[fill=red!30!white, draw=red,thick] (9.2,-0.9) circle (1.5cm);
+    \filldraw[fill=red!80!white, draw=red,thick] (9,-0.7) circle (1.5cm) node[align=center, text=white] {\textbf{PANIC}} ;
+\end{tikzpicture}
+
+
+## Traceability
+
+* *Requirement A* says do `A`
+* *Implementation a* says implemented `A`
+	* Can be automated
+* What if `A` changes?
+	* *A* knows nothing of *a*
+
+
+\begin{tikzpicture}[remember picture,overlay]
+    \filldraw[fill=teal!20!green!30!white, draw=teal!20!green,thick] ([xshift=4.2cm,yshift=-2.5cm]current page.center) circle (1.5cm);
+    \filldraw[fill=teal!20!green!80!white, draw=teal!20!green,thick] ([xshift=4cm,yshift=-2.3cm]current page.center) circle (1.5cm) node[align=center, text=white, text width=2.5cm] {\textbf{DON'T PANIC}};
 \end{tikzpicture}
 
 
@@ -94,10 +113,13 @@ Also: Interface with management/business side}
 	* Use hashes instead of semantic versioning
 	* Calculated automatically
 
-\note{How does this look in practice?}
+
+\begin{tikzpicture}[remember picture,overlay]
+    \filldraw[fill=teal!20!green!30!white, draw=teal!20!green,thick] (9.2,-0.9) circle (1.5cm);
+    \filldraw[fill=teal!20!green!80!white, draw=teal!20!green,thick] (9,-0.7) circle (1.5cm) node[align=center, text=white, text width=2.5cm] {\textbf{DON'T PANIC}} ;
+\end{tikzpicture}
 
 
-# Practice
 
 
 ## Example Requirement
@@ -140,7 +162,7 @@ def test_read_write_engines(record_property, dummy_vcd_file):
 ### xUnit Output
 \tiny
 ```xml
-<testcase classname="tests.test_io_manager" file="tests/test_io_manager.py" line="20" name="test_read_write_engines" time="2.830">
+<testcase   line="20" name="test_read_write_engines" time="2.830">
   <properties>
     <property name="req" value="SW-AS-501-f8d68d11"/>
     <property name="req" value="SW-AS-500-4c1a395a"/>
@@ -153,6 +175,19 @@ def test_read_write_engines(record_property, dummy_vcd_file):
 ## Traceability Matrix
 
 ![](../assets/images/tracemat-ex.png)
+
+
+
+## Integrating Requirements into CI/CD
+
+* Integration for every output document
+* Match *open* and/or *failed* issues
+* Example for *failed* issues
+
+```bash
+$ bash -ec 'test "$(grep -c failed \
+    arch/artifacts/tracematrix.tex)" -eq "0"'
+```
 
 
 ## Document Baseline
@@ -176,6 +211,13 @@ Example excerpt from page 7
 ![](baseline-footer.png)
 
 
+
+
+\note{This is all nice and dandy; but how do we communicate with people for whom git clone is too much to ask?}
+
+# Business Interface
+
+
 ## Excel Workflow
 
 * Non-tech people define the requirements
@@ -185,17 +227,6 @@ Example excerpt from page 7
 
 * INSERT IMAGE HERE
 
-
-## Integrating Requirements into CI/CD
-
-* Integration for every output document
-* Match *open* and/or *failed* issues
-* Example for *failed* issues
-
-```bash
-$ bash -ec 'test "$(grep -c failed \
-    arch/artifacts/tracematrix.tex)" -eq "0"'
-```
 
 
 # Conclusion
@@ -217,6 +248,10 @@ $ bash -ec 'test "$(grep -c failed \
 
 
 \appendix
+
+
+
+
 ## Excel Support Rationale
 
 
@@ -285,11 +320,12 @@ $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 
 ## Future Developements
 
-* Write Parser for *Test Reports*
-    * Documents with the correct identifier automatically solve the specification
+* Write Parser for *Test Reports* \checkmark
+* Documents with the correct identifier automatically solve the specification
 	* Document Formats:
 	    * docx (maybe with pandoc)
-		* \LaTeX
+		* \LaTeX \checkmark
+		* Text
 
 
 ## Final Thoughts
