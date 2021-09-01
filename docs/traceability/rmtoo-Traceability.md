@@ -7,13 +7,21 @@ header-includes: |
   \usepackage{hyperref}
   \usepackage{appendixnumberbeamer}
   \usetheme[block=fill,progressbar=frametitle]{metropolis}
-  %\setbeameroption{show notes}
+  \usepackage{pgfpages}
+  \setbeameroption{show notes on second screen=right}
   \usepackage[
     type={CC},
     modifier={by-nc-sa},
     version={3.0},
   ]{doclicense}
 ---
+
+* Snapshot: wie sieht es aus
+    * More pictures
+* Contribution of mine hervorstreichen
+* Mehr Beispiele
+	* Personify Eugen from Marketing (?)
+
 
 # Motivation
 
@@ -25,34 +33,30 @@ of the problem we're trying to solve. For all requirements there's a anecdote.}
 
 ## Storytime
 
-* Word is also a Hammer
-    * Fully automated traceability matrix
-* The Hopeless Review
-    * Consistent documents straight from the source
-* The Foundling
-    * Store requirements' meta-information with code
+* Fully automated traceability matrix
+* Consistent and up-to-date documents from the source
+* Store (requirements') meta-information with code
 
 \note{
-4'
+\begin{itemize}
+\item It's fine manually. Requirements change find minimal delta-test? Change 
+more than once. Hence we want this fully automated.
 
-It's perfectly fine to create one manually. If the requirements change
-it'll be hard to figure out the minimal delta-test. Obviously the requirements
-change more than once. Hence we want this fully automated.
+\item Review multiple documents for a different
+contractor. No consistent set of documents were provided
 
+\item Jon Holt's term in introduction to MBSE: Documents are a live *view* of 
+the system (not pretty pictures). CI/CD for software, why not for documents?
 
-I've once had the pleasure to review multiple specifications for a different
-contractor. Unfortunately, they didn't provide a consistent set of documents.
+\item It came with one document that contained all requirements and use-cases. It
+appeared to have been exported from some web-based tool. All the information therein
+is lost
 
-To use the term Jon Holt uses in his introduction to MBSE:
-Documents need to be a live *view* of the system to be built (not pretty
-pictures). We have CI/CD for software, why don't we include our documents?
+\item Also: Too technical, interface with management/business side
+\item 4'
 
-It came with one document that contained all requirements and use-cases. It
-appeared to have been exported from some web-based tool.
-
-Propose and implement a solution to these problems.
-Also: Too technical, need an interface with management/business side}
-
+\end{itemize}
+}
 
 # Theory
 
@@ -76,30 +80,35 @@ Also: Too technical, need an interface with management/business side}
 
 ## Traceability
 
-* *Requirement A* says do `A`
-* *Implementation a* says implemented `A`
-	* Can be automated
-* What if `A` changes?
+* *Requirement A* 
+    * Red button to shut down system
+* *Implementation a* says implemented A
+	* Traceability can be automated 
+	* Machine-readable
+* What if *A* changes?
 	* *A* knows nothing of *a*
 
 \begin{tikzpicture}[remember picture,overlay]
-    \filldraw[fill=red!30!white, draw=red,thick] (9.2,-0.9) circle (1.5cm);
-    \filldraw[fill=red!80!white, draw=red,thick] (9,-0.7) circle (1.5cm) node[align=center, text=white] {\textbf{PANIC}} ;
+    \filldraw[fill=red!30!white, draw=red,thick] ([xshift=4.2cm,yshift=-2.5cm]current page.center) circle (1.5cm);
+    \filldraw[fill=red!80!white, draw=red,thick] ([xshift=4cm,yshift=-2.3cm]current page.center)   circle (1.5cm) node[align=center, text=white] {\textbf{PANIC}} ;
 \end{tikzpicture}
 
 
 ## Traceability
 
-* *Requirement A* says do `A`
+* *Requirement A*
+    * Green button with large friendly letters: don't panic
 * *Implementation a* says implemented `A`
-	* Can be automated
-* What if `A` changes?
+	* Traceability can be automated 
+	* Machine-readable
+* What if *A* changes?
 	* *A* knows nothing of *a*
+	* Traceability isn't given anymore
 
 
 \begin{tikzpicture}[remember picture,overlay]
     \filldraw[fill=teal!20!green!30!white, draw=teal!20!green,thick] ([xshift=4.2cm,yshift=-2.5cm]current page.center) circle (1.5cm);
-    \filldraw[fill=teal!20!green!80!white, draw=teal!20!green,thick] ([xshift=4cm,yshift=-2.3cm]current page.center) circle (1.5cm) node[align=center, text=white, text width=2.5cm] {\textbf{DON'T PANIC}};
+    \filldraw[fill=teal!20!green!80!white, draw=teal!20!green,thick] ([xshift=4cm,yshift=-2.3cm]current page.center)   circle (1.5cm) node[align=center, text=white, text width=2.5cm] {\textbf{DON'T PANIC}};
 \end{tikzpicture}
 
 
@@ -115,9 +124,10 @@ Also: Too technical, need an interface with management/business side}
 
 
 \begin{tikzpicture}[remember picture,overlay]
-    \filldraw[fill=teal!20!green!30!white, draw=teal!20!green,thick] (9.2,-0.9) circle (1.5cm);
-    \filldraw[fill=teal!20!green!80!white, draw=teal!20!green,thick] (9,-0.7) circle (1.5cm) node[align=center, text=white, text width=2.5cm] {\textbf{DON'T PANIC}} ;
+    \filldraw[fill=teal!20!green!30!white, draw=teal!20!green,thick] ([xshift=4.2cm,yshift=-2.5cm]current page.center) circle (1.5cm);
+    \filldraw[fill=teal!20!green!80!white, draw=teal!20!green,thick] ([xshift=4cm,yshift=-2.3cm]current page.center) circle (1.5cm) node[align=center, text=white, text width=2.5cm] {\textbf{DON'T PANIC}};
 \end{tikzpicture}
+
 
 
 
