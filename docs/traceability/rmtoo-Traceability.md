@@ -16,12 +16,6 @@ header-includes: |
   ]{doclicense}
 ---
 
-* Snapshot: wie sieht es aus
-    * More pictures
-* Contribution of mine hervorstreichen
-* Mehr Beispiele
-	* Personify Eugen from Marketing (?)
-
 
 # Motivation
 
@@ -39,13 +33,13 @@ of the problem we're trying to solve. For all requirements there's a anecdote.}
 
 \note{
 \begin{itemize}
-\item It's fine manually. Requirements change find minimal delta-test? Change 
+\item It's fine manually. Requirements change find minimal delta-test? Change
 more than once. Hence we want this fully automated.
 
 \item Review multiple documents for a different
 contractor. No consistent set of documents were provided
 
-\item Jon Holt's term in introduction to MBSE: Documents are a live *view* of 
+\item Jon Holt's term in introduction to MBSE: Documents are a live *view* of
 the system (not pretty pictures). CI/CD for software, why not for documents?
 
 \item It came with one document that contained all requirements and use-cases. It
@@ -80,10 +74,10 @@ is lost
 
 ## Traceability
 
-* *Requirement A* 
+* *Requirement A*
     * Red button to shut down system
 * *Implementation a* says implemented A
-	* Traceability can be automated 
+	* Traceability can be automated
 	* Machine-readable
 * What if *A* changes?
 	* *A* knows nothing of *a*
@@ -99,7 +93,7 @@ is lost
 * *Requirement A*
     * Green button with large friendly letters: don't panic
 * *Implementation a* says implemented `A`
-	* Traceability can be automated 
+	* Traceability can be automated
 	* Machine-readable
 * What if *A* changes?
 	* *A* knows nothing of *a*
@@ -116,9 +110,10 @@ is lost
 
 ## Proposed Solution
 
-* *Requirement A-1.0* says do `A`
-* *Implementation a* says implemented `A-1.0`
-    * *A-1.0* changes to *A-2.0* do `Â`
+* *Requirement A-1.0*
+    * Red button to shut down system
+* *Implementation a* says implemented *A-1.0*
+    * *A-1.0* (red button) changes to *A-2.0* (green button)
 	* Use hashes instead of semantic versioning
 	* Calculated automatically
 
@@ -129,12 +124,14 @@ is lost
 \end{tikzpicture}
 
 
+\note{Why hashes: no tool or manual changes required, it's all derived
 
+Let's see how it looks on an example}
 
 
 ## Example Requirement
 
-
+\vfill
 ![](../assets/images/requirement-ex.png)
 
 \vspace{1em}
@@ -147,6 +144,12 @@ Rationale is only informative
 $ sha256sum "${Name}${Description}${VerifMethod}"
 ```
 
+\vfill\tiny
+Example from [pymergevcd's architecture specification](https://kown7.github.io/pymergevcd/#architecture)
+
+\note{A from previous slides is now SW-AS-501
+
+Version n.0 is now \texttt{F8D68D11}}
 
 ## Testing the Example Requirement
 
@@ -184,9 +187,9 @@ def test_read_write_engines(record_property, dummy_vcd_file):
 
 ## Traceability Matrix
 
-![](../assets/images/tracemat-ex.png)
+![](tracemat-example.trans.png)
 
-
+\note{Now it should be straightforward to integrate it into any CI pipeline}
 
 ## Integrating Requirements into CI/CD
 
@@ -198,6 +201,17 @@ def test_read_write_engines(record_property, dummy_vcd_file):
 $ bash -ec 'test "$(grep -c failed \
     arch/artifacts/tracematrix.tex)" -eq "0"'
 ```
+
+
+
+\note{This is all nice and dandy; but how do we communicate with people for whom git clone is too much to ask?
+
+HERE:
+* Contribution of mine hervorstreichen
+}
+
+
+# sltoo in Practice
 
 
 ## Document Baseline
@@ -222,8 +236,6 @@ Example excerpt from page 7
 
 
 
-
-\note{This is all nice and dandy; but how do we communicate with people for whom git clone is too much to ask?}
 
 # Business Interface
 
