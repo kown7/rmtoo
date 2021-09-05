@@ -8,7 +8,8 @@ header-includes: |
   \usepackage{appendixnumberbeamer}
   \usetheme[block=fill,progressbar=frametitle]{metropolis}
   \usepackage{pgfpages}
-  \setbeameroption{show notes on second screen=right}
+  \setbeameroption{show only notes}
+  \setbeamercolor{note page}{bg=white}
   \usepackage[
     type={CC},
     modifier={by-nc-sa},
