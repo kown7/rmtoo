@@ -23,7 +23,7 @@ header-includes: |
 
 \begin{itemize}
 
-\item It's an honour to open this topic's session.
+\item It's an honour to open this topic's session: Applied SE.
 
 \item hen talking about requirements, we should also define the requirements of the problem we're trying to solve.
 
@@ -138,33 +138,72 @@ is lost
 Let's see how it looks on an example}
 
 
+
 ## Example Requirement
 
+
 \vfill
-![](../assets/images/requirement-ex.png)
 
-\vspace{1em}
+::: columns
 
-*Hash* is calculated over *Name*, *Description* and *Verification Method*.
-Rationale is only informative
+:::: column
+\tiny
+```
+Name: VCD Writer Inputs
+Topic: ReqsDocument
+Description: The output from ...
+Rationale: Make the process as ...
+Status: external
+Owner: development
+Effort estimation: 1
+Invented on: 2020-05-30
+Invented by: default
+Type: requirement
+```
+::::
+
+:::: column
+*Hash* is calculated over *Name*, *Description* and *Verification Method*
 
 
 ```bash
-$ sha256sum "${Name}${Description}${VerifMethod}"
+$ sha256sum ${Name} \
+    ${Description} \
+	${VerifMethod}
 ```
+
+::::
+
+:::
+
+\vspace{1em}
+
+![](../assets/images/requirement-ex.png)
+
 
 \vfill\tiny
 Example from [pymergevcd's architecture specification](https://kown7.github.io/pymergevcd/#architecture)
 
-\note{A from previous slides is now SW-AS-501
+\note{
 
-Version n.0 is now \texttt{F8D68D11}}
+\begin{itemize}
+
+\item Every requirement is in its own file
+
+\item A from previous slides is now SW-AS-501
+
+\item Version n.0 is now \texttt{F8D68D11}
+
+\end{itemize}
+
+}
+
+
 
 ## Testing the Example Requirement
 
 * Requirement ID: `SW-AS-501`
 * Hash: `F8D68D11`
-* Status: *external*
 
 ::: {.block}
 ### Test Code
@@ -224,6 +263,8 @@ $ bash -ec 'test "$(grep -c failed \
 \note{
 
 \begin{itemize}
+
+\item sltoo based on rmtoo: text-file based req. tracking tool
 
 \item Tracking requirements in text files with git --> might be ideal for engineering department
 
@@ -387,39 +428,6 @@ $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 
 \doclicenseThis
 
-
-
-
-
-## Example Requirement
-
-
-::: columns
-
-:::: column
-\tiny
-```
-Name: VCD Writer Inputs
-Topic: ReqsDocument
-Description: The output from ...
-Rationale: Make the process as ...
-Status: external
-Owner: development
-Effort estimation: 1
-Invented on: 2020-05-30
-Invented by: default
-Type: requirement
-```
-::::
-
-:::: column
-![Example Requirement](../assets/images/requirement-ex.png)
-::::
-
-:::
-
-\vspace{1em}
-*Hash* is calculated over *Name*, *Description* and *Verification Method*
 
 
 
