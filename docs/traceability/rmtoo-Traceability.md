@@ -19,13 +19,21 @@ header-includes: |
 
 # Motivation
 
-\note{It's an honour to open this topic's session.
+\note{
 
-When talking about requirements, we should also define the requirements
-of the problem we're trying to solve. For all requirements there's a anecdote.}
+\begin{itemize}
+
+\item It's an honour to open this topic's session.
+
+\item hen talking about requirements, we should also define the requirements of the problem we're trying to solve.
+
+\item Storytime
+
+\end{itemize}
+}
 
 
-## Storytime
+## Motivation
 
 * Fully automated traceability matrix
 * Consistent and up-to-date documents from the source
@@ -51,6 +59,7 @@ is lost
 
 \end{itemize}
 }
+
 
 # Theory
 
@@ -195,6 +204,7 @@ def test_read_write_engines(record_property, dummy_vcd_file):
 
 * Integration for every output document
 * Match *open* and/or *failed* issues
+    * Left as an excercise for the reader
 * Example for *failed* issues
 
 ```bash
@@ -204,14 +214,49 @@ $ bash -ec 'test "$(grep -c failed \
 
 
 
-\note{This is all nice and dandy; but how do we communicate with people for whom git clone is too much to ask?
-
-HERE:
-* Contribution of mine hervorstreichen
+\note{
+9'
 }
 
 
 # sltoo in Practice
+
+\note{
+
+\begin{itemize}
+
+\item Tracking requirements in text files with git --> might be ideal for engineering department
+
+\item Defining system behaviour is a team effort
+
+\item Solution not for everyone / clunky UI
+
+\item Guess: most people aren't familiar with the tooling/console --> Which tool is "everyone" familiar with?
+
+\end{itemize}
+}
+
+
+## Excel Workflow (I)
+
+* Defining system collaborative effort
+* Familiarity / Ease-of-use
+* Consistency of Documents
+    * The *Truth* is always in your repository
+    * Templating for branding
+* Works if all you've got is Office and E-Mail
+* Getting Started: Edit [example Excel-Sheet](https://kown7.github.io/pymergevcd/assets/requirements/artifacts/specification.xlsx)
+
+\centering
+![](../assets/images/excel-ex.png){ width=75% }
+
+\note{Simply use the excel sheet as long as no documents or verification tasks are necessary}
+
+## Excel Workflow (II) – Distribution
+
+
+\centering
+![](Workflow-init.png){ height=75% }
 
 
 ## Document Baseline
@@ -230,26 +275,19 @@ The output from `git describe` will be used as document baseline
   RS/1A-8-g76b3ffe — 76b3ffe4   # tainted
 ```
 
-Example excerpt from page 7
+Example excerpt from page 7:
 
 ![](baseline-footer.png)
 
+\note{Exercise to reject tainted documents in referenced documents}
 
 
+## Excel Workflow (III) – Merging
 
-# Business Interface
+\centering
+![](../assets/images/Workflow-feedback.png){ height=75% }
 
-
-## Excel Workflow
-
-* Non-tech people define the requirements
-* Familiarity / Ease-of-use
-* Consistency of Documents
-    * Works if all you've got is Office and E-Mail
-
-* INSERT IMAGE HERE
-
-
+\note{Commit for every author individually -> also put name in commit for easier lookup}
 
 # Conclusion
 
@@ -261,6 +299,8 @@ Example excerpt from page 7
 * Continuously updated documentation \checkmark
     * Document Versioning (baselining) \checkmark
 
+A familiar UI for all stakeholders included
+
 \note{Your Jira workspace will be gone}
 
 
@@ -270,29 +310,6 @@ Example excerpt from page 7
 
 
 \appendix
-
-
-
-
-## Excel Support Rationale
-
-
-::: columns
-
-:::: column
-* Good-enough GUI
-* Understood by everyone
-* The *Truth* is still in your repository
-  * Import from Excel to repository
-  * Export every build to a new Excel file
-  * Templating for branding
-::::
-
-:::: column
-![Workflow](../assets/images/Workflow-feedback.png){ height=75% }
-::::
-
-:::
 
 
 
@@ -340,6 +357,16 @@ $ pip3 install sltoo>=25.1.0b3
 $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 ```
 
+
+## Alternatives
+
+* [Sphinx-Needs](https://sphinxcontrib-needs.readthedocs.io/en/latest/)
+* [Octane ALM](https://www.microfocus.com/en-us/products/alm-octane/overview)
+* [Codebeamer](https://codebeamer.com)
+* [Aligned elements](https://www.aligned.ch/)
+* See [Wikipedia](https://de.wikipedia.org/wiki/Software-Configuration-Management#Diverse_Softwareentwicklungsprodukte)
+* ...
+
 ## Future Developements
 
 * Write Parser for *Test Reports* \checkmark
@@ -348,7 +375,8 @@ $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 	    * docx (maybe with pandoc)
 		* \LaTeX \checkmark
 		* Text
-
+* GUI with multi-documents support (RS/TS/..)
+    * Simplify design process
 
 ## Final Thoughts
 
@@ -361,29 +389,6 @@ $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-## Baseline
-
-* Based on [rmtoo](https://github.com/florath/rmtoo)
-    * File-based requirements tracking tool
-    * Requirements stored in text-files
-    * group requirements by topics
-    * document and requirements \LaTeX based
-	   * Customizable with templates
-* Manage with your favourite VCS
-	* Merge changes from various sources
-* Excel import/export
-* Traceability
 
 
 ## Example Requirement
