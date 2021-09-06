@@ -23,9 +23,11 @@ header-includes: |
 
 \begin{itemize}
 
-\item It's an honour to open this topic's session: Applied SE.
+\item Welcome everyone; it's an honour to open this topic's session: Applied SE.
 
-\item hen talking about requirements, we should also define the requirements of the problem we're trying to solve.
+\item Couple of words about myself
+
+\item When talking about requirements, we should also define the requirements of the problem we're trying to solve.
 
 \item Storytime
 
@@ -49,6 +51,8 @@ contractor. No consistent set of documents were provided
 
 \item Jon Holt's term in introduction to MBSE: Documents are a live *view* of
 the system (not pretty pictures). CI/CD for software, why not for documents?
+
+\item Every ALM tool will do this for you so far
 
 \item It came with one document that contained all requirements and use-cases. It
 appeared to have been exported from some web-based tool. All the information therein
@@ -291,7 +295,10 @@ $ bash -ec 'test "$(grep -c failed \
 \centering
 ![](../assets/images/excel-ex.png){ width=75% }
 
-\note{Simply use the excel sheet as long as no documents or verification tasks are necessary}
+\note{Simply use the excel sheet as long as no documents or verification tasks are necessary
+
+Stepping stone for requirements tracking
+}
 
 ## Excel Workflow (II) – Distribution
 
@@ -328,7 +335,15 @@ Example excerpt from page 7:
 \centering
 ![](../assets/images/Workflow-feedback.png){ height=75% }
 
-\note{Commit for every author individually -> also put name in commit for easier lookup}
+\note{
+\begin{itemize}
+
+\item Commit for every author individually -> also put name in commit for easier lookup
+\item Truth stays in repository
+\item \texttt{git tag} makes new document releases as easy as possible
+
+\end{itemize}
+}
 
 # Conclusion
 
@@ -413,9 +428,10 @@ $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 * Write Parser for *Test Reports* \checkmark
 * Documents with the correct identifier automatically solve the specification
 	* Document Formats:
-	    * docx (maybe with pandoc)
-		* \LaTeX \checkmark
-		* Text
+            * docx (maybe with pandoc)
+            * \LaTeX \checkmark
+            * Text
+            * CAD Files from HW/Mechanical
 * GUI with multi-documents support (RS/TS/..)
     * Simplify design process
 
