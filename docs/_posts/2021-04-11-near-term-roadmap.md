@@ -10,8 +10,8 @@ the near-term roadmap for 2021.
 > On the one hand it seems to be mature and complete. On the other hand there
 > also show up a lot of potential things to improve.
 
-The vision for what I want to achieve is best summarized in the [workflow]({{
-site.baseurl }}{% link workflow.md %}) document. It won't be about
+The vision for what I want to achieve is best summarized in the
+[workflow](_posts/2021-02-06-workflow.md) document. It won't be about
 requirements tracking solely, but also about software life-cycle.
 
 I think there are a couple of things needed to make it feature-complete.
