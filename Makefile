@@ -58,7 +58,7 @@ clean:
 		artifacts/requirements.aux artifacts/requirements.dvi \
 		artifacts/requirements.log artifacts/requirements.out \
 		artifacts/requirements.pdf artifacts/requirements.toc \
-		artifacts/requirements.xlsx \
+		artifacts/requirements.xlsx artifacts/.rmtoo_dependencies \
 		add_data.py*
 	rm -fr debian/rmtoo build
 
