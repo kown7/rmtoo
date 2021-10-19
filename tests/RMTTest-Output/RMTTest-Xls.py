@@ -1,4 +1,5 @@
 # (c) 2018 Kristoffer Nordstroem, see COPYING
+# SPDX-License-Identifier: GPL-3.0-or-later
 
 import os
 from datetime import datetime
@@ -122,6 +123,33 @@ class RMTTestOutputXls:
         assert rws['A1'].value == "SuperTopic"
         assert rws['B1'].value == "asdf"
         assert rws['C1'].value == "qwer"
+
+    def rmttest_adding_multiple_topics(self):
+        """Regression test for topic w/ multiple sub-topics"""
+        xlsh = xh(self._filename, self.oconfig)
+        # topic_tags is a list of TxtRecordEntry
+        topic_tags = [Mock(**{'get_tag.return_value': "Name",
+                              'get_content.return_value':
+                              "Need multiple sub-topics"}),
+                      Mock(**{'get_tag.return_value': "SubTopic",
+                              'get_content.return_value': "qwer"}),
+                      Mock(**{'get_tag.return_value': "SubTopic",
+                              'get_content.return_value': "asdf"})]
+        topic_cfg = {'get_tags.return_value': topic_tags}
+        topic = Mock(**topic_cfg)
+        topic.name = "MultipleSubTopics"
+        xlsh.add_topic(topic)
+        xlsh.write()
+
+        twb = openpyxl.load_workbook(filename=self._filename)
+        rws = twb['Topics']
+        assert rws['A1'].value == "MultipleSubTopics"
+        assert rws['B1'].value == "Name"
+        assert rws['C1'].value == "Need multiple sub-topics"
+        assert rws['B2'].value == "SubTopic"
+        assert rws['C2'].value == "qwer"
+        assert rws['B3'].value == "SubTopic"
+        assert rws['C3'].value == "asdf"
 
 
 class RMTTestOutputXlsTemplate:

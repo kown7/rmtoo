@@ -1,6 +1,6 @@
-"""Output the content to a XLS sheet. Suits love Excel.
+"""Output the content to a XLS sheet.
 
-(c) 2018, 2020 by Kristoffer
+(c) 2018, 2020, 2021 by Kristoffer
 SPDX-License-Identifier: GPL-3.0-or-later
 This file is part of rmtoo.
 For licensing details see COPYING
@@ -18,6 +18,7 @@ from rmtoo.lib.logging import tracer
 from rmtoo.lib.CreateMakeDependencies import CreateMakeDependencies
 
 
+# pylint: disable=too-many-instance-attributes
 class XlsHandler:
     """Act as an abstraction layer between rmtoo-objects and OpenPyxl
     related things
@@ -60,7 +61,7 @@ class XlsHandler:
     }
 
     def __init__(self, filename, config=None):
-        tracer.info("Creating XLS workbook: " + filename)
+        tracer.info("Creating XLS workbook: %s", filename)
         self.__filename = filename
         self._cfg = self.default_config
         for key, value in config.items():
@@ -155,9 +156,9 @@ class XlsHandler:
         row = 1
         for topic in self._topiclist:
             self._ws_topics.cell(column=1, row=row, value=topic.name)
-            for key, content in topic.members.items():
-                self._ws_topics.cell(column=2, row=row, value=key)
-                self._ws_topics.cell(column=3, row=row, value=content)
+            for content in topic.members:
+                self._ws_topics.cell(column=2, row=row, value=content[0])
+                self._ws_topics.cell(column=3, row=row, value=content[1])
                 row += 1
         self._topiclist = []
 
@@ -183,7 +184,7 @@ class XlsHandler:
         """Will raise KeyError if required fields aren't available"""
         for val in self._req_headers:
             if val not in req_dict.keys():
-                tracer.warning("Key (" + val + ") error in " + req_dict["ID"])
+                tracer.warning("Key (%s) error in %s", val, req_dict["ID"])
             assert val in req_dict.keys()
 
     def _add_new_headers(self, req_dict):
@@ -192,14 +193,19 @@ class XlsHandler:
                 self._headers.append(key)
 
     def add_topic(self, topic):
-        class TopicList:
+        class TopicList:  # pylint: disable=too-few-public-methods
+            """Hold a list of topic's members as tuples"""
             def __init__(self, name):
                 self.name = name
-                self.members = {}
+                self.members = []
+
+            def append(self, tag, content):
+                """Add a tag/content pair to the list"""
+                self.members.append((tag, content))
 
         ctop = TopicList(topic.name)
         for i in topic.get_tags():
-            ctop.members[i.get_tag()] = i.get_content()
+            ctop.append(i.get_tag(), i.get_content())
         self._topiclist.append(ctop)
 
 
@@ -239,7 +245,6 @@ class Xls(StdOutputParams, ExecutorTopicContinuum, CreateMakeDependencies):
 
     def topic_post(self, _topic):
         """Cleanup things for topic."""
-        pass
 
     def topic_name(self, name):
         pass
