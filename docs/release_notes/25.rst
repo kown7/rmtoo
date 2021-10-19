@@ -1,20 +1,20 @@
 ..
-  (c) 2020 by flonatel GmbH & Co. KG
-  
+  (c) 2020 - 2023 by flonatel GmbH & Co. KG
+
   SPDX-License-Identifier: GPL-3.0-or-later
 
   This file is part of rmtoo.
-  
+
   rmtoo is free software: you can redistribute it and/or modify
   it under the terms of the GNU General Public License as published by
   the Free Software Foundation, either version 3 of the License, or
   (at your option) any later version.
-  
+
   rmtoo is distributed in the hope that it will be useful,
   but WITHOUT ANY WARRANTY; without even the implied warranty of
   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
   GNU General Public License for more details.
-  
+
   You should have received a copy of the GNU General Public License
   along with rmtoo.  If not, see <https://www.gnu.org/licenses/>.
 
@@ -25,6 +25,16 @@ User visible changes
 --------------------
 
 * Generate traceability matrix from xunit outputs
+* Support multi-line latex statements
+
+
+25.0.5
+======
+
+User visible changes
+--------------------
+
+* Exporting multiple SubTopics in the Excel sheet now possible
 
 
 25.0.1
@@ -47,4 +57,3 @@ User visible changes
   python versions: 3.5, 3.6, 3.7, 3.8
 * Effort estimation: introduce flag to allow any value
   for the effort estimation.
-
