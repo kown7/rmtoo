@@ -1,6 +1,6 @@
 ..
-  (c) 2020 by flonatel GmbH & Co. KG
-  
+  (c) 2020, 2021 by flonatel GmbH & Co. KG
+
   SPDX-License-Identifier: GPL-3.0-or-later
 
   This file is part of rmtoo.
@@ -17,6 +17,15 @@
   
   You should have received a copy of the GNU General Public License
   along with rmtoo.  If not, see <https://www.gnu.org/licenses/>.
+
+25.0.5
+======
+
+User visible changes
+--------------------
+
+* Exporting multiple SubTopics in the Excel sheet now possible
+
 
 25.0.1
 ======
