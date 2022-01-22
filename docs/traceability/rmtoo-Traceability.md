@@ -1,11 +1,10 @@
 ---
-title: "sltoo -- Integrating Requirements into CI/CD"
+title: FOSDEM'22 \newline Testing Requirements Documents
 author: Kristoffer Nordström
-date: \today
+date: 5 \& 6 February 2022
 institute: \texttt{\url{info@sltoo.dev}}
 header-includes: |
   \usepackage{hyperref}
-  \usepackage{appendixnumberbeamer}
   \usetheme[block=fill,progressbar=frametitle]{metropolis}
   \usepackage{pgfpages}
   \setbeameroption{show notes on second screen=right}
@@ -17,15 +16,18 @@ header-includes: |
 ---
 
 
-# Motivation
+## Welcome
+
+* Motivation
+* Theory
+* Practical Aspects
+* Demonstration
 
 \note{
 
 \begin{itemize}
 
-\item Welcome everyone; it's an honour to open this topic's session: Applied SE.
-
-\item Couple of words about myself
+\item Welcome everyone; it's an honour to talk on this stream.
 
 \item When talking about requirements, we should also define the requirements of the problem we're trying to solve.
 
@@ -41,7 +43,7 @@ header-includes: |
 * Consistent and up-to-date documents from the source
 * Store (requirements') meta-information with code
 
-\note{
+\note{ \scriptsize
 \begin{itemize}
 \item It's fine manually. Requirements change find minimal delta-test? Change
 more than once. Hence we want this fully automated.
@@ -58,7 +60,12 @@ the system (not pretty pictures). CI/CD for software, why not for documents?
 appeared to have been exported from some web-based tool. All the information therein
 is lost
 
+\item Track the motivation for the changes --> same as with source code
+
 \item Also: Too technical, interface with management/business side
+
+\item myself: (FPGA) test-engineer for various space/railway applications 8 yrs
+
 \item 4'
 
 \end{itemize}
@@ -264,17 +271,20 @@ $ bash -ec 'test "$(grep -c failed \
 
 # sltoo in Practice
 
+## sl... what?
+
+
+* *sltoo* (currently) a fork of rmtoo
+    * text-file based req. tracking tool
+* Tracking requirements in text files with git 
+    * might be ideal for engineering department
+* Defining system behaviour is a team effort
+* Solution not for everyone / command-line unfamiliar UI
+
+
 \note{
 
 \begin{itemize}
-
-\item sltoo based on rmtoo: text-file based req. tracking tool
-
-\item Tracking requirements in text files with git --> might be ideal for engineering department
-
-\item Defining system behaviour is a team effort
-
-\item Solution not for everyone / clunky UI
 
 \item Guess: most people aren't familiar with the tooling/console --> Which tool is "everyone" familiar with?
 
@@ -307,6 +317,22 @@ Stepping stone for requirements tracking
 ![](Workflow-init.png){ height=75% }
 
 
+## Excel Workflow (III) – Merging
+
+\centering
+![](../assets/images/Workflow-feedback.png){ height=75% }
+
+\note{
+\begin{itemize}
+
+\item Commit for every author individually -> also put name in commit for easier lookup
+\item Truth stays in repository
+\item \texttt{git tag} makes new document releases as easy as possible
+
+\end{itemize}
+}
+
+
 ## Document Baseline
 
 Every document has a its own version tag
@@ -330,20 +356,26 @@ Example excerpt from page 7:
 \note{Exercise to reject tainted documents in referenced documents}
 
 
-## Excel Workflow (III) – Merging
+## Outlook
 
-\centering
-![](../assets/images/Workflow-feedback.png){ height=75% }
+* Merge changes with *rmtoo*
+* Transform *sltoo* into a GUI
+    * Provide a GUI to show relations between items
+	* Provide cross-documents editing capabilities
+    * Update hashes in sources
+* How much can AI help?
 
 \note{
 \begin{itemize}
 
-\item Commit for every author individually -> also put name in commit for easier lookup
-\item Truth stays in repository
-\item \texttt{git tag} makes new document releases as easy as possible
+\item Replace your current ALM tool with a diverse set of existing/open tools
 
 \end{itemize}
 }
+
+
+# Demonstration
+
 
 # Conclusion
 
@@ -351,6 +383,7 @@ Example excerpt from page 7:
 
 * Requirements shipped with code \checkmark
     * Including relational meta-information
+	* Use commit message to document the *why* 
 * Traceability matrix automated \checkmark
 * Continuously updated documentation \checkmark
     * Document Versioning (baselining) \checkmark
