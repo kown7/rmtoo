@@ -376,6 +376,15 @@ Example excerpt from page 7:
 
 # Demonstration
 
+## Demonstration Notes
+
+* Traceability still in beta
+    * [Template Project](https://sltoo.dev/#getting-started)
+    * hopefully released by 5th of February
+* Demo is in `FOSDEM22` [branch](https://github.com/kown7/rmtoo/tree/FOSDEM22)
+    * [ESA DOORS dump](https://ecss.nl/standards/downloads/earm/)
+	* try your search engine of choice
+
 
 # Conclusion
 
@@ -439,10 +448,11 @@ The status *external* will yield the following results:
 
 ## Installation
 
-Traceability features are in the beta releases.
+* Traceability features are in the beta releases. 
+* Document to document traceability requires beta-4 at least
 
 ```bash
-$ pip3 install sltoo>=25.1.0b3
+$ pip3 install sltoo>=25.1.0b4
 $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 ```
 
