@@ -1,0 +1,12 @@
+Name: Tea Pot Interface
+Topic: SubProject
+Description: Connect via SpaceWire
+Rationale: It makes people happy
+Status: not done
+Owner: customers
+Effort estimation: 5
+Invented on: 2020-12-22
+Invented by: customers
+Type: requirement
+Priority: development:10
+Depends ext: ECSS-E-ST-50-12-1420004-ea756d97

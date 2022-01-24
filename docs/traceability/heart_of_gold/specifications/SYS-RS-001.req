@@ -1,0 +1,12 @@
+Name: Heart of Gold
+Topic: ProjectReqs
+Description: Travel the galaxy
+Rationale: It's safe to  assume
+Status: not done
+Owner: customers
+Effort estimation: 5
+Invented on: 2020-12-22
+Invented by: customers
+Type: requirement
+Priority: development:10
+Solved by: SYS-RS-100 SYS-RS-101 SYS-RS-102 SYS-RS-200

@@ -1,0 +1,48 @@
+\documentclass{report}
+\usepackage{longtable}
+\usepackage{booktabs}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage[a4paper]{geometry}
+\usepackage[titles]{tocloft}
+
+\usepackage[pdfauthor={REQM},
+pdftitle={Requirements Specification},%
+pdfsubject={Requirements Specification},%
+pdfkeywords={Requirements Specification},%
+pagebackref=true,%
+pdftex, bookmarks=true, hidelinks]{hyperref}
+
+\setlength{\cftsubsecnumwidth}{4em}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\fancyhead[L]{\rightmark}
+\fancyfoot[R]{\thepage}
+\fancyfoot[L]{Version \input{../artifacts/version.txt}}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0.4pt}
+
+\parindent0em
+
+\begin{document}
+\thispagestyle{empty}
+
+\title{Requirements Specification}
+\author{REQM}
+\date{\today}
+\maketitle
+\newpage
+
+\tableofcontents
+\listoffigures
+\listoftables
+\newpage
+
+
+\input{../artifacts/reqtopics.tex}
+
+\appendix
+\input{../artifacts/tracematrix.tex}
+
+\end{document}

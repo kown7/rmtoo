@@ -1,0 +1,10 @@
+Name: Spacewire{\_}1420004
+Topic: ProjectReqs
+Description: The SpaceWire Network layer shall accept service requests from user applications.
+Status: external
+Owner: customers
+Effort estimation: 5
+Invented on: 2019-05-19
+Invented by: customers
+Type: requirement
+Priority: development:10
