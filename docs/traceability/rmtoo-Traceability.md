@@ -383,8 +383,20 @@ Example excerpt from page 7:
     * hopefully released by 5th of February
 * Demo is in `FOSDEM22` [branch](https://github.com/kown7/rmtoo/tree/FOSDEM22)
     * [ESA DOORS dump](https://ecss.nl/standards/downloads/earm/)
-	* try your search engine of choice
+	* use your search engine of choice
+* Set *Status* from *not done* to *external*
+* Configure lengths not to be affected by large ESA requirements
+    * see `Config.json` 
+* Images, tables and graphs are to be demonstrated, see the [homepage](https://sltoo.dev) for updates
 
+
+\note{
+\begin{itemize}
+
+\item Note to  self: write a better script
+
+\end{itemize}
+}
 
 # Conclusion
 
