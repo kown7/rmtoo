@@ -1,7 +1,7 @@
 ---
 title: FOSDEM'22 \newline Testing Requirements Documents
 author: Kristoffer Nordström
-date: 5 \& 6 February 2022
+date: Saturday, 05 February 2022
 institute: \texttt{\url{info@sltoo.dev}}
 header-includes: |
   \usepackage{hyperref}
@@ -13,6 +13,7 @@ header-includes: |
     modifier={by-nc-sa},
     version={3.0},
   ]{doclicense}
+  \definecolor{Mycolor1}{HTML}{08460c}
 ---
 
 
@@ -22,16 +23,19 @@ header-includes: |
 * Theory
 * Practical Aspects
 * Demonstration
+* Conclusion
 
 \note{
 
 \begin{itemize}
 
-\item Welcome everyone; it's an honour to talk on this stream.
+\item Welcome everyone to FOSDEM22 from my side. Welcome to my talk about req. 
+specification documents and how to test them. It's an honour to be closing this
+stream.
 
-\item When talking about requirements, we should also define the requirements of the problem we're trying to solve.
+\item Given the topic is requirements specifications, maybe we should specify the problems we're trying to solve.
 
-\item Storytime
+\item So, imagine \ldots
 
 \end{itemize}
 }
@@ -39,32 +43,36 @@ header-includes: |
 
 ## Motivation
 
-* Fully automated traceability matrix
-* Consistent and up-to-date documents from the source
-* Store (requirements') meta-information with code
+* Automated traceability \textcolor{Mycolor1}{matrix}
+* *Consistent* and *up-to-date* documents
+* Store *meta-information* with code
 
-\note{ \scriptsize
+\note{ \tiny
 \begin{itemize}
-\item It's fine manually. Requirements change find minimal delta-test? Change
-more than once. Hence we want this fully automated.
+\item being a reasonably junior developer and you're tasked with creating a
+traceability matrix in Word for given artefacts in a space application. The 
+first time round you're doing work that needs to be done either way --- fair 
+game. By the time the fifth CR comes along, it gets tiresome.
 
-\item Review multiple documents for a different
-contractor. No consistent set of documents were provided
+\item Alright, consultant live: new project, new customer, new set of 
+documents to review. I can't recall any details but the fact that links and 
+references didn't add up.
 
-\item Jon Holt's term in introduction to MBSE: Documents are a live *view* of
-the system (not pretty pictures). CI/CD for software, why not for documents?
+\item To use Jon Holt's term in introduction to MBSE: Documents are a live *view* of
+the system (not pretty pictures). We have CI/CD for software, why not for documents?
 
-\item Every ALM tool will do this for you so far
+\item So far, challenges could be handled with any ALM tool on the market. 
+
+\item But then, the project from the musty crypt, language features from an 
+OS specific compiler. The OS itself isn't available for the target platform. 
+At least there's a specification. Looking like it's been exported from some web
+based ALM tool that's long gone too.
 
 \item It came with one document that contained all requirements and use-cases. It
 appeared to have been exported from some web-based tool. All the information therein
-is lost
+is lost time.
 
-\item Track the motivation for the changes --> same as with source code
-
-\item Also: Too technical, interface with management/business side
-
-\item myself: (FPGA) test-engineer for various space/railway applications 8 yrs
+\item myself: As you can guess, (FPGA) test-engineer for various space/railway applications 8 yrs
 
 \item 4'
 
@@ -81,15 +89,18 @@ is lost
     * Implies the need for traceability
 * *Traceability* from and to specification items
 * Directions
-    * Forward (*Impact*) from requirements specification to dependant documents
-    * Backwards from verification artefacts to specification
+    * Forward (*Impact*)
+    * Backwards
 
 \vspace{15px}
 
 ![](vmodell-fwdrwd.png)
 
 
-\note{Here Traceability only from items/issues}
+\note{
+Let's start with a simple and theoretical example
+
+Here Traceability only from items/issues}
 
 
 ## Traceability
@@ -286,6 +297,7 @@ $ bash -ec 'test "$(grep -c failed \
 
 \begin{itemize}
 
+\item Fork of the venerable rmtoo (requirements management tool)
 \item Guess: most people aren't familiar with the tooling/console --> Which tool is "everyone" familiar with?
 
 \end{itemize}
@@ -411,7 +423,16 @@ Example excerpt from page 7:
 
 A familiar UI for all stakeholders included
 
-\note{Your Jira workspace will be gone}
+\note{
+\begin{itemize}
+
+\item Where did we leave off? Have we solved all the problems we set out in the beginning 
+\item Your Jira workspace will be gone
+
+\item This concludes this talk and this stream. If everything went according to schedule I'm around for questions
+
+\end{itemize}
+}
 
 
 # Questions
@@ -483,10 +504,10 @@ $ wget https://kown7.github.io/pymergevcd/assets/template_project.zip
 * Write Parser for *Test Reports* \checkmark
 * Documents with the correct identifier automatically solve the specification
 	* Document Formats:
-            * docx (maybe with pandoc)
-            * \LaTeX \checkmark
-            * Text
-            * CAD Files from HW/Mechanical
+        * docx (maybe with pandoc)
+        * \LaTeX \checkmark
+        * Text
+        * CAD Files from HW/Mechanical
 * GUI with multi-documents support (RS/TS/..)
     * Simplify design process
 
