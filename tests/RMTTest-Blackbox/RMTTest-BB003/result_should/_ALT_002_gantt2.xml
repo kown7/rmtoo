@@ -19,7 +19,8 @@ The car is over and over bloody.]]></notes>
 The seats must be cleaned.
 
 == Rationale ==
-It is not possible to completely clean the seats - therefore they will additionally be covered.]]></notes>
+It is not possible to completely clean the seats -
+therefore they will additionally be covered.]]></notes>
 			<depend id="2" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="CleanUpVicentAndJules" id="5" duration="6" complete="0">
@@ -35,21 +36,25 @@ Both are splattered with blood.]]></notes>
 The corpse must be put into the trunk.
 
 == Rationale ==
-The corpse can be transported in this way without any notice of anybody else.]]></notes>
+The corpse can be transported in this way without any
+notice of anybody else.]]></notes>
 			<depend id="7" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="CoverWithBlankets" id="8" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-The seats must be covered with blankets after they are roughly cleaned.]]></notes>
+The seats must be covered with blankets after
+they are roughly cleaned.]]></notes>
 			<depend id="4" type="2" difference="0" hardness="Strong"/>
 			<depend id="9" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="CreateOrder" id="3" duration="14" complete="0">
 			<notes><![CDATA[== Description ==
-The accidental death of a man must be disguised. 
+The accidental death of a man must be
+disguised.
 
 == Rationale ==
-There are some different things which must be cleaned and others which must vanish.
+There are some different things which must be cleaned and
+others which must vanish.
 
 == Note ==
 There is only 40 minutes time to do the whole job.]]></notes>
@@ -67,7 +72,8 @@ The accidental killed man must vanish.]]></notes>
 The car must be cleaned with detergents.
 
 == Rationale ==
-The car is over and over bloody - so detergents are needed. 
+The car is over and over bloody - so detergents are
+needed.
 
 == Note ==
 The detergents are place in the kitchen under the sink.]]></notes>
@@ -78,12 +84,13 @@ The detergents are place in the kitchen under the sink.]]></notes>
 The seats must be roughly cleaned.
 
 == Rationale ==
-It is not possible to completely clean the back seat. ]]></notes>
+It is not possible to completely clean the back seat.]]></notes>
 			<depend id="4" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="SoapAndColdWater" id="11" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-Vincent and Jules must clean themselves with soap and cold water.
+Vincent and Jules must clean themselves with
+soap and cold water.
 
 == Rationale ==
 They are bloody.]]></notes>
@@ -101,7 +108,8 @@ It's bloody - Otto the refuse collector should not see this.]]></notes>
 		</task>
 		<task name="TakeOff" id="12" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-Vincent and Jules must take off their whole clothing. 
+Vincent and Jules must take off their whole
+clothing.
 
 == Rationale ==
 It's bloody.
