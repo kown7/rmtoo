@@ -8,7 +8,8 @@
 	<task name="PulpFiction" id="1">
 		<task name="CleanUpCar" id="2" duration="6" complete="0">
 			<notes><![CDATA[== Description ==
-Auf den ersten Blick muss das Auto normal aussehen. 
+Auf den ersten Blick muss das Auto normal
+aussehen.
 
 == Rationale ==
 Aktuell ist das Auto voller Blut.]]></notes>
@@ -32,24 +33,28 @@ Beide sind über und über mit Blut bedeckt.]]></notes>
 Die Leiche muss in den Kofferraum.
 
 == Rationale ==
-Das fahrende Auto darf kein Aufsehen erregen - so kann der Tote transportiert werden.]]></notes>
+Das fahrende Auto darf kein Aufsehen erregen - so kann der
+Tote transportiert werden.]]></notes>
 			<depend id="7" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="CoverWithBlankets" id="8" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-Die Autositze müssen mit Decken abgedeckt werden.
+Die Autositze müssen mit Decken abgedeckt
+werden.
 
 == Rationale ==
-Es ist nicht möglich, die Sitze vollständig zu reinigen. ]]></notes>
+Es ist nicht möglich, die Sitze vollständig zu reinigen.]]></notes>
 			<depend id="4" type="2" difference="0" hardness="Strong"/>
 			<depend id="9" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="CreateOrder" id="3" duration="14" complete="0">
 			<notes><![CDATA[== Description ==
-The unglückliche Unfall, der einen Mann getötet hat, muss versteckt werden.
+The unglückliche Unfall, der einen Mann getötet hat,
+muss versteckt werden.
 
 == Rationale ==
-Es gibt einige dreckige und mit Blut verschmierte Sachen, die gereinigt werden müssen.
+Es gibt einige dreckige und mit Blut verschmierte Sachen,
+die gereinigt werden müssen.
 
 == Note ==
 Sie haben nur 40 Minuten für alles.]]></notes>
@@ -64,10 +69,11 @@ Der bei einem Unfall zu Tode gekommene muss verschwinden.]]></notes>
 		</task>
 		<task name="DetergentForCar" id="10" duration="4" complete="0">
 			<notes><![CDATA[== Description ==
-Das Auto muss mit Putzmitteln gereinigt werden. 
+Das Auto muss mit Putzmitteln gereinigt werden.
 
 == Rationale ==
-Das Auto ist voller Blut - daher ist Putzmittel notwendig es zu reinigen.
+Das Auto ist voller Blut - daher ist Putzmittel notwendig
+es zu reinigen.
 
 == Note ==
 Die Putzmittel stehen in der Küche unter der Spüle.]]></notes>
@@ -78,12 +84,14 @@ Die Putzmittel stehen in der Küche unter der Spüle.]]></notes>
 Die Autositzte müssen grob gereinigt werden.
 
 == Rationale ==
-Es ist nicht möglich sie vollständig zu reinigen - es werden noch Decken hinübergelegt.]]></notes>
+Es ist nicht möglich sie vollständig zu reinigen - es
+werden noch Decken hinübergelegt.]]></notes>
 			<depend id="4" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="SoapAndColdWater" id="11" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-Vincent und Jules müssen sich mit Seife und kaltem Wasser vom Blut reinigen.
+Vincent und Jules müssen sich mit Seife und
+kaltem Wasser vom Blut reinigen.
 
 == Rationale ==
 Sie sind blutig.]]></notes>
@@ -92,16 +100,19 @@ Sie sind blutig.]]></notes>
 		</task>
 		<task name="TakeCareOfClothing" id="13" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-Auf Vincent und Jules' Kleidung muss geachtet werden. 
+Auf Vincent und Jules' Kleidung muss geachtet
+werden.
 
 == Rationale ==
-Die Kleidung ist blutig - Otto der Müllmann wird sich weigern dies einzusammeln.]]></notes>
+Die Kleidung ist blutig - Otto der Müllmann wird sich
+weigern dies einzusammeln.]]></notes>
 			<depend id="5" type="2" difference="0" hardness="Strong"/>
 			<depend id="12" type="2" difference="0" hardness="Strong"/>
 		</task>
 		<task name="TakeOff" id="12" duration="3" complete="0">
 			<notes><![CDATA[== Description ==
-Vincent und Jules müssen ihre Kleider ausziehen. 
+Vincent und Jules müssen ihre Kleider
+ausziehen.
 
 == Rationale ==
 Sie sind blutig.
