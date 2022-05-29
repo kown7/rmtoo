@@ -4,9 +4,11 @@
 \section{Analytics}\label{Analytics}
 \textbf{Description:} The requirements \textbf{must} be analyzed.
 
-\textbf{Rationale:} It is hard to write good requirements - as far as possible rmtoo should support writing good requirements.
+\textbf{Rationale:} It is hard to write good requirements - as far as possible
+rmtoo should support writing good requirements.
 
-\textbf{Note:} Analytics are implemented using modules with a defined interface. 
+\textbf{Note:} Analytics are implemented using modules with a defined
+interface.
 
 \textbf{Depends on:} \ref{Processing} \nameref{Processing}
 
@@ -18,9 +20,13 @@
 
 % REQ 'AutomaticGeneration'
 \section{Automatic Generation of Results}\label{AutomaticGeneration}
-\textbf{Description:} \textsl{rmtoo} \textbf{must} support the automatic genration of outputs.
+\textbf{Description:} \textsl{rmtoo} \textbf{must} support the automatic
+genration of outputs.
 
-\textbf{Rationale:} Because rmtoo is aimed to be used in productive development environments, there is the need that all the different outputs (e.g. PDFs, graphs, ...) must be generated automatically (without user interaction).
+\textbf{Rationale:} Because rmtoo is aimed to be used in productive development
+environments, there is the need that all the different outputs
+(e.g. PDFs, graphs, ...) must be generated automatically (without
+user interaction).
 
 \textbf{Depends on:} \ref{Processing} \nameref{Processing}
 
@@ -32,9 +38,11 @@
 
 % REQ 'DocManPage'
 \section{Documentation Man Page}\label{DocManPage}
-\textbf{Description:} \textsl{rmtoo} \textbf{must} come with a (*nix) man page describing the basic behaviour.
+\textbf{Description:} \textsl{rmtoo} \textbf{must} come with a (*nix) man page
+describing the basic behaviour.
 
-\textbf{Rationale:} This typically describes the input and output and all the parameters needed (but not the ideas behind).
+\textbf{Rationale:} This typically describes the input and output and all the
+parameters needed (but not the ideas behind).
 
 \textbf{Depends on:} \ref{Documentation} \nameref{Documentation}
 
@@ -46,9 +54,13 @@
 
 % REQ 'DocSlides'
 \section{Documentation Slides}\label{DocSlides}
-\textbf{Description:} For documentation purposes there \textbf{must} exists a slide show introducing the major features.
+\textbf{Description:} For documentation purposes there \textbf{must} exists a
+slide show introducing the major features.
 
-\textbf{Rationale:} Software not only needs to be good --- also the 'marketing' aspect should be considered: the more people / companies \textsl{rmtoo} using, the more bug reports and comments there will be, the better \textsl{rmtoo} will be.
+\textbf{Rationale:} Software not only needs to be good --- also the 'marketing'
+aspect should be considered: the more people / companies
+\textsl{rmtoo} using, the more bug reports and comments there will
+be, the better \textsl{rmtoo} will be.
 
 \textbf{Depends on:} \ref{Documentation} \nameref{Documentation}
 
@@ -74,7 +86,8 @@
 
 % REQ 'Input'
 \section{Different Inputs}\label{Input}
-\textbf{Description:} \textsl{rmtoo} \textbf{must} support different types of input files - one type for each usage.
+\textbf{Description:} \textsl{rmtoo} \textbf{must} support different types of
+input files - one type for each usage.
 
 \textbf{Note:} A usage is e.g. documenting requirements or handling topics.
 
@@ -88,9 +101,12 @@
 
 % REQ 'Output'
 \section{Output of Different Artifacts}\label{Output}
-\textbf{Description:} \textsl{rmtoo} \textbf{must} support generation of different outputs. 
+\textbf{Description:} \textsl{rmtoo} \textbf{must} support generation of
+different outputs.
 
-\textbf{Rationale:} It's not very easy to e.g. visualize the dependency graph. Also typically for the testing department a document is needed that decribes the requirements (features) of the product.
+\textbf{Rationale:} It's not very easy to e.g. visualize the dependency graph.
+Also typically for the testing department a document is needed that
+decribes the requirements (features) of the product.
 
 \textbf{Depends on:} \ref{Processing} \nameref{Processing}
 
@@ -102,9 +118,13 @@
 
 % REQ 'Processing'
 \section{Processing}\label{Processing}
-\textbf{Description:} \textsl{rmtoo} \textbf{must} process the requirements by means of a defined order.
+\textbf{Description:} \textsl{rmtoo} \textbf{must} process the requirements by
+means of a defined order.
 
-\textbf{Rationale:} First the requirements must be read in (and checked for syntactic - and if possible for semantic) problems.\par Then the requirements must be analyzed.\par As a last step the output artifacts must be generated.
+\textbf{Rationale:} First the requirements must be read in (and checked for
+syntactic - and if possible for semantic) problems.\par
+Then the requirements must be analyzed.\par
+As a last step the output artifacts must be generated.
 
 \textbf{Note:} Please see the depended requirements for more details.
 
@@ -122,7 +142,9 @@
 \section{Simplicity}\label{Simplicity}
 \textbf{Description:} \textsl{rmtoo} \textbf{must} be simple.
 
-\textbf{Rationale:} To get started, concentrate on the major things, which are really needed.\par Use techniques which are available.
+\textbf{Rationale:} To get started, concentrate on the major things, which are
+really needed.\par
+Use techniques which are available.
 
 \textbf{Depends on:} \ref{rmtoo} \nameref{rmtoo}
 
@@ -134,9 +156,11 @@
 
 % REQ 'TestIntegration'
 \section{Test Integration}\label{TestIntegration}
-\textbf{Description:} For each requirement there \textbf{must} be a integration test which tests the requirement in a larger context.
+\textbf{Description:} For each requirement there \textbf{must} be a integration
+test which tests the requirement in a larger context.
 
-\textbf{Rationale:} This tests the interaction between the different layers of implementation and makes sure that the interaction works.
+\textbf{Rationale:} This tests the interaction between the different layers of
+implementation and makes sure that the interaction works.
 
 \textbf{Depends on:} \ref{Testing} \nameref{Testing}
 
@@ -150,7 +174,8 @@
 \section{Unit Testing}\label{TestUnit}
 \textbf{Description:} For each code path there \textbf{must} be a unit test.
 
-\textbf{Rationale:} Each class, function and method must be tested.  Each decision and error condition must be tested.
+\textbf{Rationale:} Each class, function and method must be tested.  Each
+decision and error condition must be tested.
 
 \textbf{Depends on:} \ref{Testing} \nameref{Testing}
 
@@ -162,9 +187,11 @@
 
 % REQ 'Testing'
 \section{rmtoo Automated Testing}\label{Testing}
-\textbf{Description:} Each feature of \textsl{rmtoo} \textbf{must} be automatically testable.
+\textbf{Description:} Each feature of \textsl{rmtoo} \textbf{must} be
+automatically testable.
 
-\textbf{Rationale:} This gives the possibility to run a set of regression test and check the whole functionality of rmtoo.
+\textbf{Rationale:} This gives the possibility to run a set of regression test
+and check the whole functionality of rmtoo.
 
 \textbf{Depends on:} \ref{rmtoo} \nameref{rmtoo}
 
@@ -180,7 +207,10 @@
 \section{rmtoo}\label{rmtoo}
 \textbf{Description:} \textsl{rmtoo} \textbf{must} exists.
 
-\textbf{Rationale:} The world needs a good, usable and free Requirements Management Tool.\par It looks that there are no such programs out.\par But: it's complex! 
+\textbf{Rationale:} The world needs a good, usable and free Requirements
+Management Tool.\par
+It looks that there are no such programs out.\par
+But: it's complex!
 
 \textbf{Solved by:} \ref{Documentation} \nameref{Documentation}, \ref{Processing} \nameref{Processing}, \ref{Simplicity} \nameref{Simplicity}, \ref{Testing} \nameref{Testing}
 
