@@ -48,8 +48,8 @@ class RMTTestRecordTxt3(object):
         d = txt_doc.get_dict()
 
         assert "The world needs a good, usable and free " \
-            "Requirements Management Tool.\\par It looks " \
-            "that there are no such programs out.\\par But: it's complex!" == \
+            "Requirements\nManagement Tool.\\par\nIt looks " \
+            "that there are no such programs out.\\par\nBut: it's complex!" == \
             d["Rationale"].get_content()
 
         assert 11 == len(txt_doc)
