@@ -23,4 +23,4 @@ class RMTTestTxtIOConfig:
 
         tic = TxtIOConfig(config, 'requirement')
 
-        assert(tic.get_max_line_length() == 77)
+        assert tic.get_max_line_length() == 77

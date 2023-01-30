@@ -25,9 +25,9 @@ class RMTTestRequirement:
             Requirement("DTag: content1\n"
                         "DTag: content2\n", "1", None,
                         None, TestConfig())
-            assert(False)
+            assert False
         except RMTException as rmte:
-            assert(rmte.get_id() == 81)
+            assert rmte.get_id() == 81
 
     def rmttest_get_hash(self):
         "Requirement: the hash of the requirement"
@@ -45,4 +45,4 @@ class RMTTestRequirement:
         r.set_value("Name", name)
         h = r.get_hash()
         hl = hashlib.sha256(sl).hexdigest()
-        assert(h == hl[0:8])
+        assert h == hl[0:8]

@@ -102,7 +102,7 @@ class RMTTestOutputXls:
         record_property('req', 'SWC-TS-103-2aec4f4d')
         xlsh = xh(self._filename, self.oconfig)
         req = create_req(u'SW-101')
-        del(req.values['Invented by'])
+        del req.values['Invented by']
         for i in range(len(req.record)):
             if req.record[i].get_content() == 'Q':
                 req.record.pop(i)

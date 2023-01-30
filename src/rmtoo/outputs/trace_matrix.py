@@ -91,7 +91,7 @@ class TraceMatrix(StdOutputParams, ExecutorTopicContinuum,
 
         tracer.debug("Called; output constraints.")
         self.__fd.close()
-        assert(topic_set is not None)
+        assert topic_set is not None
         tracer.debug("Clean up file.")
         tracer.debug("Finished.")
 

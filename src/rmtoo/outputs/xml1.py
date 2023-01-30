@@ -67,7 +67,7 @@ class Xml1:
             elif req.tags["Type"] == Requirement.rt_requirement:
                 tn = doc.createTextNode("requirement")
             else:
-                assert(False)
+                assert False
             tm.appendChild(tn)
 
         if "Class" in req.tags:
