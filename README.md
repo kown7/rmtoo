@@ -89,3 +89,20 @@ Copyright (c) 2010-2012,2017,2020,2022,2025 by flonatel GmbH & Co. KG
 
 rmToo is free software licensed under the GNU General Public License v3.0 or later.
 See [COPYING](COPYING) for details.
+
+## Building
+
+It supports uv (and possibly poetry too) with, e.g., the following commands.
+
+```
+uv run --extra test tox
+cd rmtoo && uv run --extra test pytest
+uv run build  # outputs in the dist/ folder
+```
+
+Run it in a virtual environment and editable:
+```
+uv venv
+. .venv/bin/activate
+uv pip install --editable  .
+```
