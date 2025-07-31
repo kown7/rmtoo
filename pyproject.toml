@@ -113,3 +113,21 @@ test = ["pytest", "pytest-cov", "tox", "flake8", "xmldiff==2.4"]
 "not done" = "rmtoo.lib.RequirementStatus:RequirementStatusNotDone"
 "assigned" = "rmtoo.lib.RequirementStatus:RequirementStatusAssigned"
 "finished" = "rmtoo.lib.RequirementStatus:RequirementStatusFinished"
+
+[tool.sonar]
+projectKey="florath_rmtoo"
+organization="florath"
+
+# This is the name and version displayed in the SonarCloud UI.
+projectName="rmtoo"
+projectVersion="25.0.1"
+
+# Path is relative to the sonar-project.properties file. Replace "\" by "/" on Windows.
+sources="rmtoo"
+tests="rmtoo/tests"
+exclusions="**/tests/**,**/test_*.py"
+
+# Encoding of the source code. Default is default system encoding
+sourceEncoding="UTF-8"
+
+python.coverage.reportPaths="rmtoo/coverage.xml"
