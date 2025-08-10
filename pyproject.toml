@@ -24,6 +24,7 @@ dependencies = [
     "pyyaml>=6.0.2",
     "scipy>=1.0",
     "setuptools>=80.9.0",
+    "openpyxl>=2.5.6",
     "stevedore>=1.21",
     "tox>=4.28.3",
 ]
@@ -102,7 +103,11 @@ test = ["pytest", "pytest-cov", "tox", "flake8", "xmldiff==2.4"]
 "tlp1" = "rmtoo.outputs.tlp1:Tlp1"
 "version1" = "rmtoo.outputs.version1:version1"
 "xml1" = "rmtoo.outputs.xml1:Xml1"
+"xls" = "rmtoo.outputs.xls:Xls"
 "xml_ganttproject_2" = "rmtoo.outputs.xml_ganttproject_2:xml_ganttproject_2"
+
+[project.entry-points."rmtoo.imports.plugin"]
+"xls" = "rmtoo.imports.xls:XlsImport"
 
 [project.entry-points."rmtoo.output.markup"]
 "latex" = "rmtoo.lib.Markup:LaTeX"
